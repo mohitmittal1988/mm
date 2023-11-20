@@ -2,127 +2,102 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mohit Mittal's Personal Website</title>
+    <!-- Existing meta tags and title -->
     <style>
-        body {
-            font-family: 'Helvetica', 'Arial', sans-serif;
-            font-size: 16px;
-            color: #333;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
+        /* Existing styles and then... */
 
-        header {
-            background-color: #0077AA;
-            color: #fff;
-            text-align: center;
-            padding: 20px;
-        }
-
-        main {
-            max-width: 720px;
+        /* Layout */
+        .container {
+            display: flex;
             margin: 20px auto;
-            background-color: #fff;
+            max-width: 1200px; /* or 100% depending on preference */
+        }
+
+        .left-column {
+            flex: 1;
+            padding-right: 20px;
+        }
+
+        .right-column {
+            flex: 2;
+        }
+
+        /* Header styles */
+        header {
+            background-color: #fff; /* Changed to white as in the image */
+            color: #333; /* Dark text color */
+            text-align: left; /* Align text to the left */
             padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
 
-        h1,
-        h2,
-        h3 {
-            color: #0077AA;
+        /* Add navigation bar styles */
+        nav a {
+            margin-right: 15px;
+            color: #0077AA; /* Blue color for links */
         }
 
-        img {
-            max-width: 100%;
+        /* Profile picture styles */
+        .profile-picture {
+            width: 200px; /* Adjust as needed */
             height: auto;
-            border-radius: 8px;
+            border-radius: 50%; /* Circular picture */
+            margin-bottom: 20px;
         }
 
-        table {
-            width: 100%;
-            font-size: 16px;
+        /* Section titles */
+        h2 {
+            border-bottom: 1px solid #eee; /* Underline for section titles */
+            padding-bottom: 5px;
         }
 
-        td {
-            padding: 10px;
+        /* Update styles for papers list */
+        ul.papers {
+            list-style-type: none; /* No bullets */
+            padding: 0;
         }
 
-        a {
-            color: #0077AA;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
+        ul.papers li {
+            padding-bottom: 10px;
         }
     </style>
 </head>
 
 <body>
     <header>
-        <h1>Mohit Mittal's Personal Website</h1>
-        <h2>Data Scientist</h2>
-        <p><a href="#">Karlsruhe, Germany</a></p>
+        <div class="left-column">
+            <img src="IEEE_pic.png" alt="Profile Picture" class="profile-picture">
+        </div>
+        <div class="right-column">
+            <h1>Mohit Mittal's Personal Website</h1>
+            <nav>
+                <!-- Navigation links here -->
+            </nav>
+        </div>
     </header>
 
-    <main>
-        <table>
-            <tr>
-                <td width="50%">
-                    <h3>Contact Information</h3>
-                    <ul>
-                        <li><strong>Email:</strong> mittal.mohit02@gmail.com</li>
-                        <li>
-                            <strong>Address:</strong><br>
-                            Shirateh Knowtion GmbH<br>
-                            Karlsruhe, Germany
-                        </li>
-                    </ul>
-                </td>
-                <td width="50%" align="right">
-                    <img src="IEEE_pic.png" alt="Profile Picture">
-                </td>
-            </tr>
-        </table>
+    <div class="container">
+        <div class="left-column">
+            <!-- Profile picture or additional content -->
+        </div>
+        <div class="right-column">
+            <h2>About Me</h2>
+            <p><!-- About me content --></p>
 
-        <h3>Work Experience</h3>
-        <p>
-            <strong>Data Scientist, Shirateh Knowtion GmbH, Karlsruhe, Germany</strong><br>
-            <em>Current Position</em>
-        </p>
-        <p>
-            <strong>Post-doctoral Researcher, INRIA, Lille, France</strong><br>
-            <em>2 years</em>
-        </p>
-        <p>
-            <strong>Post-doctorate, Kyoto Sangyo University, Kyoto, Japan</strong><br>
-            <em>September 2019</em>
-        </p>
+            <h2>Positions</h2>
+            <p><!-- Positions content --></p>
 
-        <h3>Research Papers</h3>
-        <ul>
-            <li>Include the title and details of your research papers here.</li>
-            <li>You can format them as a list for better readability.</li>
-        </ul>
+            <h2>Collaborations and Consulting</h2>
+            <p><!-- Collaborations content --></p>
 
-        <h3>Bio</h3>
-        <p>Mohit Mittal is a Data Scientist currently working at Shirateh Knowtion GmbH in Karlsruhe, Germany. He has spent 2 years as a post-doctoral researcher at INRIA, Lille, France, and completed his first post-doctorate in September 2019 from Kyoto Sangyo University, Kyoto, Japan. Mohit received his Doctorate degree from Gurukul Kangri University, India in 2018.</p>
-
-        <p>He has a Bachelor's and Master's degree in Computer Science and Engineering from Guru Nanak Dev University, Amritsar in 2010 and 2011, respectively. His research interests include WSN, NLP, Data Mining, Explainable AI, Machine learning, and Deep learning. Mohit has published numerous papers in reputed journals and top-tier conferences.</p>
-
-        <h3>Links</h3>
-        <p>
-            <strong>Google Scholar:</strong> <a href="https://scholar.google.com/citations?user=obJMZDUAAAAJ&hl=en" target="_blank">Google Scholar link</a><br>
-            <strong>CV:</strong> <a href="Mohit_CV.pdf" target="_blank">My CV</a>
-        </p>
-    </main>
+            <h2>Papers</h2>
+            <ul class="papers">
+                <!-- List of papers -->
+            </ul>
+        </div>
+    </div>
 </body>
 
 </html>
