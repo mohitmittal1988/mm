@@ -15,42 +15,44 @@
             line-height: 1.6;
         }
 
-        .sidebar {
-            background-color: #ffffff;
-            padding: 20px;
-            width: 250px;
-            height: 100vh;
-            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-            position: fixed;
-            overflow-y: auto;
-        }
-
-        .sidebar h3 {
-            color: #2a77aa;
-            font-size: 26px;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-            border-bottom: 3px solid #2a77aa;
-        }
-
-        .sidebar ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .sidebar ul li a {
-            text-decoration: none;
-            color: #333;
-            display: block;
-            padding: 10px 0;
-            transition: color 0.3s, background-color 0.3s;
-        }
-
-        .sidebar ul li a:hover {
-            background-color: #f0f0f0;
-            color: #2a77aa;
-        }
+            .sidebar {
+        background: linear-gradient(to right, #6dd5ed, #2193b0);
+        color: #ffffff;
+        padding: 20px;
+        width: 250px;
+        height: 100vh;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        position: fixed;
+        overflow-y: auto;
+    }
+    
+    .sidebar h3 {
+        font-size: 26px;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+        border-bottom: 3px solid #ffffff;
+    }
+    
+    .sidebar ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .sidebar ul li a {
+        text-decoration: none;
+        color: #ffffff;
+        display: block;
+        padding: 10px 0;
+        transition: background-color 0.3s, color 0.3s;
+    }
+    
+    .sidebar ul li a:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+        color: #e0e0e0;
+    }
+    
+    /* ... rest of your styles ... */
 
         .main-content {
             margin-left: 250px;
