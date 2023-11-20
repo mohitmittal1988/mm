@@ -15,50 +15,50 @@
             line-height: 1.6;
         }
 
-            .sidebar {
-        background: linear-gradient(to right, #6dd5ed, #2193b0);
-        color: #ffffff;
-        padding: 20px;
-        width: 250px;
-        height: 100vh;
-        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-        position: fixed;
-        overflow-y: auto;
-    }
-    
-    .sidebar h3 {
-        font-size: 26px;
-        padding-bottom: 10px;
-        margin-bottom: 20px;
-        border-bottom: 3px solid #ffffff;
-    }
-    
-    .sidebar ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
-    
-    .sidebar ul li a {
-        text-decoration: none;
-        color: #ffffff;
-        display: block;
-        padding: 10px 0;
-        transition: background-color 0.3s, color 0.3s;
-    }
-    
-    .sidebar ul li a:hover {
-        background-color: rgba(255, 255, 255, 0.2);
-        color: #e0e0e0;
-    }
-    
-    /* ... rest of your styles ... */
+        .sidebar {
+            background: linear-gradient(to right, #6dd5ed, #2193b0); /* Colorful gradient background */
+            color: #ffffff;
+            padding: 20px;
+            width: 250px;
+            height: 100vh;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            overflow-y: auto;
+        }
+
+        .sidebar h3 {
+            font-size: 26px;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #ffffff;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar ul li a {
+            text-decoration: none;
+            color: #ffffff;
+            display: block;
+            padding: 10px 0;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .sidebar ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #e0e0e0;
+        }
 
         .main-content {
-            margin-left: 250px;
+            margin-left: 250px; /* Sidebar width */
             padding: 40px;
             background-color: #fff;
             min-height: 100vh;
+            box-sizing: border-box;
+            width: calc(100% - 250px); /* Rest of the screen width */
         }
 
         .main-content h2 {
@@ -70,6 +70,7 @@
         }
 
         .main-content p {
+            text-align: justify;
             font-size: 18px;
             color: #555;
             margin-bottom: 20px;
@@ -98,11 +99,16 @@
         }
 
         @media (max-width: 768px) {
-            .sidebar {
+            .sidebar, .main-content {
                 width: 100%;
-                height: auto;
-                position: relative;
+                margin: 0;
+                padding: 20px;
                 box-shadow: none;
+                position: relative;
+            }
+
+            .sidebar {
+                height: auto;
             }
 
             .sidebar ul li a {
@@ -111,13 +117,13 @@
             }
 
             .main-content {
-                margin: 0;
-                padding: 20px;
+                padding-top: 0;
             }
 
             .profile-pic {
-                display: inline-block;
-                vertical-align: top;
+                width: 50px;
+                height: 50px;
+                margin-bottom: 10px;
             }
 
             .sidebar h3 {
@@ -135,9 +141,10 @@
         <h3>Mohit Mittal</h3>
         <ul>
             <li><a href="home.html">Home</a></li>
-            <li><a href="academic_resume.html">Resume</a></li>
+            <li><a href="academic_resume.html">Academic Résumé</a></li>
             <li><a href="research.html">Research</a></li>
             <li><a href="publications.html">Publications</a></li>
+            <li><a href="teaching.html">Teaching</a></li>
             <li><a href="research_talks.html">Research Talks</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
@@ -148,7 +155,6 @@
             Mohit Mittal is a Data Scientist at Shiratech Knowtion GmbH in Germany, with previous experience as a post-doctoral researcher at INRIA in Lille, France, starting from October 2020. Prior to that, he completed a post-doctorate at Kyoto Sangyo University in Japan, where he spent one and a half years before completing his doctorate degree at Gurukul Kangri University in India in 2018. Mohit received his Bachelor's and Master's degrees in Computer Science and Engineering from Guru Nanak Dev University in Amritsar in 2010 and 2011, respectively. He has authored numerous papers published in prestigious journals and top-tier conferences, focusing on research areas such as Wireless Sensor Networks (WSN), Natural Language Processing (NLP), Data Mining, Explainable AI, Machine Learning, and Deep Learning.
         </p>
         <h2>News</h2>
-        <!-- News items here -->
         <div class="news-item">
             <p>Excited to share that my team's paper on 'Explainable AI in Healthcare' has been accepted at a leading AI conference this year.</p>
         </div>
