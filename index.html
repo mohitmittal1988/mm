@@ -10,18 +10,18 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #e7eef6;
+            background-color: #d3d3d3; /* Light gray background */
             color: #333;
             line-height: 1.6;
         }
 
         .sidebar {
-            background: linear-gradient(to right, #6dd5ed, #2193b0); /* Colorful gradient background */
+            background-color: #000000; /* Black sidebar */
             color: #ffffff;
             padding: 20px;
             width: 250px;
             height: 100vh;
-            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            box-shadow: 2px 0 5px rgba(255, 255, 255, 0.1); /* Light shadow for contrast */
             position: fixed;
             overflow-y: auto;
         }
@@ -53,12 +53,12 @@
         }
 
         .main-content {
-            margin-left: 250px; /* Sidebar width */
+            margin-left: 250px;
             padding: 40px;
             background-color: #fff;
             min-height: 100vh;
+            width: calc(100% - 250px);
             box-sizing: border-box;
-            width: calc(100% - 250px); /* Rest of the screen width */
         }
 
         .main-content h2 {
@@ -89,9 +89,9 @@
         }
 
         .profile-pic {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
+            width: 100px; /* Square shaped */
+            height: 100px; /* Square shaped */
+            /* Removed border-radius for square shape */
             border: 3px solid #2a77aa;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             display: block;
@@ -141,10 +141,9 @@
         <h3>Mohit Mittal</h3>
         <ul>
             <li><a href="home.html">Home</a></li>
-            <li><a href="academic_resume.html">Academic Résumé</a></li>
+            <li><a href="academic_resume.html">Resume</a></li>
             <li><a href="research.html">Research</a></li>
             <li><a href="publications.html">Publications</a></li>
-            <li><a href="teaching.html">Teaching</a></li>
             <li><a href="research_talks.html">Research Talks</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
