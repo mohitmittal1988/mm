@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,160 +7,89 @@
     <title>Mohit Mittal's Personal Website</title>
     <style>
         body {
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            font-size: 16px;
-            color: #333;
-            line-height: 1.6;
+            font-family: 'Arial', sans-serif;
             margin: 0;
-            background-color: #edf2f7;
+            padding: 0;
+            background-color: #e7eef6;
+            color: #333;
         }
 
-        header {
-            background-color: #2b6cb0;
-            color: #ffffff;
-            padding: 1.5rem;
-            text-align: left;
-        }
-
-        .container {
-            display: flex;
-            max-width: 80%;
-            margin: 2rem auto;
+        .sidebar {
             background-color: #ffffff;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 250px;
+            height: 100vh; /* Full height */
+            box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
+            position: fixed;
         }
 
-        .left-column {
-            flex-basis: 30%;
-            text-align: center;
+        .sidebar h3 {
+            color: #0077AA;
         }
 
-        .right-column {
-            flex-basis: 70%;
-            padding-left: 2rem;
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
         }
 
-        .profile-pic {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            border: 4px solid #2b6cb0;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        h1, h2, h3 {
-            margin-top: 0;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            color: #ffffff;
-        }
-
-        h2 {
-            color: #2c5282;
-            font-size: 2rem;
-            margin-top: 1rem;
-        }
-
-        h3 {
-            color: #2a4365;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        p, li {
-            font-size: 1rem;
-            color: #4a5568;
-        }
-
-        a {
-            color: #2b6cb0;
+        .sidebar ul li a {
             text-decoration: none;
+            color: #0077AA;
+            display: block;
+            padding: 10px;
+            transition: all 0.3s;
         }
 
-        a:hover {
-            text-decoration: underline;
+        .sidebar ul li a:hover {
+            background-color: #f4f4f4;
         }
 
-        nav a {
-            color: #cbd5e0;
-            margin-right: 15px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+        .main-content {
+            margin-left: 250px; /* Same as sidebar width */
+            padding: 20px;
         }
 
-        nav a:hover {
-            color: #a0aec0;
+        .main-content h2 {
+            color: #333;
+            border-bottom: 1px solid #cccccc;
+            padding-bottom: 10px;
         }
 
-        .section {
-            margin-bottom: 2rem;
+        .news-item {
+            background-color: #ffffff;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-left: 5px solid #0077AA;
         }
-
-        footer {
-            text-align: center;
-            padding: 1rem;
-            background-color: #2b6cb0;
-            color: #ffffff;
-        }
+        
+        /* Add more styles as per your design requirements */
     </style>
 </head>
-
 <body>
-    <header>
-        <h1>Mohit Mittal</h1>
-        <nav>
-            <!-- Navigation links, adjust as necessary -->
-            <a href="#">Home</a>
-            <a href="#">About</a>
-            <a href="#">Work</a>
-            <a href="#">Papers</a>
-            <a href="#">Contact</a>
-        </nav>
-    </header>
-
-    <div class="container">
-        <div class="left-column">
-            <img src="IEEE_pic.png" alt="Mohit Mittal" class="profile-pic">
-        </div>
-        <div class="right-column">
-            <h2>About Me</h2>
-            <p>Data Scientist based in Karlsruhe, Germany...</p>
-
-            <div class="section contact-info">
-                <h3>Contact Information</h3>
-                <p><strong>Email:</strong> mittal.mohit02@gmail.com</p>
-                <p><strong>Address:</strong> Shirateh Knowtion GmbH, Karlsruhe, Germany</p>
-            </div>
-
-            <div class="section work-experience">
-                <h3>Work Experience</h3>
-                <!-- Work experience details -->
-            </div>
-
-            <div class="section research-papers">
-                <h3>Research Papers</h3>
-                <!-- Research papers list -->
-            </div>
-
-            <div class="section bio">
-                <h3>Bio</h3>
-                <!-- Bio content -->
-            </div>
-
-            <div class="section links">
-                <h3>Links</h3>
-                <!-- Links to Google Scholar, CV, etc. -->
-            </div>
-        </div>
+    <div class="sidebar">
+        <h3>Mohit Mittal</h3>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Academic Résumé</a></li>
+            <li><a href="#">Research</a></li>
+            <li><a href="#">Publications</a></li>
+            <li><a href="#">Teaching</a></li>
+            <li><a href="#">Research Talks</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Art and Articles</a></li>
+        </ul>
     </div>
-
-    <footer>
-        <p>© 2023 Mohit Mittal. All rights reserved.</p>
-    </footer>
+    <div class="main-content">
+        <h2>About Me</h2>
+        <p>Here you can introduce yourself...</p>
+        <h2>News</h2>
+        <div class="news-item">
+            <p>Three papers accepted in EWRL 2023...</p>
+        </div>
+        <div class="news-item">
+            <p>Our work on unifying differentially private optimisation algorithms...</p>
+        </div>
+        <!-- More news items here -->
+    </div>
 </body>
-
 </html>
