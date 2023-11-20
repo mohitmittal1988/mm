@@ -15,50 +15,50 @@
             line-height: 1.6;
         }
 
-            .sidebar {
-        background: linear-gradient(to right, #6dd5ed, #2193b0);
-        color: #ffffff;
-        padding: 20px;
-        width: 250px;
-        height: 100vh;
-        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-        position: fixed;
-        overflow-y: auto;
-    }
-    
-    .sidebar h3 {
-        font-size: 26px;
-        padding-bottom: 10px;
-        margin-bottom: 20px;
-        border-bottom: 3px solid #ffffff;
-    }
-    
-    .sidebar ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
-    
-    .sidebar ul li a {
-        text-decoration: none;
-        color: #ffffff;
-        display: block;
-        padding: 10px 0;
-        transition: background-color 0.3s, color 0.3s;
-    }
-    
-    .sidebar ul li a:hover {
-        background-color: rgba(255, 255, 255, 0.2);
-        color: #e0e0e0;
-    }
-    
-    /* ... rest of your styles ... */
+        .sidebar {
+            background: linear-gradient(to right, #6dd5ed, #2193b0);
+            color: #ffffff;
+            padding: 20px;
+            width: 250px;
+            height: 100vh;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            overflow-y: auto;
+        }
+
+        .sidebar h3 {
+            font-size: 26px;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #ffffff;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar ul li a {
+            text-decoration: none;
+            color: #ffffff;
+            display: block;
+            padding: 10px 0;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .sidebar ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #e0e0e0;
+        }
 
         .main-content {
             margin-left: 250px;
             padding: 40px;
             background-color: #fff;
             min-height: 100vh;
+            width: calc(100% - 250px); /* Adjust the width */
+            box-sizing: border-box; /* Include padding in the width calculation */
         }
 
         .main-content h2 {
@@ -70,6 +70,8 @@
         }
 
         .main-content p {
+            text-align: justify;
+            text-justify: inter-word;
             font-size: 18px;
             color: #555;
             margin-bottom: 20px;
@@ -113,6 +115,7 @@
             .main-content {
                 margin: 0;
                 padding: 20px;
+                width: 100%; /* Full width on small screens */
             }
 
             .profile-pic {
@@ -130,32 +133,7 @@
     </style>
 </head>
 <body>
-    <div class="sidebar">
-        <img src="IEEE_pic.png" alt="Mohit Mittal" class="profile-pic">
-        <h3>Mohit Mittal</h3>
-        <ul>
-            <li><a href="home.html">Home</a></li>
-            <li><a href="academic_resume.html">Resume</a></li>
-            <li><a href="research.html">Research</a></li>
-            <li><a href="publications.html">Publications</a></li>
-            <li><a href="research_talks.html">Research Talks</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </div>
-    <div class="main-content">
-        <h2>About Me</h2>
-        <p>
-            Mohit Mittal is a Data Scientist at Shiratech Knowtion GmbH in Germany, with previous experience as a post-doctoral researcher at INRIA in Lille, France, starting from October 2020. Prior to that, he completed a post-doctorate at Kyoto Sangyo University in Japan, where he spent one and a half years before completing his doctorate degree at Gurukul Kangri University in India in 2018. Mohit received his Bachelor's and Master's degrees in Computer Science and Engineering from Guru Nanak Dev University in Amritsar in 2010 and 2011, respectively. He has authored numerous papers published in prestigious journals and top-tier conferences, focusing on research areas such as Wireless Sensor Networks (WSN), Natural Language Processing (NLP), Data Mining, Explainable AI, Machine Learning, and Deep Learning.
-        </p>
-        <h2>News</h2>
-        <!-- News items here -->
-        <div class="news-item">
-            <p>Excited to share that my team's paper on 'Explainable AI in Healthcare' has been accepted at a leading AI conference this year.</p>
-        </div>
-        <div class="news-item">
-            <p>I will be speaking at the upcoming Data Science Summit in Berlin about the challenges of deploying machine learning models in production.</p>
-        </div>
-        <!-- Add more news items as needed -->
-    </div>
+    <!-- Sidebar content -->
+    <!-- Main content where the rest of the information goes -->
 </body>
 </html>
