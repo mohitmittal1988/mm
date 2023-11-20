@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,22 +22,28 @@
             height: 100vh; /* Full height */
             box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
             position: fixed;
+            overflow-y: auto;
         }
 
         .sidebar h3 {
             color: #0077AA;
+            font-size: 24px;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #0077AA;
         }
 
         .sidebar ul {
             list-style: none;
             padding: 0;
+            margin: 0;
         }
 
         .sidebar ul li a {
             text-decoration: none;
-            color: #0077AA;
+            color: #333;
             display: block;
-            padding: 10px;
+            padding: 10px 0;
             transition: all 0.3s;
         }
 
@@ -46,50 +53,68 @@
 
         .main-content {
             margin-left: 250px; /* Same as sidebar width */
-            padding: 20px;
+            padding: 40px;
+            background-color: #fff;
+            min-height: 100vh;
         }
 
         .main-content h2 {
             color: #333;
+            font-size: 28px;
             border-bottom: 1px solid #cccccc;
             padding-bottom: 10px;
+            margin-top: 0;
+        }
+
+        .main-content p {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.6;
         }
 
         .news-item {
-            background-color: #ffffff;
+            background-color: #f9f9f9;
             padding: 15px;
             margin-bottom: 10px;
             border-left: 5px solid #0077AA;
         }
-        
-        /* Add more styles as per your design requirements */
+
+        .profile-pic {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+
+        /* Additional styles for responsiveness and aesthetics */
     </style>
 </head>
+
 <body>
     <div class="sidebar">
+        <img src="IEEE_pic.png" alt="Mohit Mittal" class="profile-pic">
         <h3>Mohit Mittal</h3>
         <ul>
             <li><a href="#">Home</a></li>
-            <li><a href="#">Academic Résumé</a></li>
+            <li><a href="#">Resume</a></li>
             <li><a href="#">Research</a></li>
             <li><a href="#">Publications</a></li>
-            <li><a href="#">Teaching</a></li>
             <li><a href="#">Research Talks</a></li>
             <li><a href="#">Contact</a></li>
-            <li><a href="#">Art and Articles</a></li>
         </ul>
     </div>
     <div class="main-content">
         <h2>About Me</h2>
-        <p>Here you can introduce yourself...</p>
+        <p>Data Scientist based in Karlsruhe, Germany. Specializing in...</p>
         <h2>News</h2>
         <div class="news-item">
-            <p>Three papers accepted in EWRL 2023...</p>
+            <p>Two papers are published in 2023</p>
         </div>
         <div class="news-item">
-            <p>Our work on unifying differentially private optimisation algorithms...</p>
+            <p>Machine learning and deep learning based analysis.</p>
         </div>
         <!-- More news items here -->
     </div>
 </body>
+
 </html>
