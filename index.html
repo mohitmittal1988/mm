@@ -1,103 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <!-- Existing meta tags and title -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohit Mittal's Personal Website</title>
     <style>
-        /* Existing styles and then... */
+        body {
+            font-family: 'Helvetica', 'Arial', sans-serif;
+            font-size: 16px;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
 
-        /* Layout */
         .container {
             display: flex;
+            max-width: 1000px;
             margin: 20px auto;
-            max-width: 1200px; /* or 100% depending on preference */
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
         .left-column {
-            flex: 1;
-            padding-right: 20px;
+            width: 250px;
+            margin-right: 20px;
         }
 
         .right-column {
-            flex: 2;
+            flex: 1;
         }
 
-        /* Header styles */
         header {
             background-color: #fff; /* Changed to white as in the image */
             color: #333; /* Dark text color */
-            text-align: left; /* Align text to the left */
             padding: 20px;
+            text-align: left; /* Align text to the left */
             display: flex;
-            align-items: center;
             justify-content: space-between;
+            align-items: center;
         }
 
-        /* Add navigation bar styles */
+        header h1 {
+            margin: 0;
+        }
+
+        nav {
+            /* Navigation styles */
+        }
+
         nav a {
+            color: #0077AA;
+            text-decoration: none;
             margin-right: 15px;
-            color: #0077AA; /* Blue color for links */
         }
 
-        /* Profile picture styles */
-        .profile-picture {
-            width: 200px; /* Adjust as needed */
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .profile-pic {
+            max-width: 100%;
             height: auto;
-            border-radius: 50%; /* Circular picture */
-            margin-bottom: 20px;
+            border-radius: 50%;
         }
 
-        /* Section titles */
         h2 {
-            border-bottom: 1px solid #eee; /* Underline for section titles */
+            color: #333;
+            border-bottom: 1px solid #eee;
             padding-bottom: 5px;
         }
 
-        /* Update styles for papers list */
-        ul.papers {
-            list-style-type: none; /* No bullets */
-            padding: 0;
+        h3 {
+            color: #0077AA;
+            margin-top: 20px;
         }
 
-        ul.papers li {
-            padding-bottom: 10px;
+        .contact-info, .work-experience, .research-papers, .bio, .links {
+            margin-bottom: 20px;
         }
+        
+        /* Add more styling as needed */
     </style>
 </head>
-
 <body>
     <header>
-        <div class="left-column">
-            <img src="IEEE_pic.png" alt="Profile Picture" class="profile-picture">
-        </div>
-        <div class="right-column">
-            <h1>Mohit Mittal's Personal Website</h1>
-            <nav>
-                <!-- Navigation links here -->
-            </nav>
-        </div>
+        <h1>Mohit Mittal</h1>
+        <nav>
+            <!-- Navigation links, adjust as necessary -->
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Work</a>
+            <a href="#">Papers</a>
+            <a href="#">Contact</a>
+        </nav>
     </header>
 
     <div class="container">
         <div class="left-column">
-            <!-- Profile picture or additional content -->
+            <img src="IEEE_pic.png" alt="Mohit Mittal" class="profile-pic">
         </div>
         <div class="right-column">
             <h2>About Me</h2>
-            <p><!-- About me content --></p>
+            <p>Data Scientist based in Karlsruhe, Germany...</p>
 
-            <h2>Positions</h2>
-            <p><!-- Positions content --></p>
+            <div class="contact-info">
+                <h3>Contact Information</h3>
+                <p><strong>Email:</strong> mittal.mohit02@gmail.com</p>
+                <p><strong>Address:</strong> Shirateh Knowtion GmbH, Karlsruhe, Germany</p>
+            </div>
 
-            <h2>Collaborations and Consulting</h2>
-            <p><!-- Collaborations content --></p>
+            <div class="work-experience">
+                <h3>Work Experience</h3>
+                <!-- Work experience details -->
+            </div>
 
-            <h2>Papers</h2>
-            <ul class="papers">
-                <!-- List of papers -->
-            </ul>
+            <div class="research-papers">
+                <h3>Research Papers</h3>
+                <!-- Research papers list -->
+            </div>
+
+            <div class="bio">
+                <h3>Bio</h3>
+                <!-- Bio content -->
+            </div>
+
+            <div class="links">
+                <h3>Links</h3>
+                <!-- Links to Google Scholar, CV, etc. -->
+            </div>
         </div>
     </div>
 </body>
-
 </html>
