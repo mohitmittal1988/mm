@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,86 +8,108 @@
     <title>Mohit Mittal's Personal Website</title>
     <style>
         body {
-            font-family: 'Helvetica', 'Arial', sans-serif;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
             font-size: 16px;
             color: #333;
             line-height: 1.6;
             margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
+            background-color: #edf2f7;
+        }
+
+        header {
+            background-color: #2b6cb0;
+            color: #ffffff;
+            padding: 1.5rem;
+            text-align: left;
         }
 
         .container {
             display: flex;
-            max-width: 1000px;
-            margin: 20px auto;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 80%;
+            margin: 2rem auto;
+            background-color: #ffffff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
 
         .left-column {
-            width: 250px;
-            margin-right: 20px;
+            flex-basis: 30%;
+            text-align: center;
         }
 
         .right-column {
-            flex: 1;
-        }
-
-        header {
-            background-color: #fff; /* Changed to white as in the image */
-            color: #333; /* Dark text color */
-            padding: 20px;
-            text-align: left; /* Align text to the left */
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        header h1 {
-            margin: 0;
-        }
-
-        nav {
-            /* Navigation styles */
-        }
-
-        nav a {
-            color: #0077AA;
-            text-decoration: none;
-            margin-right: 15px;
-        }
-
-        nav a:hover {
-            text-decoration: underline;
+            flex-basis: 70%;
+            padding-left: 2rem;
         }
 
         .profile-pic {
-            max-width: 100%;
-            height: auto;
+            width: 200px;
+            height: 200px;
             border-radius: 50%;
+            border: 4px solid #2b6cb0;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2, h3 {
+            margin-top: 0;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #ffffff;
         }
 
         h2 {
-            color: #333;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 5px;
+            color: #2c5282;
+            font-size: 2rem;
+            margin-top: 1rem;
         }
 
         h3 {
-            color: #0077AA;
-            margin-top: 20px;
+            color: #2a4365;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
         }
 
-        .contact-info, .work-experience, .research-papers, .bio, .links {
-            margin-bottom: 20px;
+        p, li {
+            font-size: 1rem;
+            color: #4a5568;
         }
-        
-        /* Add more styling as needed */
+
+        a {
+            color: #2b6cb0;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        nav a {
+            color: #cbd5e0;
+            margin-right: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        nav a:hover {
+            color: #a0aec0;
+        }
+
+        .section {
+            margin-bottom: 2rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: #2b6cb0;
+            color: #ffffff;
+        }
     </style>
 </head>
+
 <body>
     <header>
         <h1>Mohit Mittal</h1>
@@ -108,32 +131,31 @@
             <h2>About Me</h2>
             <p>Data Scientist based in Karlsruhe, Germany...</p>
 
-            <div class="contact-info">
+            <div class="section contact-info">
                 <h3>Contact Information</h3>
                 <p><strong>Email:</strong> mittal.mohit02@gmail.com</p>
                 <p><strong>Address:</strong> Shirateh Knowtion GmbH, Karlsruhe, Germany</p>
             </div>
 
-            <div class="work-experience">
+            <div class="section work-experience">
                 <h3>Work Experience</h3>
                 <!-- Work experience details -->
             </div>
 
-            <div class="research-papers">
+            <div class="section research-papers">
                 <h3>Research Papers</h3>
                 <!-- Research papers list -->
             </div>
 
-            <div class="bio">
+            <div class="section bio">
                 <h3>Bio</h3>
                 <!-- Bio content -->
             </div>
 
-            <div class="links">
+            <div class="section links">
                 <h3>Links</h3>
                 <!-- Links to Google Scholar, CV, etc. -->
             </div>
         </div>
     </div>
-</body>
-</html>
+
