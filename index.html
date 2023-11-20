@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,160 +8,121 @@
     <title>Mohit Mittal's Personal Website</title>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #d3d3d3; /* Light gray background */
+            font-family: 'Helvetica', 'Arial', sans-serif;
+            font-size: 16px;
             color: #333;
             line-height: 1.6;
-        }
-
-        .sidebar {
-            background-color: #000000; /* Black sidebar */
-            color: #ffffff;
-            padding: 20px;
-            width: 250px;
-            height: 100vh;
-            box-shadow: 2px 0 5px rgba(255, 255, 255, 0.1); /* Light shadow for contrast */
-            position: fixed;
-            overflow-y: auto;
-        }
-
-        .sidebar h3 {
-            font-size: 26px;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-            border-bottom: 3px solid #ffffff;
-        }
-
-        .sidebar ul {
-            list-style: none;
-            padding: 0;
             margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
         }
 
-        .sidebar ul li a {
-            text-decoration: none;
-            color: #ffffff;
-            display: block;
-            padding: 10px 0;
-            transition: background-color 0.3s, color 0.3s;
+        header {
+            background-color: #0077AA;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
         }
 
-        .sidebar ul li a:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-            color: #e0e0e0;
-        }
-
-        .main-content {
-            margin-left: 250px;
-            padding: 40px;
+        main {
+            max-width: 720px;
+            margin: 20px auto;
             background-color: #fff;
-            min-height: 100vh;
-            width: calc(100% - 250px);
-            box-sizing: border-box;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
-        .main-content h2 {
-            color: #333;
-            font-size: 30px;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 10px;
-            margin-top: 0;
+        h1,
+        h2,
+        h3 {
+            color: #0077AA;
         }
 
-        .main-content p {
-            text-align: justify;
-            font-size: 18px;
-            color: #555;
-            margin-bottom: 20px;
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
         }
 
-        .news-item {
-            background-color: #f9f9f9;
-            padding: 15px;
-            margin-bottom: 10px;
-            border-left: 5px solid #2a77aa;
-            transition: background-color 0.3s;
+        table {
+            width: 100%;
+            font-size: 16px;
         }
 
-        .news-item:hover {
-            background-color: #e9e9e9;
+        td {
+            padding: 10px;
         }
 
-        .profile-pic {
-            width: 100px; /* Square shaped */
-            height: 100px; /* Square shaped */
-            /* Removed border-radius for square shape */
-            border: 3px solid #2a77aa;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            display: block;
-            margin: 0 auto 20px;
+        a {
+            color: #0077AA;
+            text-decoration: none;
         }
 
-        @media (max-width: 768px) {
-            .sidebar, .main-content {
-                width: 100%;
-                margin: 0;
-                padding: 20px;
-                box-shadow: none;
-                position: relative;
-            }
-
-            .sidebar {
-                height: auto;
-            }
-
-            .sidebar ul li a {
-                display: inline-block;
-                margin-right: 10px;
-            }
-
-            .main-content {
-                padding-top: 0;
-            }
-
-            .profile-pic {
-                width: 50px;
-                height: 50px;
-                margin-bottom: 10px;
-            }
-
-            .sidebar h3 {
-                display: inline-block;
-                vertical-align: top;
-                margin: 0 10px;
-                border: none;
-            }
+        a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
+
 <body>
-    <div class="sidebar">
-        <img src="IEEE_pic.png" alt="Mohit Mittal" class="profile-pic">
-        <h3>Mohit Mittal</h3>
-        <ul>
-            <li><a href="home.html">Home</a></li>
-            <li><a href="academic_resume.html">Resume</a></li>
-            <li><a href="research.html">Research</a></li>
-            <li><a href="publications.html">Publications</a></li>
-            <li><a href="research_talks.html">Research Talks</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </div>
-    <div class="main-content">
-        <h2>About Me</h2>
+    <header>
+        <h1>Mohit Mittal's Personal Website</h1>
+        <h2>Data Scientist</h2>
+        <p><a href="#">Karlsruhe, Germany</a></p>
+    </header>
+
+    <main>
+        <table>
+            <tr>
+                <td width="50%">
+                    <h3>Contact Information</h3>
+                    <ul>
+                        <li><strong>Email:</strong> mittal.mohit02@gmail.com</li>
+                        <li>
+                            <strong>Address:</strong><br>
+                            Shirateh Knowtion GmbH<br>
+                            Karlsruhe, Germany
+                        </li>
+                    </ul>
+                </td>
+                <td width="50%" align="right">
+                    <img src="IEEE_pic.png" alt="Profile Picture">
+                </td>
+            </tr>
+        </table>
+
+        <h3>Work Experience</h3>
         <p>
-            Mohit Mittal is a Data Scientist at Shiratech Knowtion GmbH in Germany, with previous experience as a post-doctoral researcher at INRIA in Lille, France, starting from October 2020. Prior to that, he completed a post-doctorate at Kyoto Sangyo University in Japan, where he spent one and a half years before completing his doctorate degree at Gurukul Kangri University in India in 2018. Mohit received his Bachelor's and Master's degrees in Computer Science and Engineering from Guru Nanak Dev University in Amritsar in 2010 and 2011, respectively. He has authored numerous papers published in prestigious journals and top-tier conferences, focusing on research areas such as Wireless Sensor Networks (WSN), Natural Language Processing (NLP), Data Mining, Explainable AI, Machine Learning, and Deep Learning.
+            <strong>Data Scientist, Shirateh Knowtion GmbH, Karlsruhe, Germany</strong><br>
+            <em>Current Position</em>
         </p>
-        <h2>News</h2>
-        <div class="news-item">
-            <p>Excited to share that my team's paper on 'Explainable AI in Healthcare' has been accepted at a leading AI conference this year.</p>
-        </div>
-        <div class="news-item">
-            <p>I will be speaking at the upcoming Data Science Summit in Berlin about the challenges of deploying machine learning models in production.</p>
-        </div>
-        <!-- Add more news items as needed -->
-    </div>
+        <p>
+            <strong>Post-doctoral Researcher, INRIA, Lille, France</strong><br>
+            <em>2 years</em>
+        </p>
+        <p>
+            <strong>Post-doctorate, Kyoto Sangyo University, Kyoto, Japan</strong><br>
+            <em>September 2019</em>
+        </p>
+
+        <h3>Research Papers</h3>
+        <ul>
+            <li>Include the title and details of your research papers here.</li>
+            <li>You can format them as a list for better readability.</li>
+        </ul>
+
+        <h3>Bio</h3>
+        <p>Mohit Mittal is a Data Scientist currently working at Shirateh Knowtion GmbH in Karlsruhe, Germany. He has spent 2 years as a post-doctoral researcher at INRIA, Lille, France, and completed his first post-doctorate in September 2019 from Kyoto Sangyo University, Kyoto, Japan. Mohit received his Doctorate degree from Gurukul Kangri University, India in 2018.</p>
+
+        <p>He has a Bachelor's and Master's degree in Computer Science and Engineering from Guru Nanak Dev University, Amritsar in 2010 and 2011, respectively. His research interests include WSN, NLP, Data Mining, Explainable AI, Machine learning, and Deep learning. Mohit has published numerous papers in reputed journals and top-tier conferences.</p>
+
+        <h3>Links</h3>
+        <p>
+            <strong>Google Scholar:</strong> <a href="https://scholar.google.com/citations?user=obJMZDUAAAAJ&hl=en" target="_blank">Google Scholar link</a><br>
+            <strong>CV:</strong> <a href="Mohit_CV.pdf" target="_blank">My CV</a>
+        </p>
+    </main>
 </body>
+
 </html>
