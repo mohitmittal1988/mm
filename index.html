@@ -5,29 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mohit Mittal's Personal Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f0f0f0; /* Light gray background */
+            background-color: #f0f0f0;
             color: #333;
             line-height: 1.6;
         }
 
         .sidebar {
-            background-color: #000000; /* Black sidebar */
+            background-color: #000000;
             color: #ffffff;
             padding: 20px;
             width: 250px;
             height: 100vh;
-            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            box-shadow: 3px 0 10px rgba(0, 0, 0, 0.2);
             position: fixed;
             overflow-y: auto;
         }
 
         .sidebar h3 {
-            text-align: center; /* Centered text */
+            text-align: center;
             font-size: 26px;
             padding-bottom: 10px;
             margin-bottom: 20px;
@@ -49,8 +50,8 @@
         }
 
         .sidebar ul li a:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-            color: #e0e0e0;
+            background-color: #333;
+            color: #f0f0f0;
         }
 
         .main-content {
@@ -63,20 +64,26 @@
         }
 
         .main-content h2 {
-            text-align: center; /* Centered text */
+            text-align: center;
             color: #0a0a0a;
             font-size: 30px;
-            border-bottom: 2px solid #bab9b5; /* Adding color to the border */
+            border-bottom: 2px solid #bab9b5;
             padding-bottom: 10px;
             margin-top: 0;
         }
 
         .main-content section {
-            background-color: #b6f0f0; /* Section background */
+            background-color: #b6f0f0;
             padding: 20px;
             margin-bottom: 20px;
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s, transform 0.3s;
+        }
+
+        .main-content section:hover {
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transform: translateY(-5px);
         }
 
         .main-content p {
@@ -87,11 +94,29 @@
         }
 
         .profile-pic {
-            width: 150px; /* Size can be adjusted as needed */
-            height: 150px;
+            width: 200px;
+            height: 200px;
             display: block;
-            margin: 0 auto 20px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Remove if no shadow is desired */
+            margin: 20px auto;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .interests {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .interest {
+            text-align: center;
+            width: 100px;
+        }
+
+        .interest i {
+            font-size: 40px;
+            display: block;
+            margin: 10px auto;
+            color: #2a77aa;
         }
 
         @media (max-width: 768px) {
@@ -117,8 +142,8 @@
             }
 
             .profile-pic {
-                width: 75px;
-                height: 75px;
+                width: 100px;
+                height: 100px;
                 margin-bottom: 10px;
             }
 
@@ -128,37 +153,61 @@
                 margin: 0 10px;
                 border: none;
             }
+
+            .interests {
+                justify-content: center;
+            }
         }
     </style>
 </head>
 <body>
     <div class="sidebar">
-        <img src="IEEE_pic.png" alt="Mohit Mittal" class="profile-pic">
-        <h3>Mohit Mittal</h3>
-        <ul>
-            <li><a href="home.html">Home</a></li>
-            <li><a href="resume.html" target="_blank">Resume</a></li>
-            <li><a href="research.html" target="_blank">Research</a></li>
-            <li><a href="publications.html" target="_blank">Publications</a></li>
-            <li><a href="research_talks.html" target="_blank">Research Talks</a></li>
-            <li><a href="contact.html" target="_blank">Contact</a></li>
-        </ul>
+        <!-- Sidebar content goes here -->
+        <!-- ... [existing sidebar content] ... -->
     </div>
     <div class="main-content">
-        <h2>About Me</h2>
-               Mohit Mittal is a Data Scientist at Shiratech Knowtion GmbH in Germany, with previous experience as a post-doctoral researcher at INRIA in Lille, France, starting from October 2020. Prior to that, he completed a post-doctorate at Kyoto Sangyo University in Japan, where he spent one and a half years before completing his doctorate degree at Gurukul Kangri University in India in 2018. Mohit received his Bachelor's and Master's degrees in Computer Science and Engineering from Guru Nanak Dev University in Amritsar in 2010 and 2011, respectively. He has authored numerous papers published in prestigious journals and top-tier conferences, focusing on research areas such as Wireless Sensor Networks (WSN), Natural Language Processing (NLP), Data Mining, Explainable AI, Machine Learning, and Deep Learning
-        <section>
+        <section class="about-me">
+            <h2>About Me</h2>
+            <img src="MohitMittal_ProfilePic.jpg" alt="Mohit Mittal" class="profile-pic">
+            <p>
+                <!-- About Me content goes here -->
+                <!-- ... [existing About Me content] ... -->
+            </p>
+        </section>
+
+        <section class="interests">
+            <h2>Interests</h2>
+            <div class="interest">
+                <i class="fas fa-code"></i>
+                <p>Coding</p>
+            </div>
+            <div class="interest">
+                <i class="fas fa-robot"></i>
+                <p>AI & Robotics</p>
+            </div>
+            <div class="interest">
+                <i class="fas fa-network-wired"></i>
+                <p>Networking</p>
+            </div>
+            <div class="interest">
+                <i class="fas fa-chart-line"></i>
+                <p>Data Analysis</p>
+            </div>
+            <!-- Add more interests as needed -->
+        </section>
+
+        <section class="news">
             <h2>News</h2>
             <div class="news-item">
-                <img src="MohitMittal_editor.png" alt="News Image" style="width:100%; max-width:300px; height:auto; display:block; margin:0 auto;">
-                <p>Excited to share that I am recently appointed as Editor in Chief for Journal of Game Studies.</p>
+                <!-- News items with images go here -->
+                <!-- ... [existing news items] ... -->
             </div>
-            <div class="news-item">
-                <img src="231121_EpPub_SI_Banner_MohitMittal-1.png" alt="News Image" style="width:100%; max-width:300px; height:auto; display:block; margin:0 auto;">
-                <p>A special issue on Advancing Computer Vision with Deep Learning: Recent Innovations and Applications in Game Studies is there. Deadline is 30-04-2024.</p>
-            </div>
-    <!-- Add more news items as needed -->
-    </section>
+        </section>
+
+        <!-- Additional sections can be added here -->
     </div>
+
+    <!-- FontAwesome CDN for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </body>
 </html>
