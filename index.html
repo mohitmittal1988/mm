@@ -4,82 +4,165 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Mohit Mittal</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>Mohit Mittal's Personal Website</title>
     <style>
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4; /* Light gray background */
+            background-color: #f0f0f0; /* Light gray background */
             color: #333;
+            line-height: 1.6;
         }
 
-        .contact-container {
-            width: 85%;
-            margin: 40px auto;
-            background-color: #fff;
+        .sidebar {
+            background-color: #000000; /* Black sidebar */
+            color: #ffffff;
             padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
+            width: 250px;
+            height: 100vh;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            overflow-y: auto;
         }
 
-        h1 {
-            text-align: center;
-            font-weight: 700;
-            margin-bottom: 30px;
+        .sidebar h3 {
+            text-align: center; /* Centered text */
+            font-size: 26px;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #ffffff;
         }
 
-        .contact-info {
-            margin-top: 20px;
-            padding: 20px;
-            background-color: #eeeeee;
-            border-radius: 8px;
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
         }
 
-        .contact-info h2 {
-            font-weight: 700;
-            color: #333;
-        }
-
-        .contact-info p, .contact-info a {
-            font-weight: 400;
-            margin: 10px 0;
-            color: #333;
-        }
-
-        .contact-info a {
+        .sidebar ul li a {
             text-decoration: none;
-            color: #007bff;
+            color: #ffffff;
+            display: block;
+            padding: 10px 0;
+            transition: background-color 0.3s, color 0.3s;
         }
 
-        .contact-info a:hover {
-            text-decoration: underline;
+        .sidebar ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #e0e0e0;
         }
 
-        .icon {
-            width: 24px;
-            height: 24px;
-            vertical-align: middle;
-            margin-right: 8px;
+        .main-content {
+            margin-left: 250px;
+            padding: 40px;
+            background-color: #f0ebeb;
+            min-height: 100vh;
+            width: calc(100% - 250px);
+            box-sizing: border-box;
+        }
+
+        .main-content h2 {
+            text-align: center; /* Centered text */
+            color: #0a0a0a;
+            font-size: 30px;
+            border-bottom: 2px solid #ed0c0c; /* Adding color to the border */
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+
+        .main-content section {
+            background-color: #f0f5f5; /* Section background */
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .main-content p {
+            text-align: justify;
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .profile-pic {
+            width: 150px; /* Increased size */
+            height: 150px; /* Increased size */
+            border-radius: 75px; /* Rounded corners for aesthetic */
+            border: 3px solid #f7f014;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: block;
+            margin: 0 auto 20px;
         }
 
         @media (max-width: 768px) {
-            .contact-container {
-                width: 95%;
+            .sidebar, .main-content {
+                width: 100%;
+                margin: 0;
+                padding: 20px;
+                box-shadow: none;
+                position: relative;
+            }
+
+            .sidebar {
+                height: auto;
+            }
+
+            .sidebar ul li a {
+                display: inline-block;
+                margin-right: 10px;
+            }
+
+            .main-content {
+                padding-top: 0;
+            }
+
+            .profile-pic {
+                width: 75px;
+                height: 75px;
+                margin-bottom: 10px;
+            }
+
+            .sidebar h3 {
+                display: inline-block;
+                vertical-align: top;
+                margin: 0 10px;
+                border: none;
             }
         }
     </style>
 </head>
 <body>
-    <div class="contact-container">
-        <h1>Contact Me</h1>
-        <div class="contact-info">
-            <h2>Email</h2>
-            <p><img class="icon" src="email_icon.png" alt="Email Icon"> <a href="mailto:mittal.mohit02@gmail.com">mittal.mohit02@gmail.com</a></p>
-            <h2>LinkedIn</h2>
-            <p><img class="icon" src="linkedin_icon.png" alt="LinkedIn Icon"> <a href="https://www.linkedin.com/in/mohitmittal/" target="_blank">mohitmittal</a></p>
-        </div>
+    <div class="sidebar">
+        <img src="IEEE_pic.png" alt="Mohit Mittal" class="profile-pic">
+        <h3>Mohit Mittal</h3>
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="resume.html" target="_blank">Resume</a></li>
+            <li><a href="research.html" target="_blank">Research</a></li>
+            <li><a href="publications.html" target="_blank">Publications</a></li>
+            <li><a href="research_talks.html" target="_blank">Research Talks</a></li>
+            <li><a href="contact.html" target="_blank">Contact</a></li>
+        </ul>
+    </div>
+    <div class="main-content">
+        <h2>About Me</h2>
+        <section>
+            <p>
+                Mohit Mittal is a Data Scientist at Shiratech Knowtion GmbH in Germany, with previous experience as a post-doctoral researcher at INRIA in Lille, France, starting from October 2020. Prior to that, he completed a post-doctorate at Kyoto Sangyo University in Japan, where he spent one and a half years before completing his doctorate degree at Gurukul Kangri University in India in 2018. Mohit received his Bachelor's and Master's degrees in Computer Science and Engineering from Guru Nanak Dev University in Amritsar in 2010 and 2011, respectively. He has authored numerous papers published in prestigious journals and top-tier conferences, focusing on research areas such as Wireless Sensor Networks (WSN), Natural Language Processing (NLP), Data Mining, Explainable AI, Machine Learning, and Deep Learning.
+            </p>
+        </section>
+        <h2>News</h2>
+        <section>
+            <div class="news-item">
+                <p>Excited to share that my team's paper on 'Explainable AI in Healthcare' has been accepted at a leading AI conference this year.</p>
+            </div>
+            <div class="news-item">
+                <p>I will be speaking at the upcoming Data Science Summit in Berlin about the challenges of deploying machine learning models in production.</p>
+            </div>
+            <!-- Add more news items as needed -->
+        </section>
     </div>
 </body>
 </html>
