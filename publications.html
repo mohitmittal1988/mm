@@ -7,85 +7,7 @@
     <title>Mohit Mittal's Publications</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f0f0f0;
-            color: #333;
-        }
-
-        .container {
-            width: 85%;
-            margin: 20px auto;
-            background-color: #fff;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        h1 {
-            text-align: center;
-            color: #2a77aa;
-            margin-bottom: 20px;
-        }
-
-        .tab {
-            display: inline-block;
-            margin-right: 15px;
-            cursor: pointer;
-            padding: 10px;
-            border-bottom: 2px solid transparent;
-        }
-
-        .tab.active {
-            border-color: #2a77aa;
-            color: #2a77aa;
-        }
-
-        .publication-list {
-            list-style-type: none;
-            padding-left: 0;
-        }
-
-        .publication-list li {
-            padding: 10px;
-            border-bottom: 1px solid #eaeaea;
-        }
-
-        .publication-list li .year {
-            font-weight: bold;
-            color: #2a77aa;
-        }
-
-        .publication-list li .type {
-            font-size: 0.9em;
-            color: #888;
-        }
-
-        .publication-list li .title {
-            font-weight: bold;
-        }
-
-        .publication-list li .authors {
-            font-style: italic;
-            color: #555;
-        }
-
-        .publication-list li a {
-            text-decoration: none;
-            color: #2a77aa;
-        }
-
-        .publication-list li a:hover {
-            text-decoration: underline;
-        }
-
-        /* Additional styles for responsiveness */
-        @media (max-width: 768px) {
-            .container {
-                width: 95%;
-            }
-        }
+        /* Your existing styles here */
     </style>
 </head>
 <body>
@@ -98,41 +20,57 @@
 
         <div id="byDate" class="publication-content">
             <ul class="publication-list">
-                <!-- Repeat for each publication -->
-                <span class="year">2023</span>
-                <li>
-                    <span class="authors"><b>Mohit Mittal</b>, Hardeep Singh, Shaifali Chauhan, Swadha Gupta</span>
-                    <span class="title">Role of Online Shopping Websites in Consumer Satisfaction Based Statistical Analysis</span>
-                    <span class="type">[IEEE 12th International Conference on Communication Systems and Network Technologies (CSNT)]</span>
-                  
-                </li>
-                <li>
-                    <span class="type">[Conference Article]</span>
-                    <span class="title">Title of the Paper</span>
-                    <span class="authors">Author A, Author B, Author C</span>
-                    <a href="link_to_paper.pdf" target="_blank">(PDF)</a>
-                </li>
-                <!-- More publications -->
+                <!-- Publications fetched via JavaScript will be added here -->
             </ul>
         </div>
 
         <div id="byType" class="publication-content" style="display: none;">
-            <h2>Conference Articles</h2>
-            <ul class="publication-list">
-                <!-- Repeat for each conference publication -->
-                <!-- More publications -->
-            </ul>
-
-            <h2>Journal Articles</h2>
-            <ul class="publication-list">
-                <!-- Repeat for each journal publication -->
-                <!-- More publications -->
-            </ul>
+            <!-- You can organize publications by type here if needed -->
         </div>
     </div>
 
     <script>
+        async function fetchPublications() {
+            try {
+                // Make a request to the Google Scholar page
+                const response = await fetch('https://scholar.google.co.in/citations?hl=en&user=obJMZDUAAAAJ&view_op=list_works&sortby=pubdate');
+                const html = await response.text();
+
+                // Parse the HTML response to extract publication data
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, 'text/html');
+                const publicationElements = doc.querySelectorAll('.gsc_a_tr');
+
+                // Display publications
+                const publicationList = document.querySelector('.publication-list');
+                publicationList.innerHTML = '';
+
+                publicationElements.forEach((element) => {
+                    const title = element.querySelector('.gsc_a_at');
+                    const authors = element.querySelector('.gs_gray');
+                    const year = element.querySelector('.gsc_a_h');
+                    const type = element.querySelector('.gsc_a_t');
+
+                    const publicationItem = document.createElement('li');
+                    publicationItem.innerHTML = `
+                        <span class="year">${year.textContent.trim()}</span>
+                        <span class="authors">${authors.textContent.trim()}</span>
+                        <span class="title">${title.textContent.trim()}</span>
+                        <span class="type">${type.textContent.trim()}</span>
+                    `;
+
+                    publicationList.appendChild(publicationItem);
+                });
+            } catch (error) {
+                console.error('Error fetching publications:', error);
+            }
+        }
+
+        // Initial fetch when the page loads
+        fetchPublications();
+
         function showPublications(type) {
+            // Toggle between 'By Date' and 'By Type' tabs
             var byDate = document.getElementById('byDate');
             var byType = document.getElementById('byType');
             var tabs = document.querySelectorAll('.tab');
