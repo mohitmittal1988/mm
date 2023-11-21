@@ -1,1 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Page</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .navbar {
+            background-color: #333;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            font-size: 18px;
+        }
+
+        .section {
+            padding: 60px 20px;
+            text-align: center;
+            color: #fff;
+        }
+
+        #explainable-ai {
+            background-color: #2a77aa;
+        }
+
+        #computer-vision {
+            background-color: #5a4282;
+        }
+
+        #disease-prediction {
+            background-color: #6ab975;
+        }
+
+        .section h2 {
+            font-size: 36px;
+        }
+
+        .section p {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        .section img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="#" onclick="showSection('explainable-ai')">Explainable AI</a>
+        <a href="#" onclick="showSection('computer-vision')">Computer Vision</a>
+        <a href="#" onclick="showSection('disease-prediction')">Disease Prediction</a>
+    </div>
+
+    <div id="explainable-ai" class="section">
+        <h2>Explainable AI</h2>
+        <p>Explore our research on Explainable Artificial Intelligence (XAI), where we focus on making AI systems more transparent and interpretable. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <img src="explainable_ai_image.jpg" alt="Explainable AI Image">
+    </div>
+
+    <div id="computer-vision" class="section">
+        <h2>Computer Vision</h2>
+        <p>Discover our work in the field of Computer Vision, where we develop algorithms to enable machines to interpret and understand visual information from the world. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <img src="computer_vision_image.jpg" alt="Computer Vision Image">
+    </div>
+
+    <div id="disease-prediction" class="section">
+        <h2>Disease Prediction</h2>
+        <p>Learn about our research in predicting diseases on leaves using deep learning models. We aim to develop accurate models for early detection and prevention. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <img src="disease_prediction_image.jpg" alt="Disease Prediction Image">
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            document.getElementById('explainable-ai').style.display = 'none';
+            document.getElementById('computer-vision').style.display = 'none';
+            document.getElementById('disease-prediction').style.display = 'none';
+
+            // Show the selected section
+            document.getElementById(sectionId).style.display = 'block';
+        }
+    </script>
+</body>
+</html>
 
