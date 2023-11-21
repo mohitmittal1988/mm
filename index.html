@@ -118,7 +118,17 @@
             margin: 10px auto;
             color: #2a77aa;
         }
-
+        @keyframes blink {
+            0% { color: #ff0000; }
+            50% { color: #00ff00; }
+            100% { color: #0000ff; }
+        }
+        .news-item {
+            text-align: center;
+            animation: blink 2s infinite;
+            margin-bottom: 20px;
+        }
+        
         @media (max-width: 768px) {
             .sidebar, .main-content {
                 width: 100%;
@@ -207,17 +217,17 @@
             <!-- Add more interests as needed -->
         </section>
 
-        <section class="news">
+        <div class="news">
             <h2>News</h2>
             <div class="news-item">
-                <img src="MohitMittal_editor.png" alt="News Image" style="width:2100%; max-width:500px; height:auto; display:block; margin:0 auto;">
+                <img src="MohitMittal_editor.png" alt="News Image" style="width:100%; max-width:300px; height:auto; display:block; margin:0 auto;">
                 <p>Excited to share that I am recently appointed as Editor in Chief for Journal of Game Studies.</p>
             </div>
             <div class="news-item">
                 <img src="231121_EpPub_SI_Banner_MohitMittal-1.png" alt="News Image" style="width:100%; max-width:300px; height:auto; display:block; margin:0 auto;">
                 <p>A special issue on Advancing Computer Vision with Deep Learning: Recent Innovations and Applications in Game Studies is there. Deadline is 30-04-2024.</p>
-           
             </div>
+        </div>
         </section>
 
         <!-- Additional sections can be added here -->
