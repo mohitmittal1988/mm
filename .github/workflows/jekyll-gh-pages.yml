@@ -31,21 +31,17 @@ jobs:
           echo "GEM_HOME=$GEM_PATH" >> $GITHUB_ENV
           echo "PATH=$GEM_PATH/bin:$PATH" >> $GITHUB_ENV
 
-      - name: Verify Jekyll Installation
+      - name: Generate Gemfile (if missing)
         run: |
-          echo "Ruby version:"
-          ruby -v
-          echo "GEM_HOME: $GEM_HOME"
-          echo "PATH: $PATH"
-          echo "Jekyll version:"
-          $GEM_HOME/bin/jekyll -v
-          echo "Bundler version:"
-          $GEM_HOME/bin/bundle -v
+          if [ ! -f Gemfile ]; then
+            echo "source 'https://rubygems.org'" > Gemfile
+            echo "gem 'jekyll'" >> Gemfile
+          fi
 
       - name: Install dependencies
-        run: $GEM_HOME/bin/bundle install || echo "No Gemfile found, skipping bundle install"
+        run: $GEM_HOME/bin/bundle install
 
-      - name: Build Jekyll Site Manually
+      - name: Build Jekyll Site
         run: $GEM_HOME/bin/bundle exec jekyll build --destination ./_site
 
       - name: Verify `_site` directory
