@@ -42,19 +42,19 @@ jobs:
         run: $GEM_HOME/bin/bundle install
 
       - name: Build Jekyll Site
-        run: $GEM_HOME/bin/bundle exec jekyll build --destination ./_site
+        run: $GEM_HOME/bin/bundle exec jekyll build --destination ${{ github.workspace }}/_site
 
       - name: Verify `_site` directory
         run: |
           echo "Contents of _site:"
-          ls -la ./_site  # Debugging step
+          ls -R ${{ github.workspace }}/_site
+          echo "Total files: $(find ${{ github.workspace }}/_site -type f | wc -l)"
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: github-pages
-          path: ./_site
-          retention-days: 1  # Optional: Reduce artifact retention time
+          path: ${{ github.workspace }}/_site
 
   deploy:
     environment:
@@ -63,11 +63,17 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
-      - name: Download artifact (Optional)
+      - name: Download artifact (Debugging)
         uses: actions/download-artifact@v4
         with:
           name: github-pages
-          path: ./_site-temp  # Temporary path for debugging
+          path: ./_site-debug
+
+      - name: Verify downloaded artifact
+        run: |
+          echo "Contents of downloaded artifact:"
+          ls -R ./_site-debug
+          echo "Total files: $(find ./_site-debug -type f | wc -l)"
 
       - name: Deploy to GitHub Pages
         id: deployment
