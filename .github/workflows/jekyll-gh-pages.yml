@@ -27,18 +27,24 @@ jobs:
       - name: Install Bundler and Jekyll (User Directory)
         run: |
             gem install --user-install bundler jekyll
-            echo 'export GEM_HOME="$HOME/.gem"' >> $GITHUB_ENV
-            echo 'export PATH="$HOME/.gem/ruby/$(ruby -e "puts RUBY_VERSION")/bin:$PATH"' >> $GITHUB_ENV
+            echo 'export GEM_HOME="$HOME/.local/share/gem"' >> $GITHUB_ENV
             echo 'export PATH="$HOME/.local/share/gem/ruby/$(ruby -e "puts RUBY_VERSION")/bin:$PATH"' >> $GITHUB_ENV
+            echo 'export PATH="$HOME/.gem/ruby/$(ruby -e "puts RUBY_VERSION")/bin:$PATH"' >> $GITHUB_ENV
+            echo 'export PATH="$HOME/.local/share/gem/bin:$PATH"' >> $GITHUB_ENV
 
       - name: Verify Jekyll Installation
         run: |
           echo "Ruby version:"
           ruby -v
+          echo "GEM_HOME:"
+          echo $GEM_HOME
+          echo "PATH:"
+          echo $PATH
           echo "Jekyll version:"
-          $HOME/.gem/ruby/$(ruby -e "puts RUBY_VERSION")/bin/jekyll -v
+          jekyll -v
           echo "Bundler version:"
-          $HOME/.gem/ruby/$(ruby -e "puts RUBY_VERSION")/bin/bundle -v
+          bundle -v
+
 
       - name: Install dependencies
         run: $HOME/.gem/ruby/$(ruby -e "puts RUBY_VERSION")/bin/bundle install || echo "No Gemfile found, skipping bundle install"
