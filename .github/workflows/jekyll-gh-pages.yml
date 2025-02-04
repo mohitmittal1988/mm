@@ -28,30 +28,25 @@ jobs:
         run: |
           gem install --user-install bundler jekyll
           GEM_PATH=$(ruby -e 'puts Gem.user_dir')
-          echo "Using GEM PATH: $GEM_PATH"
-          echo "export GEM_HOME=$GEM_PATH" >> $GITHUB_ENV
-          echo "export PATH=$GEM_PATH/bin:$PATH" >> $GITHUB_ENV
+          echo "GEM_HOME=$GEM_PATH" >> $GITHUB_ENV
+          echo "PATH=$GEM_PATH/bin:$PATH" >> $GITHUB_ENV
 
       - name: Verify Jekyll Installation
         run: |
           echo "Ruby version:"
           ruby -v
-          echo "GEM_HOME:"
-          echo $GEM_HOME
-          echo "PATH:"
-          echo $PATH
-          echo "GEM PATH:"
-          gem env home
+          echo "GEM_HOME: $GEM_HOME"
+          echo "PATH: $PATH"
           echo "Jekyll version:"
-          $HOME/.gem/ruby/$(ruby -e "puts RUBY_VERSION")/bin/jekyll -v
+          $GEM_HOME/bin/jekyll -v
           echo "Bundler version:"
-          $HOME/.gem/ruby/$(ruby -e "puts RUBY_VERSION")/bin/bundle -v
+          $GEM_HOME/bin/bundle -v
 
       - name: Install dependencies
-        run: $HOME/.gem/ruby/$(ruby -e "puts RUBY_VERSION")/bin/bundle install || echo "No Gemfile found, skipping bundle install"
+        run: $GEM_HOME/bin/bundle install || echo "No Gemfile found, skipping bundle install"
 
       - name: Build Jekyll Site Manually
-        run: $HOME/.gem/ruby/$(ruby -e "puts RUBY_VERSION")/bin/bundle exec jekyll build --destination ./_site
+        run: $GEM_HOME/bin/bundle exec jekyll build --destination ./_site
 
       - name: Verify `_site` directory
         run: ls -la ./_site
