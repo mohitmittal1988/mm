@@ -31,45 +31,52 @@
 
         .scroll-to-top {
             position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            width: 4rem;
-            height: 4rem;
-            background-color: #2563eb;
-            color: white;
-            border-radius: 9999px; /* Tailwind's rounded-full */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: all 0.3s ease;
-            cursor: pointer;
+            bottom: 20px;
+            right: 20px;
             z-index: 1000;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+            border-radius: 9999px; /* Rounded corners for the button */
         }
 
         .scroll-to-top.show {
             opacity: 1;
+            visibility: visible;
+        }
+
+        /* Fade-in animation for sections */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in-up.fade-in-up-visible {
+            opacity: 1;
             transform: translateY(0);
         }
+
+        /* Active navigation link styling */
+        .active-nav-link {
+            color: #2563eb;
+        }
+
     </style>
 </head>
 <body class="bg-slate-950 text-slate-100">
 
-    <!-- Scroll to Top Button -->
-    <button id="scrollToTopBtn" class="scroll-to-top transform translate-y-16">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
-        </svg>
-    </button>
-
     <!-- Navigation Bar -->
     <nav class="fixed w-full z-50 bg-slate-950/70 backdrop-blur-md transition-all duration-300 ease-in-out">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-            <a href="index.html" class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-600 tracking-wide">
-                Mittal
+            <a href="index.html" class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">
+                Dr. Mohit Mittal
             </a>
-            <div class="hidden md:flex space-x-8">
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex space-x-8 items-center">
                 <a href="#about" class="text-slate-300 hover:text-blue-400 transition-colors duration-200">About</a>
+                <a href="#news" class="text-slate-300 hover:text-blue-400 transition-colors duration-200">News</a>
                 <a href="#experience" class="text-slate-300 hover:text-blue-400 transition-colors duration-200">Experience</a>
                 <a href="publications.html" class="text-slate-300 hover:text-blue-400 transition-colors duration-200">Publications</a>
                 <a href="research.html" class="text-slate-300 hover:text-blue-400 transition-colors duration-200">Research</a>
@@ -77,96 +84,142 @@
                 <a href="resume.html" class="text-slate-300 hover:text-blue-400 transition-colors duration-200">Resume</a>
             </div>
             <!-- Mobile Menu Button -->
-            <button id="mobile-menu-button" class="md:hidden text-slate-300 focus:outline-none">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-            </button>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-slate-300 hover:text-blue-400 focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
         </div>
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-slate-950/90 py-2">
             <a href="#about" class="block py-2 px-4 text-slate-300 hover:bg-slate-800">About</a>
+            <a href="#news" class="block py-2 px-4 text-slate-300 hover:bg-slate-800">News</a>
             <a href="#experience" class="block py-2 px-4 text-slate-300 hover:bg-slate-800">Experience</a>
             <a href="publications.html" class="block py-2 px-4 text-slate-300 hover:bg-slate-800">Publications</a>
             <a href="research.html" class="block py-2 px-4 text-slate-300 hover:bg-slate-800">Research</a>
-            <a href="talks.html" class="block py-2 px-4 text-slate-300 hover:bg-slate-800">Talks</a>
+            <a href="talks.html" class="block py-2 px-4 text-slate-300 hover:text-blue-400 hover:bg-slate-800">Talks</a>
             <a href="resume.html" class="block py-2 px-4 text-slate-300 hover:bg-slate-800">Resume</a>
         </div>
     </nav>
 
-    <main class="relative z-10">
-
-        <!-- Hero Section -->
-        <section id="hero" class="h-screen flex items-center justify-center text-center">
-            <div class="max-w-4xl px-4 mx-auto">
-                <img src="https://placehold.co/200x200/2563eb/ffffff?text=Mohit" alt="Dr. Mohit Mittal" class="rounded-full w-48 h-48 mx-auto mb-6 border-4 border-blue-500 shadow-xl" />
-                <h1 class="text-5xl md:text-7xl font-extrabold leading-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-600 animate-pulse">
-                    Dr. Mohit Mittal
-                </h1>
-                <p class="mt-4 text-xl md:text-2xl text-slate-300 font-light">
-                    Data Scientist & AI Researcher
-                </p>
-                <div class="mt-8 space-x-4">
-                    <a href="#contact" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg">
-                        Get in Touch
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- About Me Section -->
-        <section id="about" class="py-24 bg-slate-900 border-t border-slate-800">
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="max-w-4xl mx-auto text-center">
-                    <h2 class="text-4xl font-bold text-blue-400 mb-4">About Me</h2>
-                    <p class="text-lg text-slate-300 leading-relaxed">
-                        Dr. Mohit Mittal is a dedicated Data Scientist and AI Researcher with a passion for leveraging machine learning to solve complex problems. With a background in Computer Vision and Explainable AI, he has contributed to various projects ranging from disease prediction in agriculture to building interpretable models for critical decision-making. His work is published in several reputed journals and conferences.
+    <!-- Main Content -->
+    <main>
+        <!-- Hero/About Section -->
+        <section id="about" class="min-h-screen flex items-center justify-center pt-24 pb-16 bg-slate-900 border-b border-slate-800">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-center text-center md:text-left gap-8 lg:gap-16">
+                <div class="md:w-1/2 lg:w-2/3">
+                    <h1 class="text-5xl lg:text-7xl font-extrabold leading-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600 mb-4 animate-pulse">
+                        Dr. Mohit Mittal
+                    </h1>
+                    <p class="text-2xl lg:text-3xl text-slate-300 mb-6 font-light">
+                        Data Scientist & AI Researcher
                     </p>
+                    <!-- Updated About Section Content with more detail from CV -->
+                    <p class="text-base md:text-lg text-slate-400 leading-relaxed mb-6">
+                        I am a Data Scientist with a Ph.D. in Computer Science and over 7 years of experience in Artificial Intelligence, specializing in Machine Learning, Deep Learning, and Explainable AI (XAI). My work focuses on designing end-to-end AI solutions, from predictive models to intelligent automation systems. I have a strong background in Natural Language Processing (NLP), Large Language Models (LLMs), and Computer Vision, with practical experience in LLM fine-tuning, cloud-based AI deployments (Azure, AWS), and MLOps. As a published researcher with over 1500 citations, I am passionate about bridging the gap between cutting-edge research and its practical application in real-world scenarios.
+                    </p>
+                    <div class="flex justify-center md:justify-start space-x-4">
+                        <a href="mailto:mittal.mohit02@gmail.com" class="bg-blue-600 text-white font-bold py-3 px-6 rounded-full hover:bg-blue-700 transition duration-300 shadow-lg transform hover:scale-105">
+                            Contact Me
+                        </a>
+                        <a href="resume.html" class="bg-slate-700 text-slate-300 font-bold py-3 px-6 rounded-full hover:bg-slate-600 transition duration-300 shadow-lg transform hover:scale-105">
+                            View Resume
+                        </a>
+                    </div>
                 </div>
-            </div>
-        </section>
-
-        <!-- Experience Section -->
-        <section id="experience" class="py-24 bg-slate-950 border-t border-slate-800">
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="max-w-4xl mx-auto text-center">
-                    <h2 class="text-4xl font-bold text-blue-400 mb-12">Experience</h2>
-                    <div class="space-y-12 text-left">
-                        <!-- Experience Card 1 -->
-                        <div class="bg-slate-900 p-8 rounded-lg shadow-lg border border-slate-800 hover:border-blue-500 transition-colors duration-300">
-                            <div class="flex justify-between items-start mb-4">
-                                <div>
-                                    <h3 class="text-2xl font-bold text-white">Senior Data Scientist</h3>
-                                    <p class="text-lg text-slate-400">Tech Innovators Inc.</p>
-                                </div>
-                                <span class="text-slate-500 text-sm font-semibold">Jan 2022 - Present</span>
-                            </div>
-                            <ul class="list-disc list-inside space-y-2 text-slate-300">
-                                <li>Developed and deployed machine learning models for predictive analytics, improving decision accuracy by 25%.</li>
-                                <li>Led a team of junior data scientists in a project focused on natural language processing.</li>
-                                <li>Collaborated with product teams to integrate AI solutions into core products.</li>
-                            </ul>
-                        </div>
-                        <!-- Experience Card 2 -->
-                        <div class="bg-slate-900 p-8 rounded-lg shadow-lg border border-slate-800 hover:border-blue-500 transition-colors duration-300">
-                            <div class="flex justify-between items-start mb-4">
-                                <div>
-                                    <h3 class="text-2xl font-bold text-white">AI Research Fellow</h3>
-                                    <p class="text-lg text-slate-400">University of Science</p>
-                                </div>
-                                <span class="text-slate-500 text-sm font-semibold">Jan 2018 - Dec 2021</span>
-                            </div>
-                            <ul class="list-disc list-inside space-y-2 text-slate-300">
-                                <li>Published 5 research papers on the topic of Explainable AI and its applications in healthcare.</li>
-                                <li>Presented research findings at international conferences.</li>
-                                <li>Mentored graduate students on their research projects.</li>
-                            </ul>
-                        </div>
+                <div class="md:w-1/2 lg:w-1/3 flex justify-center">
+                    <div class="relative w-64 h-64 lg:w-80 lg:h-80 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full shadow-2xl overflow-hidden animate-pulse-slow">
+                        <img src="https://placehold.co/500x500/1e293b/d1d5db?text=Dr.+Mohit+Mittal" alt="Dr. Mohit Mittal" class="object-cover w-full h-full p-2 rounded-full">
                     </div>
                 </div>
             </div>
         </section>
+
+        <!-- New News Section -->
+        <section id="news" class="py-16 bg-slate-950 border-b border-slate-800">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl lg:text-5xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600 mb-12">
+                    Latest News
+                </h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- News Item 1 -->
+                    <div class="bg-slate-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-105">
+                        <h3 class="text-2xl font-bold text-blue-400 mb-2">Paper Acceptance at ACM Multimedia</h3>
+                        <p class="text-sm text-slate-400 mb-4">October 25, 2019</p>
+                        <p class="text-slate-300">
+                            Our paper, "Development of an Acoustic AR Gamification System to Support Physical Exercise", has been accepted for publication at ACM Multimedia in Nice, France. This work explores a novel approach to gamifying physical activity using acoustic augmented reality.
+                        </p>
+                    </div>
+                    <!-- News Item 2 -->
+                    <div class="bg-slate-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-105">
+                        <h3 class="text-2xl font-bold text-blue-400 mb-2">Research on Explainable AI published in W2GIS</h3>
+                        <p class="text-sm text-slate-400 mb-4">May 19, 2020</p>
+                        <p class="text-slate-300">
+                            Our paper, "Multilingual Correlation of Geo-tagged Tweets for POI Recommendation," was published in W2GIS, China. This research contributes to making AI models more transparent and understandable in the context of location-based services.
+                        </p>
+                    </div>
+                    <!-- Add more news items here as needed -->
+                </div>
+            </div>
+        </section>
+        
+        <!-- Experience Section -->
+        <section id="experience" class="py-16 bg-slate-900 border-b border-slate-800">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl lg:text-5xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600 mb-12">
+                    Experience
+                </h2>
+                <div class="space-y-8">
+                    <!-- Experience Card 1 -->
+                    <div class="bg-slate-800 p-6 rounded-lg shadow-lg">
+                        <div class="flex items-center justify-between mb-4">
+                            <div>
+                                <h3 class="text-2xl font-bold text-blue-400">Data Scientist</h3>
+                                <p class="text-lg text-slate-300">Shiratech Knowtion GmbH</p>
+                            </div>
+                            <span class="text-slate-400 font-semibold">2022 - Present</span>
+                        </div>
+                        <ul class="list-disc list-inside space-y-2 text-slate-300">
+                            <li>Integrated LLMs into an AI-powered assistant to streamline requirement analysis in Jira-based workflows.</li>
+                            <li>Extracted key insights from Jira tickets using LLMs, translating unstructured text into structured requirements and user stories.</li>
+                            <li>Identified inconsistencies, missing details, and ambiguities in Jira requirements, and suggested clarifications.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Other sections like Publications, Research, Talks, etc. will go here, linking to their respective pages -->
+        <section id="other-pages" class="py-16 bg-slate-950">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-4xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600 mb-12">
+                    Explore My Work
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <a href="publications.html" class="p-8 bg-slate-800 rounded-lg shadow-lg transition duration-300 transform hover:scale-105 hover:bg-slate-700">
+                        <i class="fas fa-book-open text-4xl text-blue-400 mb-4"></i>
+                        <h3 class="text-xl font-bold text-slate-100">Publications</h3>
+                        <p class="text-slate-400 mt-2">View a list of my published research papers.</p>
+                    </a>
+                    <a href="research.html" class="p-8 bg-slate-800 rounded-lg shadow-lg transition duration-300 transform hover:scale-105 hover:bg-slate-700">
+                        <i class="fas fa-flask text-4xl text-purple-400 mb-4"></i>
+                        <h3 class="text-xl font-bold text-slate-100">Research Areas</h3>
+                        <p class="text-slate-400 mt-2">Discover my work in Explainable AI, Computer Vision, and more.</p>
+                    </a>
+                    <a href="talks.html" class="p-8 bg-slate-800 rounded-lg shadow-lg transition duration-300 transform hover:scale-105 hover:bg-slate-700">
+                        <i class="fas fa-microphone-alt text-4xl text-green-400 mb-4"></i>
+                        <h3 class="text-xl font-bold text-slate-100">Talks</h3>
+                        <p class="text-slate-400 mt-2">Check out my recent research talks and guest lectures.</p>
+                    </a>
+                </div>
+            </div>
+        </section>
     </main>
+
+    <!-- Scroll to Top Button -->
+    <div id="scrollToTopBtn" class="scroll-to-top p-4 bg-blue-600 text-white shadow-xl hover:bg-blue-700 transition duration-300">
+        <i class="fas fa-arrow-up"></i>
+    </div>
 
     <!-- Footer -->
     <footer class="bg-slate-950 py-12 border-t border-slate-800">
