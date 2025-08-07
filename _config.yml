@@ -1,5 +1,23 @@
-title: Leap Day theme
-description: Leap Day is a theme for GitHub Pages.
-show_downloads: true
-google_analytics:
-theme: jekyll-theme-leap-day
+# Site settings
+title: Dr. Mohit Mittal - Data Scientist
+description: "The personal website and portfolio of Dr. Mohit Mittal."
+baseurl: "/mm" # the subpath of your site, e.g. /blog
+url: "https://mohitmittal1988.github.io" # the base hostname & protocol for your site
+permalink: /:title/
+
+# Build settings
+markdown: kramdown
+theme: jekyll-theme-minimal # Use a minimal theme as a fallback, but the HTML files will override this
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+# Exclude these files from the site build
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/

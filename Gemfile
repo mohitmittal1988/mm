@@ -1,11 +1,9 @@
-source "https://rubygems.org"  # Specifies the RubyGems server
+source "https://rubygems.org"
 
-# Jekyll and GitHub Pages compatibility (optional)
-gem "github-pages", group: :jekyll_plugins  # Use this if deploying to GitHub Pages
+# You can use the "github-pages" gem for GitHub Pages
+gem "github-pages", group: :jekyll_plugins
 
-# OR: Basic Jekyll setup (if not using GitHub Pages)
-gem "jekyll"
-gem "jekyll-feed"  # Optional plugin for RSS feeds
-gem "jekyll-sitemap"  # Optional plugin for sitemaps
-
-# Add other plugins here (e.g., jekyll-seo-tag, jekyll-redirect-from)
+# To make the Jekyll theme work correctly on GitHub Pages,
+# we need to ensure the dependencies are met.
+# This gem includes Jekyll and other necessary plugins.
+# The previous theme is removed as we are now using a custom layout.

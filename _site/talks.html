@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Talks - Dr. Mohit Mittal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a;
+            color: #f1f5f9;
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100">
+
+    <!-- Navigation Bar -->
+    <nav class="fixed w-full z-50 bg-slate-950/70 backdrop-blur-md transition-all duration-300 ease-in-out">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-600 tracking-wide">
+                Mittal
+            </a>
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html#about" class="text-slate-300 hover:text-blue-400 transition-colors duration-200">About</a>
+                <a href="index.html#experience" class="text-slate-300 hover:text-blue-400 transition-colors duration-200">Experience</a>
+                <a href="publications.html" class="text-slate-300 hover:text-blue-400 transition-colors duration-200">Publications</a>
+                <a href="research.html" class="text-slate-300 hover:text-blue-400 transition-colors duration-200">Research</a>
+                <a href="talks.html" class="text-blue-400 font-bold transition-colors duration-200">Talks</a>
+                <a href="resume.html" class="text-slate-300 hover:text-blue-400 transition-colors duration-200">Resume</a>
+            </div>
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-slate-300 focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-950/90 py-2">
+            <a href="index.html#about" class="block py-2 px-4 text-slate-300 hover:bg-slate-800">About</a>
+            <a href="index.html#experience" class="block py-2 px-4 text-slate-300 hover:bg-slate-800">Experience</a>
+            <a href="publications.html" class="block py-2 px-4 text-slate-300 hover:bg-slate-800">Publications</a>
+            <a href="research.html" class="block py-2 px-4 text-slate-300 hover:bg-slate-800">Research</a>
+            <a href="talks.html" class="block py-2 px-4 text-blue-400 font-bold hover:bg-slate-800">Talks</a>
+            <a href="resume.html" class="block py-2 px-4 text-slate-300 hover:bg-slate-800">Resume</a>
+        </div>
+    </nav>
+
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-24">
+        <div class="text-center mb-12">
+            <h1 class="text-5xl md:text-6xl font-extrabold text-blue-400 mb-4">Research Talks</h1>
+            <p class="text-lg text-slate-300 max-w-2xl mx-auto">Selected presentations and guest lectures from various conferences and institutions.</p>
+        </div>
+
+        <div class="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+            <!-- Talk Card 1 -->
+            <div class="bg-slate-800 p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                <h3 class="text-xl font-bold text-blue-400 mb-2">Research Talk at XYZ Institute</h3>
+                <p class="text-slate-400 mb-4">January 15, 2023</p>
+                <p class="text-sm text-slate-300">
+                    A comprehensive talk on the latest advancements and future directions in Explainable AI. The session included a live demonstration of a new interpretable model.
+                </p>
+                <div class="mt-4">
+                    <span class="text-slate-500 text-sm font-semibold">Topic: Advancements in Explainable AI</span>
+                </div>
+            </div>
+            <!-- Talk Card 2 -->
+            <div class="bg-slate-800 p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                <h3 class="text-xl font-bold text-blue-400 mb-2">Guest Lecture at ABC University</h3>
+                <p class="text-slate-400 mb-4">March 22, 2023</p>
+                <p class="text-sm text-slate-300">
+                    A guest lecture for graduate students on the practical applications of deep learning in Computer Vision, focusing on real-world case studies.
+                </p>
+                <div class="mt-4">
+                    <span class="text-slate-500 text-sm font-semibold">Topic: Deep Learning for Computer Vision</span>
+                </div>
+            </div>
+            <!-- Talk Card 3 -->
+            <div class="bg-slate-800 p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                <h3 class="text-xl font-bold text-blue-400 mb-2">Workshop on Federated Learning</h3>
+                <p class="text-slate-400 mb-4">July 10, 2022</p>
+                <p class="text-sm text-slate-300">
+                    A hands-on workshop covering the fundamentals and implementation of federated learning for privacy-preserving AI.
+                </p>
+                <div class="mt-4">
+                    <span class="text-slate-500 text-sm font-semibold">Topic: Federated Learning</span>
+                </div>
+            </div>
+            <!-- Add more talk cards as needed -->
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 py-12 border-t border-slate-800">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-slate-400">
+                &copy; <span id="year"></span> Dr. Mohit Mittal. All rights reserved.
+            </p>
+            <div class="mt-6 flex justify-center space-x-6 text-xl">
+                <a href="#" class="text-slate-400 hover:text-blue-500 transition-colors duration-200"><i class="fab fa-linkedin"></i></a>
+                <a href="#" class="text-slate-400 hover:text-blue-500 transition-colors duration-200"><i class="fab fa-github"></i></a>
+                <a href="#" class="text-slate-400 hover:text-blue-500 transition-colors duration-200"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Handle mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

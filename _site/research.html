@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research - Dr. Mohit Mittal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a;
+            color: #f1f5f9;
+        }
+        .active-tab {
+            background-color: #334155;
+            color: #2563eb;
+            border-bottom: 2px solid #2563eb;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100">
+
+    <!-- Navigation Bar -->
+    <nav class="fixed w-full z-50 bg-slate-950/70 backdrop-blur-md transition-all duration-300 ease-in-out">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-600 tracking-wide">
+                Mittal
+            </a>
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html#about" class="text-slate-300 hover:text-blue-400 transition-colors duration-200">About</a>
+                <a href="index.html#experience" class="text-slate-300 hover:text-blue-400 transition-colors duration-200">Experience</a>
+                <a href="publications.html" class="text-slate-300 hover:text-blue-400 transition-colors duration-200">Publications</a>
+                <a href="research.html" class="text-blue-400 font-bold transition-colors duration-200">Research</a>
+                <a href="talks.html" class="text-slate-300 hover:text-blue-400 transition-colors duration-200">Talks</a>
+                <a href="resume.html" class="text-slate-300 hover:text-blue-400 transition-colors duration-200">Resume</a>
+            </div>
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-slate-300 focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-950/90 py-2">
+            <a href="index.html#about" class="block py-2 px-4 text-slate-300 hover:bg-slate-800">About</a>
+            <a href="index.html#experience" class="block py-2 px-4 text-slate-300 hover:bg-slate-800">Experience</a>
+            <a href="publications.html" class="block py-2 px-4 text-slate-300 hover:bg-slate-800">Publications</a>
+            <a href="research.html" class="block py-2 px-4 text-blue-400 font-bold hover:bg-slate-800">Research</a>
+            <a href="talks.html" class="block py-2 px-4 text-slate-300 hover:bg-slate-800">Talks</a>
+            <a href="resume.html" class="block py-2 px-4 text-slate-300 hover:bg-slate-800">Resume</a>
+        </div>
+    </nav>
+
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-24">
+        <div class="text-center mb-12">
+            <h1 class="text-5xl md:text-6xl font-extrabold text-blue-400 mb-4">Research Areas</h1>
+            <p class="text-lg text-slate-300 max-w-2xl mx-auto">Exploring the frontiers of Data Science and AI through innovative research.</p>
+        </div>
+
+        <!-- Research Tabs -->
+        <div class="max-w-4xl mx-auto">
+            <div class="flex border-b border-slate-700 mb-8">
+                <button class="tab-button flex-1 py-4 text-lg font-semibold text-slate-400 hover:text-blue-400 transition-colors duration-200" data-tab="explainable-ai">Explainable AI</button>
+                <button class="tab-button flex-1 py-4 text-lg font-semibold text-slate-400 hover:text-blue-400 transition-colors duration-200" data-tab="computer-vision">Computer Vision</button>
+                <button class="tab-button flex-1 py-4 text-lg font-semibold text-slate-400 hover:text-blue-400 transition-colors duration-200" data-tab="disease-prediction">Disease Prediction</button>
+            </div>
+
+            <!-- Tab Content -->
+            <div id="explainable-ai" class="tab-content active p-6 bg-slate-900 rounded-lg shadow-lg">
+                <div class="flex flex-col md:flex-row gap-8 items-center">
+                    <div class="md:w-1/2">
+                        <h2 class="text-3xl font-bold text-white mb-4">Explainable AI</h2>
+                        <p class="text-lg text-slate-300 leading-relaxed">
+                            Our research focuses on developing models that are not just accurate, but also transparent and interpretable. We believe that understanding how an AI makes decisions is crucial, especially in fields like healthcare and finance.
+                        </p>
+                        <p class="mt-4 text-slate-400">
+                            *This section needs more detailed content about specific projects, methodologies, and outcomes.*
+                        </p>
+                    </div>
+                    <div class="md:w-1/2">
+                        <img src="https://placehold.co/600x400/2563eb/ffffff?text=Explainable+AI" alt="Explainable AI" class="rounded-lg shadow-xl w-full" />
+                    </div>
+                </div>
+            </div>
+
+            <div id="computer-vision" class="tab-content p-6 bg-slate-900 rounded-lg shadow-lg">
+                <div class="flex flex-col md:flex-row gap-8 items-center">
+                    <div class="md:w-1/2">
+                        <h2 class="text-3xl font-bold text-white mb-4">Computer Vision</h2>
+                        <p class="text-lg text-slate-300 leading-relaxed">
+                            Discover our work in the field of Computer Vision, where we develop algorithms to enable machines to interpret and understand visual information from the world. We are particularly interested in object detection, image segmentation, and video analysis.
+                        </p>
+                        <p class="mt-4 text-slate-400">
+                            *This section needs more detailed content about specific projects, methodologies, and outcomes.*
+                        </p>
+                    </div>
+                    <div class="md:w-1/2">
+                        <img src="https://placehold.co/600x400/1d4ed8/ffffff?text=Computer+Vision" alt="Computer Vision" class="rounded-lg shadow-xl w-full" />
+                    </div>
+                </div>
+            </div>
+
+            <div id="disease-prediction" class="tab-content p-6 bg-slate-900 rounded-lg shadow-lg">
+                <div class="flex flex-col md:flex-row gap-8 items-center">
+                    <div class="md:w-1/2">
+                        <h2 class="text-3xl font-bold text-white mb-4">Disease Prediction</h2>
+                        <p class="text-lg text-slate-300 leading-relaxed">
+                            Learn about our research in predicting diseases in plants and humans using deep learning models. Our goal is to create accurate and timely detection systems for early intervention and prevention.
+                        </p>
+                        <p class="mt-4 text-slate-400">
+                            *This section needs more detailed content about specific projects, methodologies, and outcomes.*
+                        </p>
+                    </div>
+                    <div class="md:w-1/2">
+                        <img src="https://placehold.co/600x400/06b6d4/ffffff?text=Disease+Prediction" alt="Disease Prediction" class="rounded-lg shadow-xl w-full" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 py-12 border-t border-slate-800">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-slate-400">
+                &copy; <span id="year"></span> Dr. Mohit Mittal. All rights reserved.
+            </p>
+            <div class="mt-6 flex justify-center space-x-6 text-xl">
+                <a href="#" class="text-slate-400 hover:text-blue-500 transition-colors duration-200"><i class="fab fa-linkedin"></i></a>
+                <a href="#" class="text-slate-400 hover:text-blue-500 transition-colors duration-200"><i class="fab fa-github"></i></a>
+                <a href="#" class="text-slate-400 hover:text-blue-500 transition-colors duration-200"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Handle mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Tabs functionality
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        function showTab(tabId) {
+            tabContents.forEach(content => content.classList.remove('active'));
+            tabButtons.forEach(button => button.classList.remove('active-tab'));
+            
+            document.getElementById(tabId).classList.add('active');
+            document.querySelector(`.tab-button[data-tab="${tabId}"]`).classList.add('active-tab');
+        }
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                showTab(button.dataset.tab);
+            });
+        });
+
+        // Set the first tab as active by default
+        showTab('explainable-ai');
+    </script>
+</body>
+</html>

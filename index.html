@@ -2,249 +2,229 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mohit Mittal's Personal Website</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Dr. Mohit Mittal - Data Scientist & AI Researcher</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f0f0f0;
-            color: #333;
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a;
+            color: #f1f5f9;
         }
 
-        .sidebar {
-            background-color: #02086e;
-            color: #ffffff;
-            padding: 20px;
-            width: 350px; /* Increased width */
-            height: 100vh;
+        /* Custom scrollbar for a sleek look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1e293b;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #475569;
+        }
+
+        .scroll-to-top {
             position: fixed;
-            overflow-y: auto;
-            box-shadow: 3px 0 10px rgba(0, 0, 0, 0.2);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .sidebar h3 {
-            text-align: center;
-            font-size: 26px;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-            border-bottom: 3px solid #ffffff;
-        }
-
-        .sidebar h4 {
-            text-align: center;
-            font-size: 16px;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-            border-bottom: 3px solid #ffffff;
-        }
-
-        .sidebar ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .sidebar ul li a {
-            text-decoration: none;
-            color: #ffffff;
+            bottom: 2rem;
+            right: 2rem;
+            width: 4rem;
+            height: 4rem;
+            background-color: #2563eb;
+            color: white;
+            border-radius: 9999px; /* Tailwind's rounded-full */
             display: flex;
             align-items: center;
-            padding: 10px 0;
-            transition: background-color 0.3s, color 0.3s;
+            justify-content: center;
+            opacity: 0;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            z-index: 1000;
         }
 
-        .sidebar ul li a:hover {
-            background-color: #333;
-            color: #f0f0f0;
-        }
-
-        .sidebar i {
-            margin-right: 10px;
-        }
-
-        .main-content {
-            margin-left: 350px; /* Adjust margin to match the sidebar width */
-            padding: 40px;
-            background-color: #cbf5f3;
-            min-height: 100vh;
-            width: calc(100% - 350px); /* Adjust width to match the sidebar width */
-            box-sizing: border-box;
-        }
-
-        .main-content h2 {
-            text-align: center;
-            color: #0a0a0a;
-            font-size: 30px;
-            border-bottom: 2px solid #bab9b5;
-            padding-bottom: 10px;
-            margin-top: 0;
-        }
-
-        .main-content section {
-            background-color: #b6f0f0;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            transition: box-shadow 0.3s, transform 0.3s;
-        }
-
-        .main-content section:hover {
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            transform: translateY(-5px);
-        }
-
-        .main-content p {
-            text-align: justify;
-            font-size: 18px;
-            color: #555;
-            margin-bottom: 20px;
-        }
-
-        .profile-pic {
-            width: 200px;
-            height: 200px;
-            display: block;
-            margin: 20px auto;
-            border-radius: 50%;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .interests {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-        }
-
-        .interest {
-            text-align: center;
-            width: 100px;
-        }
-
-        .interest i {
-            font-size: 40px;
-            display: block;
-            margin: 10px auto;
-            color: #2a77aa;
-        }
-
-        .news-title {
-            text-align: center;
-            color: #0a0a0a;
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
-
-        .news-content {
-            text-align: justify;
-            font-size: 18px;
-            color: #555;
-            margin-bottom: 20px;
-        }
-
-        .news-image {
-            width: 100%;
-            max-width: 500px;
-            height: auto;
-            display: block;
-            margin: 0 auto;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        @media (max-width: 768px) {
-            .sidebar, .main-content {
-                width: 100%;
-                margin: 0;
-                padding: 20px;
-                box-shadow: none;
-                position: relative;
-            }
-
-            .sidebar {
-                height: auto;
-            }
-
-            .sidebar ul li a {
-                display: inline-block;
-                margin-right: 10px;
-            }
-
-            .main-content {
-                padding-top: 0;
-            }
-
-            .profile-pic {
-                width: 100px;
-                height: 100px;
-                margin-bottom: 10px;
-            }
-
-            .sidebar h3 {
-                display: inline-block;
-                vertical-align: top;
-                margin: 0 10px;
-                border: none;
-            }
-
-            .interests {
-                justify-content: center;
-            }
+        .scroll-to-top.show {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
-<body>
-    <div class="sidebar">
-        <img src="IEEE_pic.png" alt="Mohit Mittal" class="profile-pic">
-        <h3>Dr. Mohit Mittal</h3>
-        <h4>Data Scientist</h4>
-        <h4>Shiratech Knowtion GmbH</h4>
-        <ul>
-            <li><a href="javascript:void(0);" onclick="reloadPage()">Home</a></li>
-            <li><a href="resume.html" target="_self">Resume</a></li>
-            <li><a href="research.html" target="_self">Research</a></li>
-            <li><a href="publications.html" target="_self">Publications</a></li>
-            <li><a href="talks.html" target="_self">Research Talks</a></li>
-            <li><a href="contact.html" target="_self">Contact</a></li>
-        </ul>
-        <div class="social-icons">
-            <a href="https://scholar.google.co.in/citations?user=obJMZDUAAAAJ&hl=en" target="_blank" title="Google Scholar"><i class="fab fa-google"></i></a>
-            <a href="https://www.linkedin.com/in/mohit-mittal-2b662749/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-        </div>
-    </div>
-    <div class="main-content">
-        <section class="welcome-section">
-            <h2 class="welcome-title">Welcome to my personal website.</h2>
-            <img src="ezgif.com-optimize.gif" alt="News Image" class="news-image">
-        </section>
-        <section class="about-me">
-            <h2>About Me</h2>
-            <p>
-                Mohit Mittal is a Data Scientist at Shiratech Knowtion GmbH in Germany, with previous experience as a post-doctoral researcher at INRIA in Lille, France, starting from October 2020. Prior to that, he completed a post-doctorate at Kyoto Sangyo University in Japan, where he spent one and a half years before completing his doctorate degree at Gurukul Kangri University in India in 2018. Mohit received his Bachelor's and Master's degrees in Computer Science and Engineering from Guru Nanak Dev University in Amritsar in 2010 and 2011, respectively. He has authored numerous papers published in prestigious journals and top-tier conferences, focusing on research areas such as Wireless Sensor Networks (WSN), Natural Language Processing (NLP), Data Mining, Explainable AI, Machine Learning, and Deep Learning.
-            </p>
-        </section>
-        <section class="news-section">
-            <h2 class="news-title">News</h2>
-            <div class="news-item">
-                <img src="MohitMittal_editor.png" alt="News Image" class="news-image">
-                <p class="news-content"><marquee>Excited to share that I am recently appointed as Editor in Chief for Journal of Game Studies.</marquee></p>
-            </div>
-            <div class="news-item">
-                <img src="231121_EpPub_SI_Banner_MohitMittal-1.png" alt="News Image" class="news-image">
-                <p class="news-content"><marquee>A special issue on Advancing Computer Vision with Deep Learning: Recent Innovations and Applications in Game Studies is there. Deadline is 30-04-2024.</marquee></p>
-            </div>
-        </section>
-    </div>
+<body class="bg-slate-950 text-slate-100">
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTopBtn" class="scroll-to-top transform translate-y-16">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+        </svg>
+    </button>
+
+    <!-- Navigation Bar -->
+    <nav class="fixed w-full z-50 bg-slate-950/70 backdrop-blur-md transition-all duration-300 ease-in-out">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-600 tracking-wide">
+                Mittal
+            </a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#about" class="text-slate-300 hover:text-blue-400 transition-colors duration-200">About</a>
+                <a href="#experience" class="text-slate-300 hover:text-blue-400 transition-colors duration-200">Experience</a>
+                <a href="publications.html" class="text-slate-300 hover:text-blue-400 transition-colors duration-200">Publications</a>
+                <a href="research.html" class="text-slate-300 hover:text-blue-400 transition-colors duration-200">Research</a>
+                <a href="talks.html" class="text-slate-300 hover:text-blue-400 transition-colors duration-200">Talks</a>
+                <a href="resume.html" class="text-slate-300 hover:text-blue-400 transition-colors duration-200">Resume</a>
+            </div>
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-slate-300 focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-950/90 py-2">
+            <a href="#about" class="block py-2 px-4 text-slate-300 hover:bg-slate-800">About</a>
+            <a href="#experience" class="block py-2 px-4 text-slate-300 hover:bg-slate-800">Experience</a>
+            <a href="publications.html" class="block py-2 px-4 text-slate-300 hover:bg-slate-800">Publications</a>
+            <a href="research.html" class="block py-2 px-4 text-slate-300 hover:bg-slate-800">Research</a>
+            <a href="talks.html" class="block py-2 px-4 text-slate-300 hover:bg-slate-800">Talks</a>
+            <a href="resume.html" class="block py-2 px-4 text-slate-300 hover:bg-slate-800">Resume</a>
+        </div>
+    </nav>
+
+    <main class="relative z-10">
+
+        <!-- Hero Section -->
+        <section id="hero" class="h-screen flex items-center justify-center text-center">
+            <div class="max-w-4xl px-4 mx-auto">
+                <img src="https://placehold.co/200x200/2563eb/ffffff?text=Mohit" alt="Dr. Mohit Mittal" class="rounded-full w-48 h-48 mx-auto mb-6 border-4 border-blue-500 shadow-xl" />
+                <h1 class="text-5xl md:text-7xl font-extrabold leading-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-600 animate-pulse">
+                    Dr. Mohit Mittal
+                </h1>
+                <p class="mt-4 text-xl md:text-2xl text-slate-300 font-light">
+                    Data Scientist & AI Researcher
+                </p>
+                <div class="mt-8 space-x-4">
+                    <a href="#contact" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg">
+                        Get in Touch
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Me Section -->
+        <section id="about" class="py-24 bg-slate-900 border-t border-slate-800">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-4xl mx-auto text-center">
+                    <h2 class="text-4xl font-bold text-blue-400 mb-4">About Me</h2>
+                    <p class="text-lg text-slate-300 leading-relaxed">
+                        Dr. Mohit Mittal is a dedicated Data Scientist and AI Researcher with a passion for leveraging machine learning to solve complex problems. With a background in Computer Vision and Explainable AI, he has contributed to various projects ranging from disease prediction in agriculture to building interpretable models for critical decision-making. His work is published in several reputed journals and conferences.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="py-24 bg-slate-950 border-t border-slate-800">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-4xl mx-auto text-center">
+                    <h2 class="text-4xl font-bold text-blue-400 mb-12">Experience</h2>
+                    <div class="space-y-12 text-left">
+                        <!-- Experience Card 1 -->
+                        <div class="bg-slate-900 p-8 rounded-lg shadow-lg border border-slate-800 hover:border-blue-500 transition-colors duration-300">
+                            <div class="flex justify-between items-start mb-4">
+                                <div>
+                                    <h3 class="text-2xl font-bold text-white">Senior Data Scientist</h3>
+                                    <p class="text-lg text-slate-400">Tech Innovators Inc.</p>
+                                </div>
+                                <span class="text-slate-500 text-sm font-semibold">Jan 2022 - Present</span>
+                            </div>
+                            <ul class="list-disc list-inside space-y-2 text-slate-300">
+                                <li>Developed and deployed machine learning models for predictive analytics, improving decision accuracy by 25%.</li>
+                                <li>Led a team of junior data scientists in a project focused on natural language processing.</li>
+                                <li>Collaborated with product teams to integrate AI solutions into core products.</li>
+                            </ul>
+                        </div>
+                        <!-- Experience Card 2 -->
+                        <div class="bg-slate-900 p-8 rounded-lg shadow-lg border border-slate-800 hover:border-blue-500 transition-colors duration-300">
+                            <div class="flex justify-between items-start mb-4">
+                                <div>
+                                    <h3 class="text-2xl font-bold text-white">AI Research Fellow</h3>
+                                    <p class="text-lg text-slate-400">University of Science</p>
+                                </div>
+                                <span class="text-slate-500 text-sm font-semibold">Jan 2018 - Dec 2021</span>
+                            </div>
+                            <ul class="list-disc list-inside space-y-2 text-slate-300">
+                                <li>Published 5 research papers on the topic of Explainable AI and its applications in healthcare.</li>
+                                <li>Presented research findings at international conferences.</li>
+                                <li>Mentored graduate students on their research projects.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 py-12 border-t border-slate-800">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-slate-400">
+                &copy; <span id="year"></span> Dr. Mohit Mittal. All rights reserved.
+            </p>
+            <div class="mt-6 flex justify-center space-x-6 text-xl">
+                <a href="#" class="text-slate-400 hover:text-blue-500 transition-colors duration-200"><i class="fab fa-linkedin"></i></a>
+                <a href="#" class="text-slate-400 hover:text-blue-500 transition-colors duration-200"><i class="fab fa-github"></i></a>
+                <a href="#" class="text-slate-400 hover:text-blue-500 transition-colors duration-200"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Handle mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Scroll to top button functionality
+        const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollToTopBtn.classList.add('show');
+            } else {
+                scrollToTopBtn.classList.remove('show');
+            }
+        });
+
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    if (mobileMenu.classList.contains('hidden') === false) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 </html>

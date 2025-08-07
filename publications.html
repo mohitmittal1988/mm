@@ -2,153 +2,181 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mohit Mittal's Publications</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>Publications - Dr. Mohit Mittal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f0f0f0;
-            color: #333;
-        }
-
-        .container {
-            width: 85%;
-            margin: 20px auto;
-            background-color: #fff;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        h1 {
-            text-align: center;
-            color: #2a77aa;
-            margin-bottom: 20px;
-        }
-
-        .tab {
-            display: inline-block;
-            margin-right: 15px;
-            cursor: pointer;
-            padding: 10px;
-            border-bottom: 2px solid transparent;
-        }
-
-        .tab.active {
-            border-color: #2a77aa;
-            color: #2a77aa;
-        }
-
-        .publication-list {
-            list-style-type: none;
-            padding-left: 0;
-        }
-
-        .publication-list li {
-            padding: 10px;
-            border-bottom: 1px solid #eaeaea;
-        }
-
-        .publication-list li .year {
-            font-weight: bold;
-            color: #2a77aa;
-        }
-
-        .publication-list li .type {
-            font-size: 0.9em;
-            color: #888;
-        }
-
-        .publication-list li .title {
-            font-weight: bold;
-        }
-
-        .publication-list li .authors {
-            font-style: italic;
-            color: #555;
-        }
-
-        .publication-list li a {
-            text-decoration: none;
-            color: #2a77aa;
-        }
-
-        .publication-list li a:hover {
-            text-decoration: underline;
-        }
-
-        /* Additional styles for responsiveness */
-        @media (max-width: 768px) {
-            .container {
-                width: 95%;
-            }
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a;
+            color: #f1f5f9;
         }
     </style>
 </head>
-<body>
-    <div class="container">
-        <h1>Publications</h1>
-        <div class="tabs">
-            <div class="tab active" onclick="showPublications('byDate')">By Date</div>
-            <div class="tab" onclick="showPublications('byType')">By Type</div>
+<body class="bg-slate-950 text-slate-100">
+
+    <!-- Navigation Bar -->
+    <nav class="fixed w-full z-50 bg-slate-950/70 backdrop-blur-md transition-all duration-300 ease-in-out">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-600 tracking-wide">
+                Mittal
+            </a>
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html#about" class="text-slate-300 hover:text-blue-400 transition-colors duration-200">About</a>
+                <a href="index.html#experience" class="text-slate-300 hover:text-blue-400 transition-colors duration-200">Experience</a>
+                <a href="publications.html" class="text-blue-400 font-bold transition-colors duration-200">Publications</a>
+                <a href="research.html" class="text-slate-300 hover:text-blue-400 transition-colors duration-200">Research</a>
+                <a href="talks.html" class="text-slate-300 hover:text-blue-400 transition-colors duration-200">Talks</a>
+                <a href="resume.html" class="text-slate-300 hover:text-blue-400 transition-colors duration-200">Resume</a>
+            </div>
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-slate-300 focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-950/90 py-2">
+            <a href="index.html#about" class="block py-2 px-4 text-slate-300 hover:bg-slate-800">About</a>
+            <a href="index.html#experience" class="block py-2 px-4 text-slate-300 hover:bg-slate-800">Experience</a>
+            <a href="publications.html" class="block py-2 px-4 text-blue-400 font-bold hover:bg-slate-800">Publications</a>
+            <a href="research.html" class="block py-2 px-4 text-slate-300 hover:bg-slate-800">Research</a>
+            <a href="talks.html" class="block py-2 px-4 text-slate-300 hover:bg-slate-800">Talks</a>
+            <a href="resume.html" class="block py-2 px-4 text-slate-300 hover:bg-slate-800">Resume</a>
+        </div>
+    </nav>
+
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-24">
+        <div class="text-center mb-12">
+            <h1 class="text-5xl md:text-6xl font-extrabold text-blue-400 mb-4">Publications</h1>
+            <p class="text-lg text-slate-300 max-w-2xl mx-auto">A selection of my published research in journals and conference proceedings.</p>
         </div>
 
-        <div id="byDate" class="publication-content">
-            <ul class="publication-list">
-                <!-- Repeat for each publication -->
-                <span class="year">2023</span>
-                <li>
-                    <span class="authors"><b>Mohit Mittal</b>, Hardeep Singh, Shaifali Chauhan, Swadha Gupta</span>
-                    <span class="title">Role of Online Shopping Websites in Consumer Satisfaction Based Statistical Analysis</span>
-                    <span class="type">[IEEE 12th International Conference on Communication Systems and Network Technologies (CSNT)]</span>
-                  
-                </li>
-                <li>
-                    <span class="type">[Conference Article]</span>
-                    <span class="title">Title of the Paper</span>
-                    <span class="authors">Author A, Author B, Author C</span>
-                    <a href="link_to_paper.pdf" target="_blank">(PDF)</a>
-                </li>
-                <!-- More publications -->
-            </ul>
+        <!-- Search and Filter Controls -->
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4 mb-8">
+            <div class="relative w-full md:w-1/2">
+                <input type="text" id="search-publications" placeholder="Search publications..." class="w-full pl-10 pr-4 py-2 rounded-lg bg-slate-800 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                    <i class="fas fa-search text-slate-400"></i>
+                </div>
+            </div>
+            <div class="flex flex-wrap gap-2">
+                <button class="filter-btn text-sm py-2 px-4 rounded-full bg-slate-800 text-white hover:bg-blue-500 transition-colors duration-200" data-filter="all">All</button>
+                <button class="filter-btn text-sm py-2 px-4 rounded-full bg-slate-800 text-white hover:bg-blue-500 transition-colors duration-200" data-filter="journal">Journal</button>
+                <button class="filter-btn text-sm py-2 px-4 rounded-full bg-slate-800 text-white hover:bg-blue-500 transition-colors duration-200" data-filter="conference">Conference</button>
+            </div>
         </div>
 
-        <div id="byType" class="publication-content" style="display: none;">
-            <h2>Conference Articles</h2>
-            <ul class="publication-list">
-                <!-- Repeat for each conference publication -->
-                <!-- More publications -->
-            </ul>
-
-            <h2>Journal Articles</h2>
-            <ul class="publication-list">
-                <!-- Repeat for each journal publication -->
-                <!-- More publications -->
-            </ul>
+        <!-- Publications Grid -->
+        <div id="publications-container" class="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+            <!-- Publication Card 1 -->
+            <div class="publication-card p-6 bg-slate-800 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300" data-category="journal">
+                <h3 class="text-xl font-bold text-blue-400 mb-2">Explainable AI in Medical Image Analysis</h3>
+                <p class="text-slate-400 text-sm mb-4">Journal of Machine Learning Research</p>
+                <p class="text-sm text-slate-300">A detailed study on using LIME and SHAP to interpret deep learning models for disease diagnosis from X-ray images.</p>
+                <div class="flex justify-between items-center mt-4 text-sm text-slate-500">
+                    <span>Oct 2023</span>
+                    <a href="#" class="text-blue-400 hover:underline">Read More <i class="fas fa-arrow-right ml-1"></i></a>
+                </div>
+            </div>
+            <!-- Publication Card 2 -->
+            <div class="publication-card p-6 bg-slate-800 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300" data-category="conference">
+                <h3 class="text-xl font-bold text-blue-400 mb-2">Deep Learning for Crop Disease Detection</h3>
+                <p class="text-slate-400 text-sm mb-4">International Conference on Computer Vision</p>
+                <p class="text-sm text-slate-300">Presented a novel CNN architecture for identifying plant diseases from leaf images with high accuracy.</p>
+                <div class="flex justify-between items-center mt-4 text-sm text-slate-500">
+                    <span>Sep 2023</span>
+                    <a href="#" class="text-blue-400 hover:underline">Read More <i class="fas fa-arrow-right ml-1"></i></a>
+                </div>
+            </div>
+            <!-- Publication Card 3 -->
+            <div class="publication-card p-6 bg-slate-800 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300" data-category="journal">
+                <h3 class="text-xl font-bold text-blue-400 mb-2">Comparative Study of Image Segmentation Models</h3>
+                <p class="text-slate-400 text-sm mb-4">IEEE Transactions on Pattern Analysis</p>
+                <p class="text-sm text-slate-300">An in-depth analysis of U-Net, DeepLab, and Mask R-CNN for medical image segmentation tasks.</p>
+                <div class="flex justify-between items-center mt-4 text-sm text-slate-500">
+                    <span>May 2022</span>
+                    <a href="#" class="text-blue-400 hover:underline">Read More <i class="fas fa-arrow-right ml-1"></i></a>
+                </div>
+            </div>
+            <!-- Add more publication cards as needed -->
         </div>
-    </div>
+
+        <div id="no-results" class="text-center text-slate-400 mt-8 hidden">
+            No publications found.
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 py-12 border-t border-slate-800">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-slate-400">
+                &copy; <span id="year"></span> Dr. Mohit Mittal. All rights reserved.
+            </p>
+            <div class="mt-6 flex justify-center space-x-6 text-xl">
+                <a href="#" class="text-slate-400 hover:text-blue-500 transition-colors duration-200"><i class="fab fa-linkedin"></i></a>
+                <a href="#" class="text-slate-400 hover:text-blue-500 transition-colors duration-200"><i class="fab fa-github"></i></a>
+                <a href="#" class="text-slate-400 hover:text-blue-500 transition-colors duration-200"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </footer>
 
     <script>
-        function showPublications(type) {
-            var byDate = document.getElementById('byDate');
-            var byType = document.getElementById('byType');
-            var tabs = document.querySelectorAll('.tab');
+        // Handle mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
 
-            if (type === 'byDate') {
-                byDate.style.display = 'block';
-                byType.style.display = 'none';
-                tabs[0].classList.add('active');
-                tabs[1].classList.remove('active');
-            } else {
-                byDate.style.display = 'none';
-                byType.style.display = 'block';
-                tabs[0].classList.remove('active');
-                tabs[1].classList.add('active');
-            }
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Search and Filter functionality
+        const searchInput = document.getElementById('search-publications');
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const publicationCards = document.querySelectorAll('.publication-card');
+        const noResultsMessage = document.getElementById('no-results');
+
+        function updatePublicationsDisplay() {
+            const searchTerm = searchInput.value.toLowerCase();
+            let activeFilter = document.querySelector('.filter-btn.bg-blue-500')?.dataset.filter || 'all';
+            let visibleCount = 0;
+
+            publicationCards.forEach(card => {
+                const cardText = card.textContent.toLowerCase();
+                const cardCategory = card.dataset.category;
+
+                const matchesSearch = cardText.includes(searchTerm);
+                const matchesFilter = activeFilter === 'all' || cardCategory === activeFilter;
+
+                if (matchesSearch && matchesFilter) {
+                    card.style.display = 'block';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            noResultsMessage.style.display = visibleCount === 0 ? 'block' : 'none';
         }
+
+        searchInput.addEventListener('keyup', updatePublicationsDisplay);
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                filterButtons.forEach(btn => btn.classList.remove('bg-blue-500'));
+                e.target.classList.add('bg-blue-500');
+                updatePublicationsDisplay();
+            });
+        });
+
+        // Initial filter state
+        document.querySelector('.filter-btn[data-filter="all"]').classList.add('bg-blue-500');
+        updatePublicationsDisplay();
     </script>
 </body>
 </html>
