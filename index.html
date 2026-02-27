@@ -1,321 +1,861 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr. Mohit Mittal - Data Scientist & AI Researcher</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0f172a;
-            color: #f1f5f9;
-        }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Mohit Mittal — Researcher & Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Syne:wght@400;500;700;800&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-        /* Custom scrollbar for a sleek look */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #1e293b;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #334155;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #475569;
-        }
+  :root {
+    --bg: #0a0a0f;
+    --bg2: #0f0f1a;
+    --bg3: #141425;
+    --gold: #c9a84c;
+    --gold2: #e8c97a;
+    --gold-dim: rgba(201,168,76,0.15);
+    --white: #f0ede6;
+    --white-dim: rgba(240,237,230,0.55);
+    --white-faint: rgba(240,237,230,0.08);
+    --accent: #5b8dee;
+    --border: rgba(201,168,76,0.2);
+  }
 
-        .scroll-to-top {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 1000;
-            cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
-            border-radius: 9999px; /* Rounded corners for the button */
-        }
+  html { scroll-behavior: smooth; }
 
-        .scroll-to-top.show {
-            opacity: 1;
-            visibility: visible;
-        }
+  body {
+    background: var(--bg);
+    color: var(--white);
+    font-family: 'DM Mono', monospace;
+    font-weight: 300;
+    overflow-x: hidden;
+    cursor: none;
+  }
 
-        /* Fade-in animation for sections */
-        .fade-in-up {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
+  /* CUSTOM CURSOR */
+  .cursor {
+    position: fixed; width: 10px; height: 10px;
+    background: var(--gold); border-radius: 50%;
+    pointer-events: none; z-index: 9999;
+    transform: translate(-50%,-50%);
+    transition: transform 0.1s ease, width 0.3s, height 0.3s, background 0.3s;
+    mix-blend-mode: difference;
+  }
+  .cursor-ring {
+    position: fixed; width: 36px; height: 36px;
+    border: 1px solid var(--gold); border-radius: 50%;
+    pointer-events: none; z-index: 9998;
+    transform: translate(-50%,-50%);
+    transition: transform 0.15s ease, width 0.3s, height 0.3s, opacity 0.3s;
+    opacity: 0.6;
+  }
 
-        .fade-in-up.fade-in-up-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+  /* NOISE TEXTURE OVERLAY */
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none; z-index: 0; opacity: 0.4;
+  }
 
-        /* Active navigation link styling */
-        .active-nav-link {
-            color: #2563eb;
-        }
+  /* NAVIGATION */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 28px 60px;
+    background: linear-gradient(to bottom, rgba(10,10,15,0.95), transparent);
+    backdrop-filter: blur(0px);
+    transition: padding 0.3s, backdrop-filter 0.3s, background 0.3s;
+  }
+  nav.scrolled {
+    padding: 18px 60px;
+    background: rgba(10,10,15,0.92);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; font-weight: 600;
+    color: var(--gold); letter-spacing: 2px;
+    text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 40px; list-style: none; }
+  .nav-links a {
+    font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase;
+    color: var(--white-dim); text-decoration: none;
+    transition: color 0.3s; position: relative;
+  }
+  .nav-links a::after {
+    content: ''; position: absolute; bottom: -4px; left: 0;
+    width: 0; height: 1px; background: var(--gold);
+    transition: width 0.3s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-links a:hover::after { width: 100%; }
 
-    </style>
+  /* HERO */
+  #hero {
+    min-height: 100vh;
+    display: grid; grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 0 60px;
+    position: relative; overflow: hidden;
+  }
+  .hero-bg-circle {
+    position: absolute; border-radius: 50%;
+    pointer-events: none;
+  }
+  .hbc1 {
+    width: 600px; height: 600px;
+    right: -100px; top: -100px;
+    background: radial-gradient(circle, rgba(201,168,76,0.07) 0%, transparent 70%);
+  }
+  .hbc2 {
+    width: 400px; height: 400px;
+    left: -100px; bottom: 0;
+    background: radial-gradient(circle, rgba(91,141,238,0.05) 0%, transparent 70%);
+  }
+  .hero-content { z-index: 1; }
+  .hero-tag {
+    font-size: 10px; letter-spacing: 4px; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 24px;
+    display: flex; align-items: center; gap: 12px;
+    opacity: 0; transform: translateY(20px);
+    animation: fadeUp 0.8s 0.2s forwards;
+  }
+  .hero-tag::before {
+    content: ''; width: 40px; height: 1px; background: var(--gold);
+  }
+  .hero-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(56px, 7vw, 90px);
+    font-weight: 300; line-height: 1.05;
+    color: var(--white);
+    opacity: 0; transform: translateY(30px);
+    animation: fadeUp 0.9s 0.4s forwards;
+  }
+  .hero-name em { font-style: italic; color: var(--gold); }
+  .hero-subtitle {
+    font-family: 'Syne', sans-serif;
+    font-size: 13px; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--white-dim); margin-top: 20px;
+    opacity: 0; transform: translateY(20px);
+    animation: fadeUp 0.8s 0.6s forwards;
+  }
+  .hero-desc {
+    font-size: 13px; line-height: 1.9;
+    color: var(--white-dim); margin-top: 28px;
+    max-width: 440px;
+    opacity: 0; transform: translateY(20px);
+    animation: fadeUp 0.8s 0.8s forwards;
+  }
+  .hero-cta {
+    display: flex; gap: 20px; margin-top: 44px; flex-wrap: wrap;
+    opacity: 0; transform: translateY(20px);
+    animation: fadeUp 0.8s 1.0s forwards;
+  }
+  .btn-primary {
+    padding: 14px 36px;
+    background: var(--gold); color: var(--bg);
+    font-family: 'DM Mono', monospace;
+    font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+    text-decoration: none; border: none;
+    cursor: none; transition: background 0.3s, transform 0.2s;
+  }
+  .btn-primary:hover { background: var(--gold2); transform: translateY(-2px); }
+  .btn-outline {
+    padding: 14px 36px;
+    background: transparent; color: var(--white-dim);
+    font-family: 'DM Mono', monospace;
+    font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+    text-decoration: none; border: 1px solid var(--border);
+    cursor: none; transition: border-color 0.3s, color 0.3s, transform 0.2s;
+  }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
+
+  /* HERO IMAGE SIDE */
+  .hero-visual {
+    display: flex; justify-content: center; align-items: center;
+    z-index: 1;
+    opacity: 0; transform: translateX(40px);
+    animation: fadeLeft 1s 0.5s forwards;
+  }
+  .hero-photo-frame {
+    position: relative; width: 340px; height: 420px;
+  }
+  .hero-photo-frame::before {
+    content: '';
+    position: absolute; top: 20px; left: 20px; right: -20px; bottom: -20px;
+    border: 1px solid var(--border); z-index: 0;
+  }
+  .hero-photo-frame::after {
+    content: '';
+    position: absolute; top: -20px; left: -20px; right: 20px; bottom: 20px;
+    background: var(--gold-dim); z-index: 0;
+  }
+  .hero-photo-inner {
+    position: relative; z-index: 1;
+    width: 100%; height: 100%;
+    background: var(--bg3);
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+  .hero-photo-inner img {
+    width: 100%; height: 100%; object-fit: cover;
+    filter: grayscale(30%) contrast(1.05);
+    transition: filter 0.4s;
+  }
+  .hero-photo-inner:hover img { filter: grayscale(0%) contrast(1.1); }
+  .hero-photo-placeholder {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 80px; color: var(--gold); opacity: 0.3;
+  }
+
+  /* STATS STRIP */
+  .stats-strip {
+    background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+    padding: 32px 60px;
+    display: flex; gap: 60px; flex-wrap: wrap;
+  }
+  .stat { flex: 1; min-width: 150px; }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px; font-weight: 300;
+    color: var(--gold); line-height: 1;
+  }
+  .stat-label {
+    font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase;
+    color: var(--white-dim); margin-top: 6px;
+  }
+
+  /* SECTIONS */
+  section { padding: 100px 60px; position: relative; }
+  .section-header {
+    display: flex; align-items: center; gap: 20px;
+    margin-bottom: 64px;
+  }
+  .section-number {
+    font-size: 11px; letter-spacing: 3px;
+    color: var(--gold); font-family: 'DM Mono', monospace;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 300; color: var(--white); line-height: 1.1;
+  }
+  .section-title em { font-style: italic; color: var(--gold); }
+  .section-line {
+    flex: 1; height: 1px; background: var(--border);
+  }
+
+  /* ABOUT SECTION */
+  #about { background: var(--bg2); }
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
+    align-items: start;
+  }
+  .about-text p {
+    font-size: 14px; line-height: 2; color: var(--white-dim);
+    margin-bottom: 20px;
+  }
+  .about-text p strong { color: var(--white); font-weight: 400; }
+  .about-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 32px; }
+  .tag {
+    padding: 6px 16px;
+    border: 1px solid var(--border);
+    font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--gold); transition: background 0.3s, color 0.3s;
+  }
+  .tag:hover { background: var(--gold-dim); }
+  .about-info { }
+  .info-item {
+    padding: 20px 0; border-bottom: 1px solid var(--white-faint);
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .info-key { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); }
+  .info-val { font-size: 13px; color: var(--white-dim); text-align: right; max-width: 55%; }
+
+  /* RESEARCH SECTION */
+  #research { background: var(--bg); }
+  .research-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2px;
+  }
+  .research-card {
+    background: var(--bg2); padding: 40px 36px;
+    border: 1px solid transparent;
+    transition: border-color 0.3s, background 0.3s, transform 0.3s;
+    position: relative; overflow: hidden;
+  }
+  .research-card::before {
+    content: ''; position: absolute; top: 0; left: 0;
+    width: 3px; height: 0;
+    background: var(--gold);
+    transition: height 0.4s;
+  }
+  .research-card:hover::before { height: 100%; }
+  .research-card:hover {
+    border-color: var(--border);
+    background: var(--bg3);
+    transform: translateY(-4px);
+  }
+  .rc-num {
+    font-size: 11px; letter-spacing: 2px; color: var(--gold);
+    margin-bottom: 16px;
+  }
+  .rc-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 17px; font-weight: 700;
+    color: var(--white); margin-bottom: 14px; line-height: 1.3;
+  }
+  .rc-desc {
+    font-size: 12px; line-height: 1.85; color: var(--white-dim);
+  }
+  .rc-icon {
+    font-size: 32px; margin-bottom: 20px;
+    filter: grayscale(0.3);
+  }
+
+  /* PUBLICATIONS SECTION */
+  #publications { background: var(--bg2); }
+  .pub-item {
+    display: grid; grid-template-columns: 80px 1fr;
+    gap: 32px; padding: 36px 0;
+    border-bottom: 1px solid var(--white-faint);
+    align-items: start;
+    transition: padding-left 0.3s;
+    position: relative;
+  }
+  .pub-item:hover { padding-left: 12px; }
+  .pub-year {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px; font-weight: 300;
+    color: var(--gold); opacity: 0.5; line-height: 1;
+    padding-top: 4px;
+  }
+  .pub-content { }
+  .pub-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 15px; font-weight: 500;
+    color: var(--white); margin-bottom: 8px; line-height: 1.4;
+  }
+  .pub-authors { font-size: 12px; color: var(--white-dim); margin-bottom: 6px; line-height: 1.6; }
+  .pub-authors strong { color: var(--gold); font-weight: 400; }
+  .pub-venue {
+    font-size: 11px; letter-spacing: 1.5px;
+    color: var(--accent); text-transform: uppercase;
+  }
+  .pub-badges { display: flex; gap: 10px; margin-top: 12px; flex-wrap: wrap; }
+  .badge {
+    padding: 3px 12px;
+    font-size: 9px; letter-spacing: 2px; text-transform: uppercase;
+    border: 1px solid; border-radius: 0;
+  }
+  .badge-gold { border-color: var(--gold); color: var(--gold); }
+  .badge-blue { border-color: var(--accent); color: var(--accent); }
+
+  /* TALKS SECTION */
+  #talks { background: var(--bg); }
+  .talks-timeline { position: relative; padding-left: 40px; }
+  .talks-timeline::before {
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+    width: 1px; background: var(--border);
+  }
+  .talk-item {
+    position: relative; padding: 0 0 48px 40px;
+    transition: transform 0.3s;
+  }
+  .talk-item:hover { transform: translateX(6px); }
+  .talk-dot {
+    position: absolute; left: -41px; top: 6px;
+    width: 10px; height: 10px;
+    border: 1px solid var(--gold); background: var(--bg);
+    transition: background 0.3s;
+  }
+  .talk-item:hover .talk-dot { background: var(--gold); }
+  .talk-date {
+    font-size: 10px; letter-spacing: 2px; color: var(--gold);
+    margin-bottom: 8px; text-transform: uppercase;
+  }
+  .talk-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 16px; font-weight: 500;
+    color: var(--white); margin-bottom: 6px;
+  }
+  .talk-venue { font-size: 12px; color: var(--white-dim); }
+
+  /* CONTACT SECTION */
+  #contact { background: var(--bg2); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+  .contact-intro {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px; font-weight: 300; line-height: 1.5;
+    color: var(--white-dim);
+    margin-bottom: 40px;
+  }
+  .contact-intro em { font-style: italic; color: var(--gold); }
+  .contact-links { display: flex; flex-direction: column; gap: 0; }
+  .contact-link {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 20px 0; border-bottom: 1px solid var(--white-faint);
+    text-decoration: none; color: var(--white-dim);
+    font-size: 13px; letter-spacing: 1px;
+    transition: color 0.3s, padding-left 0.3s;
+  }
+  .contact-link:hover { color: var(--gold); padding-left: 8px; }
+  .contact-link-icon { font-size: 18px; opacity: 0.5; }
+  .contact-form { }
+  .form-group { margin-bottom: 28px; }
+  .form-label {
+    display: block; font-size: 10px; letter-spacing: 2.5px;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 10px;
+  }
+  .form-input, .form-textarea {
+    width: 100%; background: var(--white-faint);
+    border: 1px solid var(--border); color: var(--white);
+    padding: 14px 18px;
+    font-family: 'DM Mono', monospace; font-size: 13px;
+    outline: none; transition: border-color 0.3s;
+    resize: none;
+  }
+  .form-input:focus, .form-textarea:focus { border-color: var(--gold); }
+  .form-textarea { height: 120px; }
+  .form-submit {
+    width: 100%; padding: 16px;
+    background: var(--gold); color: var(--bg);
+    font-family: 'DM Mono', monospace; font-size: 11px;
+    letter-spacing: 3px; text-transform: uppercase;
+    border: none; cursor: none;
+    transition: background 0.3s, transform 0.2s;
+  }
+  .form-submit:hover { background: var(--gold2); transform: translateY(-2px); }
+
+  /* FOOTER */
+  footer {
+    background: var(--bg); border-top: 1px solid var(--border);
+    padding: 40px 60px;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 20px;
+  }
+  .footer-copy { font-size: 11px; letter-spacing: 1.5px; color: var(--white-dim); }
+  .footer-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px; font-weight: 300; color: var(--gold);
+  }
+
+  /* SCROLL REVEAL */
+  .reveal {
+    opacity: 0; transform: translateY(30px);
+    transition: opacity 0.7s, transform 0.7s;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeLeft {
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  /* SCROLLBAR */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--gold); }
+
+  /* MOBILE */
+  @media (max-width: 768px) {
+    nav { padding: 20px 24px; }
+    nav.scrolled { padding: 14px 24px; }
+    .nav-links { display: none; }
+    #hero { grid-template-columns: 1fr; padding: 120px 24px 60px; }
+    .hero-visual { display: none; }
+    .stats-strip { padding: 24px; gap: 32px; }
+    section { padding: 70px 24px; }
+    .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+    .pub-item { grid-template-columns: 60px 1fr; gap: 20px; }
+    footer { padding: 28px 24px; }
+  }
+</style>
 </head>
-<body class="bg-slate-950 text-slate-100">
+<body>
 
-    <!-- Navigation Bar -->
-    <nav class="fixed w-full z-50 bg-slate-950/70 backdrop-blur-md transition-all duration-300 ease-in-out">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-            <a href="index.html" class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">
-                Dr. Mohit Mittal
-            </a>
-            <!-- Desktop Navigation -->
-            <div class="hidden md:flex space-x-8 items-center">
-                <a href="#about" class="text-slate-300 hover:text-blue-400 transition-colors duration-200">About</a>
-                <a href="#news" class="text-slate-300 hover:text-blue-400 transition-colors duration-200">News</a>
-                <a href="#experience" class="text-slate-300 hover:text-blue-400 transition-colors duration-200">Experience</a>
-                <a href="publications.html" class="text-slate-300 hover:text-blue-400 transition-colors duration-200">Publications</a>
-                <a href="research.html" class="text-slate-300 hover:text-blue-400 transition-colors duration-200">Research</a>
-                <a href="talks.html" class="text-slate-300 hover:text-blue-400 transition-colors duration-200">Talks</a>
-                <a href="resume.html" class="text-slate-300 hover:text-blue-400 transition-colors duration-200">Resume</a>
-            </div>
-            <!-- Mobile Menu Button -->
-            <div class="md:hidden">
-                <button id="mobile-menu-button" class="text-slate-300 hover:text-blue-400 focus:outline-none">
-                    <i class="fas fa-bars text-2xl"></i>
-                </button>
-            </div>
-        </div>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-slate-950/90 py-2">
-            <a href="#about" class="block py-2 px-4 text-slate-300 hover:bg-slate-800">About</a>
-            <a href="#news" class="block py-2 px-4 text-slate-300 hover:bg-slate-800">News</a>
-            <a href="#experience" class="block py-2 px-4 text-slate-300 hover:bg-slate-800">Experience</a>
-            <a href="publications.html" class="block py-2 px-4 text-slate-300 hover:bg-slate-800">Publications</a>
-            <a href="research.html" class="block py-2 px-4 text-slate-300 hover:bg-slate-800">Research</a>
-            <a href="talks.html" class="block py-2 px-4 text-slate-300 hover:text-blue-400 hover:bg-slate-800">Talks</a>
-            <a href="resume.html" class="block py-2 px-4 text-slate-300 hover:bg-slate-800">Resume</a>
-        </div>
-    </nav>
+<!-- CURSOR -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
 
-    <!-- Main Content -->
-    <main>
-        <!-- Hero/About Section -->
-        <section id="about" class="min-h-screen flex items-center justify-center pt-24 pb-16 bg-slate-900 border-b border-slate-800">
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-center text-center md:text-left gap-8 lg:gap-16">
-                <div class="md:w-1/2 lg:w-2/3">
-                    <h1 class="text-5xl lg:text-7xl font-extrabold leading-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600 mb-4 animate-pulse">
-                        Dr. Mohit Mittal
-                    </h1>
-                    <p class="text-2xl lg:text-3xl text-slate-300 mb-6 font-light">
-                        Data Scientist & AI Researcher
-                    </p>
-                    <!-- Updated About Section Content with more detail from CV -->
-                    <p class="text-base md:text-lg text-slate-400 leading-relaxed mb-6">
-                        I am a Data Scientist with a Ph.D. in Computer Science and over 7 years of experience in Artificial Intelligence, specializing in Machine Learning, Deep Learning, and Explainable AI (XAI). My work focuses on designing end-to-end AI solutions, from predictive models to intelligent automation systems. I have a strong background in Natural Language Processing (NLP), Large Language Models (LLMs), and Computer Vision, with practical experience in LLM fine-tuning, cloud-based AI deployments (Azure, AWS), and MLOps. As a published researcher with over 1500 citations, I am passionate about bridging the gap between cutting-edge research and its practical application in real-world scenarios.
-                    </p>
-                    <div class="flex justify-center md:justify-start space-x-4">
-                        <a href="mailto:mittal.mohit02@gmail.com" class="bg-blue-600 text-white font-bold py-3 px-6 rounded-full hover:bg-blue-700 transition duration-300 shadow-lg transform hover:scale-105">
-                            Contact Me
-                        </a>
-                        <a href="Mohit_CV_2025.pdf" target="_blank" class="bg-slate-700 text-slate-300 font-bold py-3 px-6 rounded-full hover:bg-slate-600 transition duration-300 shadow-lg transform hover:scale-105">
-                            View Resume
-                        </a>
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">MM</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#talks">Talks</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
 
-                    </div>
-                </div>
-                <div class="md:w-1/2 lg:w-1/3 flex justify-center">
-                    <div class="relative w-64 h-64 lg:w-80 lg:h-80 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full shadow-2xl overflow-hidden animate-pulse-slow">
-                        <!-- Replaced placeholder image with user's uploaded image -->
-                        <img src="IMG_6793.jpg" alt="Dr. Mohit Mittal" class="object-cover w-full h-full p-2 rounded-full" onerror="this.onerror=null; this.src='https://placehold.co/500x500/1e293b/d1d5db?text=Dr.+Mohit+Mittal';">
-                    </div>
-                </div>
-            </div>
-        </section>
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg-circle hbc1"></div>
+  <div class="hero-bg-circle hbc2"></div>
 
-        <!-- New News Section -->
-        <section id="news" class="py-16 bg-slate-950 border-b border-slate-800">
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="text-4xl lg:text-5xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600 mb-12">
-                    Latest News
-                </h2>
-                <div class="grid md:grid-cols-2 gap-8">
-                    <!-- News Item 1 -->
-                    <div class="bg-slate-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-105">
-                        <h3 class="text-2xl font-bold text-blue-400 mb-2">Paper Acceptance at ACM Multimedia</h3>
-                        <p class="text-sm text-slate-400 mb-4">October 25, 2019</p>
-                        <p class="text-slate-300">
-                            Our paper, "Development of an Acoustic AR Gamification System to Support Physical Exercise", has been accepted for publication at ACM Multimedia in Nice, France. This work explores a novel approach to gamifying physical activity using acoustic augmented reality.
-                        </p>
-                    </div>
-                    <!-- News Item 2 -->
-                    <div class="bg-slate-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-105">
-                        <h3 class="text-2xl font-bold text-blue-400 mb-2">Research on Explainable AI published in W2GIS</h3>
-                        <p class="text-sm text-slate-400 mb-4">May 19, 2020</p>
-                        <p class="text-slate-300">
-                            Our paper, "Multilingual Correlation of Geo-tagged Tweets for POI Recommendation," was published in W2GIS, China. This research contributes to making AI models more transparent and understandable in the context of location-based services.
-                        </p>
-                    </div>
-                    <!-- Add more news items here as needed -->
-                </div>
-            </div>
-        </section>
-        
-        <!-- Experience Section -->
-        <section id="experience" class="py-16 bg-slate-900 border-b border-slate-800">
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="text-4xl lg:text-5xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600 mb-12">
-                Experience
-                </h2>
-                <div class="space-y-8">
-
-                <!-- Experience 1 -->
-                <div class="bg-slate-800 p-6 rounded-lg shadow-lg">
-                    <div class="flex items-center justify-between mb-4">
-                    <div>
-                        <h3 class="text-2xl font-bold text-blue-400">AI Data Scientist</h3>
-                        <p class="text-lg text-slate-300">Smart Labs AI GmbH</p>
-                    </div>
-                    <span class="text-slate-400 font-semibold">Jul 2025 – Present</span>
-                    </div>
-                </div>
-
-                <!-- Experience 2 -->
-                <div class="bg-slate-800 p-6 rounded-lg shadow-lg">
-                    <div class="flex items-center justify-between mb-4">
-                    <div>
-                        <h3 class="text-2xl font-bold text-blue-400">Data Scientist</h3>
-                        <p class="text-lg text-slate-300">Knowtion GmbH</p>
-                    </div>
-                    <span class="text-slate-400 font-semibold">Oct 2022 – Jun 2025</span>
-                    </div>
-                    <ul class="list-disc list-inside space-y-2 text-slate-300">
-                    <li>Designed and deployed explainable AI frameworks for real-world applications.</li>
-                    <li>Developed machine learning pipelines to process sensor and behavioral data.</li>
-                    </ul>
-                </div>
-
-                <!-- Experience 3 -->
-                <div class="bg-slate-800 p-6 rounded-lg shadow-lg">
-                    <div class="flex items-center justify-between mb-4">
-                    <div>
-                        <h3 class="text-2xl font-bold text-blue-400">Postdoctoral Researcher</h3>
-                        <p class="text-lg text-slate-300">Inria </p>
-                    </div>
-                    <span class="text-slate-400 font-semibold">Oct 2020 – Sep 2022</span>
-                    </div>
-                    <p class="text-slate-300">Advanced research in Visual Question Answering and explainability techniques.</p>
-                </div>
-
-                <!-- Experience 4 -->
-                <div class="bg-slate-800 p-6 rounded-lg shadow-lg">
-                    <div class="flex items-center justify-between mb-4">
-                    <div>
-                        <h3 class="text-2xl font-bold text-blue-400">Postdoctoral Researcher</h3>
-                        <p class="text-lg text-slate-300">Kyoto Sangyo University</p>
-                    </div>
-                    <span class="text-slate-400 font-semibold">Mar 2019 – Sep 2020</span>
-                    </div>
-                </div>
-
-                </div>
-            </div>
-            </section>
-
-
-        <!-- Other sections like Publications, Research, Talks, etc. will go here, linking to their respective pages -->
-        <section id="other-pages" class="py-16 bg-slate-950">
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h2 class="text-4xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600 mb-12">
-                    Explore My Work
-                </h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <a href="publications.html" class="p-8 bg-slate-800 rounded-lg shadow-lg transition duration-300 transform hover:scale-105 hover:bg-slate-700">
-                        <i class="fas fa-book-open text-4xl text-blue-400 mb-4"></i>
-                        <h3 class="text-xl font-bold text-slate-100">Publications</h3>
-                        <p class="text-slate-400 mt-2">View a list of my published research papers.</p>
-                    </a>
-                    <a href="research.html" class="p-8 bg-slate-800 rounded-lg shadow-lg transition duration-300 transform hover:scale-105 hover:bg-slate-700">
-                        <i class="fas fa-flask text-4xl text-purple-400 mb-4"></i>
-                        <h3 class="text-xl font-bold text-slate-100">Research Areas</h3>
-                        <p class="text-slate-400 mt-2">Discover my work in Explainable AI, Computer Vision, and more.</p>
-                    </a>
-                    <a href="talks.html" class="p-8 bg-slate-800 rounded-lg shadow-lg transition duration-300 transform hover:scale-105 hover:bg-slate-700">
-                        <i class="fas fa-microphone-alt text-4xl text-green-400 mb-4"></i>
-                        <h3 class="text-xl font-bold text-slate-100">Talks</h3>
-                        <p class="text-slate-400 mt-2">Check out my recent research talks and guest lectures.</p>
-                    </a>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Scroll to Top Button -->
-    <div id="scrollToTopBtn" class="scroll-to-top p-4 bg-blue-600 text-white shadow-xl hover:bg-blue-700 transition duration-300">
-        <i class="fas fa-arrow-up"></i>
+  <div class="hero-content">
+    <div class="hero-tag">Researcher · Engineer · Innovator</div>
+    <h1 class="hero-name">Mohit<br/><em>Mittal</em></h1>
+    <p class="hero-subtitle">Ph.D. Researcher &amp; Engineer</p>
+    <p class="hero-desc">
+      Pushing the boundaries of science and engineering through rigorous research,
+      innovative thinking, and impactful publications. Dedicated to advancing knowledge
+      at the intersection of technology and discovery.
+    </p>
+    <div class="hero-cta">
+      <a href="Mohit_CV_2025.pdf" class="btn-primary">Download CV</a>
+      <a href="#research" class="btn-outline">View Research</a>
     </div>
+  </div>
 
-    <!-- Footer -->
-    <footer class="bg-slate-950 py-12 border-t border-slate-800">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <p class="text-slate-400">
-                &copy; <span id="year"></span> Dr. Mohit Mittal. All rights reserved.
-            </p>
-            <div class="mt-6 flex justify-center space-x-6 text-xl">
-                <a href="#" class="text-slate-400 hover:text-blue-500 transition-colors duration-200"><i class="fab fa-linkedin"></i></a>
-                <a href="#" class="text-slate-400 hover:text-blue-500 transition-colors duration-200"><i class="fab fa-github"></i></a>
-                <a href="#" class="text-slate-400 hover:text-blue-500 transition-colors duration-200"><i class="fas fa-envelope"></i></a>
-            </div>
-        </div>
-    </footer>
+  <div class="hero-visual">
+    <div class="hero-photo-frame">
+      <div class="hero-photo-inner">
+        <!-- Replace IMG_6793.jpg with actual photo path -->
+        <img src="IMG_6793.jpg" alt="Mohit Mittal"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"/>
+        <div class="hero-photo-placeholder" style="display:none">MM</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <script>
-        // Handle mobile menu toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
+<!-- STATS STRIP -->
+<div class="stats-strip">
+  <div class="stat reveal">
+    <div class="stat-num" data-target="20">0</div>
+    <div class="stat-label">Publications</div>
+  </div>
+  <div class="stat reveal" style="transition-delay:0.1s">
+    <div class="stat-num" data-target="15">0</div>
+    <div class="stat-label">Conferences</div>
+  </div>
+  <div class="stat reveal" style="transition-delay:0.2s">
+    <div class="stat-num" data-target="500">0</div>
+    <div class="stat-label">Citations</div>
+  </div>
+  <div class="stat reveal" style="transition-delay:0.3s">
+    <div class="stat-num" data-target="8">0</div>
+    <div class="stat-label">Years Research</div>
+  </div>
+</div>
 
-        // Set current year in footer
-        document.getElementById('year').textContent = new Date().getFullYear();
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-header">
+    <span class="section-number">01</span>
+    <h2 class="section-title">About <em>Me</em></h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <p>I am a dedicated researcher and engineer passionate about solving complex problems at the frontier of science and technology. My work spans multiple disciplines, combining theoretical rigor with practical innovation.</p>
+      <p>With a strong foundation in engineering and a drive for discovery, I have contributed to cutting-edge research published in leading journals and presented at international conferences.</p>
+      <p>I believe in the power of <strong>collaboration, curiosity, and persistence</strong> to drive meaningful scientific progress that impacts the real world.</p>
+      <div class="about-tags">
+        <span class="tag">Machine Learning</span>
+        <span class="tag">Signal Processing</span>
+        <span class="tag">Data Science</span>
+        <span class="tag">IEEE Member</span>
+        <span class="tag">Python</span>
+        <span class="tag">Deep Learning</span>
+      </div>
+    </div>
+    <div class="about-info reveal" style="transition-delay:0.2s">
+      <div class="info-item">
+        <span class="info-key">Position</span>
+        <span class="info-val">Ph.D. Researcher</span>
+      </div>
+      <div class="info-item">
+        <span class="info-key">Affiliation</span>
+        <span class="info-val">University / Research Institute</span>
+      </div>
+      <div class="info-item">
+        <span class="info-key">Focus</span>
+        <span class="info-val">Engineering &amp; Applied Sciences</span>
+      </div>
+      <div class="info-item">
+        <span class="info-key">Email</span>
+        <span class="info-val">mohitmittal1988@github</span>
+      </div>
+      <div class="info-item">
+        <span class="info-key">Location</span>
+        <span class="info-val">Global</span>
+      </div>
+    </div>
+  </div>
+</section>
 
-        // Scroll to top button functionality
-        const scrollToTopBtn = document.getElementById('scrollToTopBtn');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) {
-                scrollToTopBtn.classList.add('show');
-            } else {
-                scrollToToBtn.classList.remove('show');
-            }
-        });
+<!-- RESEARCH -->
+<section id="research">
+  <div class="section-header">
+    <span class="section-number">02</span>
+    <h2 class="section-title"><em>Research</em> Areas</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="research-grid">
+    <div class="research-card reveal">
+      <div class="rc-icon">⚡</div>
+      <div class="rc-num">01 /</div>
+      <div class="rc-title">Signal Processing &amp; Analysis</div>
+      <p class="rc-desc">Advanced techniques in signal decomposition, feature extraction, and noise reduction for real-world sensor data and communications systems.</p>
+    </div>
+    <div class="research-card reveal" style="transition-delay:0.1s">
+      <div class="rc-icon">🧠</div>
+      <div class="rc-num">02 /</div>
+      <div class="rc-title">Machine Learning Applications</div>
+      <p class="rc-desc">Developing intelligent models for classification, regression, and anomaly detection applied to engineering and scientific data.</p>
+    </div>
+    <div class="research-card reveal" style="transition-delay:0.2s">
+      <div class="rc-icon">📡</div>
+      <div class="rc-num">03 /</div>
+      <div class="rc-title">Wireless Communications</div>
+      <p class="rc-desc">Research in next-generation communication systems, spectrum optimization, and interference management for modern networks.</p>
+    </div>
+    <div class="research-card reveal" style="transition-delay:0.3s">
+      <div class="rc-icon">📊</div>
+      <div class="rc-num">04 /</div>
+      <div class="rc-title">Data-Driven Engineering</div>
+      <p class="rc-desc">Bridging the gap between raw data and actionable insights using statistical modeling and computational methods.</p>
+    </div>
+    <div class="research-card reveal" style="transition-delay:0.4s">
+      <div class="rc-icon">🔬</div>
+      <div class="rc-num">05 /</div>
+      <div class="rc-title">Experimental Validation</div>
+      <p class="rc-desc">Designing and conducting experiments to validate theoretical models, bridging simulation and real-world performance.</p>
+    </div>
+    <div class="research-card reveal" style="transition-delay:0.5s">
+      <div class="rc-icon">🌐</div>
+      <div class="rc-num">06 /</div>
+      <div class="rc-title">Cross-disciplinary Innovation</div>
+      <p class="rc-desc">Applying engineering principles to solve challenges across healthcare, environment, and smart infrastructure domains.</p>
+    </div>
+  </div>
+</section>
 
-        scrollToTopBtn.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
+<!-- PUBLICATIONS -->
+<section id="publications">
+  <div class="section-header">
+    <span class="section-number">03</span>
+    <h2 class="section-title">Selected <em>Publications</em></h2>
+    <div class="section-line"></div>
+  </div>
 
-        // Smooth scrolling for navigation
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                    if (mobileMenu.classList.contains('hidden') === false) {
-                        mobileMenu.classList.add('hidden');
-                    }
-                }
-            });
-        });
-    </script>
+  <div class="pub-item reveal">
+    <div class="pub-year">2025</div>
+    <div class="pub-content">
+      <div class="pub-title">Advanced Signal Processing Framework for Next-Generation Communication Systems</div>
+      <div class="pub-authors"><strong>M. Mittal</strong>, A. Collaborator, B. Researcher</div>
+      <div class="pub-venue">IEEE Transactions on Communications</div>
+      <div class="pub-badges">
+        <span class="badge badge-gold">IEEE</span>
+        <span class="badge badge-blue">Journal</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="pub-item reveal" style="transition-delay:0.1s">
+    <div class="pub-year">2024</div>
+    <div class="pub-content">
+      <div class="pub-title">Machine Learning-Based Anomaly Detection in Industrial Sensor Networks</div>
+      <div class="pub-authors"><strong>M. Mittal</strong>, C. Author, D. Expert</div>
+      <div class="pub-venue">IEEE International Conference on Machine Learning</div>
+      <div class="pub-badges">
+        <span class="badge badge-gold">Best Paper Nominee</span>
+        <span class="badge badge-blue">Conference</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="pub-item reveal" style="transition-delay:0.2s">
+    <div class="pub-year">2023</div>
+    <div class="pub-content">
+      <div class="pub-title">Deep Learning Approaches for Spectrum Sensing in Cognitive Radio Systems</div>
+      <div class="pub-authors"><strong>M. Mittal</strong>, E. Co-Author</div>
+      <div class="pub-venue">Elsevier Signal Processing Journal</div>
+      <div class="pub-badges">
+        <span class="badge badge-blue">Journal</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="pub-item reveal" style="transition-delay:0.3s">
+    <div class="pub-year">2022</div>
+    <div class="pub-content">
+      <div class="pub-title">Robust Estimation Techniques for Non-Stationary Time Series Data</div>
+      <div class="pub-authors"><strong>M. Mittal</strong>, F. Researcher, G. Scientist</div>
+      <div class="pub-venue">IEEE Signal Processing Letters</div>
+      <div class="pub-badges">
+        <span class="badge badge-gold">IEEE</span>
+        <span class="badge badge-blue">Letter</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top: 48px; text-align: center;" class="reveal">
+    <a href="publications.html" class="btn-outline">View All Publications →</a>
+  </div>
+</section>
+
+<!-- TALKS -->
+<section id="talks">
+  <div class="section-header">
+    <span class="section-number">04</span>
+    <h2 class="section-title">Talks &amp; <em>Presentations</em></h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="talks-timeline">
+    <div class="talk-item reveal">
+      <div class="talk-dot"></div>
+      <div class="talk-date">2025 · IEEE International Symposium</div>
+      <div class="talk-title">Invited Talk: Future Directions in Intelligent Signal Processing</div>
+      <div class="talk-venue">Keynote Address — International Conference on Communications</div>
+    </div>
+    <div class="talk-item reveal" style="transition-delay:0.1s">
+      <div class="talk-dot"></div>
+      <div class="talk-date">2024 · Global ML Summit</div>
+      <div class="talk-title">Workshop: Practical Deep Learning for Engineers</div>
+      <div class="talk-venue">Hands-on Tutorial Session</div>
+    </div>
+    <div class="talk-item reveal" style="transition-delay:0.2s">
+      <div class="talk-dot"></div>
+      <div class="talk-date">2023 · University Seminar Series</div>
+      <div class="talk-title">Research Seminar: Data-Driven Approaches to Engineering Challenges</div>
+      <div class="talk-venue">Department of Electrical Engineering</div>
+    </div>
+    <div class="talk-item reveal" style="transition-delay:0.3s">
+      <div class="talk-dot"></div>
+      <div class="talk-date">2022 · IEEE ICASSP</div>
+      <div class="talk-title">Paper Presentation: Novel Methods in Spectrum Analysis</div>
+      <div class="talk-venue">IEEE International Conference on Acoustics, Speech and Signal Processing</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-header">
+    <span class="section-number">05</span>
+    <h2 class="section-title">Get in <em>Touch</em></h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="contact-grid">
+    <div class="reveal">
+      <p class="contact-intro">Interested in <em>collaboration</em>, research opportunities, or just a conversation? I'd love to hear from you.</p>
+      <div class="contact-links">
+        <a href="https://github.com/mohitmittal1988" class="contact-link" target="_blank">
+          <span>GitHub / mohitmittal1988</span>
+          <span class="contact-link-icon">↗</span>
+        </a>
+        <a href="#" class="contact-link">
+          <span>LinkedIn</span>
+          <span class="contact-link-icon">↗</span>
+        </a>
+        <a href="https://www.ieee.org" class="contact-link" target="_blank">
+          <span>IEEE Profile</span>
+          <span class="contact-link-icon">↗</span>
+        </a>
+        <a href="Mohit_CV_2025.pdf" class="contact-link" target="_blank">
+          <span>Download CV (PDF)</span>
+          <span class="contact-link-icon">↓</span>
+        </a>
+      </div>
+    </div>
+    <div class="contact-form reveal" style="transition-delay:0.2s">
+      <div class="form-group">
+        <label class="form-label">Your Name</label>
+        <input type="text" class="form-input" placeholder="John Doe"/>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Email Address</label>
+        <input type="email" class="form-input" placeholder="john@example.com"/>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Message</label>
+        <textarea class="form-textarea" placeholder="Tell me about your project or inquiry..."></textarea>
+      </div>
+      <button class="form-submit">Send Message →</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-copy">© 2025 Mohit Mittal · All Rights Reserved</div>
+  <div class="footer-name">MM</div>
+  <div class="footer-copy">Built with precision &amp; passion</div>
+</footer>
+
+<script>
+  // CURSOR
+  const cursor = document.getElementById('cursor');
+  const ring = document.getElementById('cursorRing');
+  let mx = 0, my = 0, rx = 0, ry = 0;
+  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+  function animCursor() {
+    cursor.style.left = mx + 'px'; cursor.style.top = my + 'px';
+    rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12;
+    ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+    requestAnimationFrame(animCursor);
+  }
+  animCursor();
+  document.querySelectorAll('a, button, .research-card, .talk-item').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      cursor.style.width = '18px'; cursor.style.height = '18px';
+      ring.style.width = '54px'; ring.style.height = '54px';
+    });
+    el.addEventListener('mouseleave', () => {
+      cursor.style.width = '10px'; cursor.style.height = '10px';
+      ring.style.width = '36px'; ring.style.height = '36px';
+    });
+  });
+
+  // NAVBAR SCROLL
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // SCROLL REVEAL
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // COUNTER ANIMATION
+  function animateCounter(el, target) {
+    let start = 0;
+    const dur = 1800;
+    const step = timestamp => {
+      if (!start) start = timestamp;
+      const progress = Math.min((timestamp - start) / dur, 1);
+      el.textContent = Math.floor(progress * target);
+      if (progress < 1) requestAnimationFrame(step);
+      else el.textContent = target + '+';
+    };
+    requestAnimationFrame(step);
+  }
+  const counterObserver = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const target = parseInt(e.target.dataset.target);
+        animateCounter(e.target, target);
+        counterObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('[data-target]').forEach(el => counterObserver.observe(el));
+</script>
 </body>
 </html>
