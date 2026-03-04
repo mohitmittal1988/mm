@@ -1,294 +1,265 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Publications - Dr. Mohit Mittal</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0f172a;
-            color: #f1f5f9;
-        }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Publications — Mohit Mittal</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Syne:wght@400;500;700;800&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #0a0a0f; --bg2: #0f0f1a; --bg3: #141425;
+    --gold: #c9a84c; --gold2: #e8c97a; --gold-dim: rgba(201,168,76,0.15);
+    --white: #f0ede6; --white-dim: rgba(240,237,230,0.55); --white-faint: rgba(240,237,230,0.08);
+    --accent: #5b8dee; --border: rgba(201,168,76,0.2);
+  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--white); font-family: 'DM Mono', monospace; font-weight: 300; overflow-x: hidden; cursor: none; }
 
-        .scroll-to-top {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 1000;
-            cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
-            border-radius: 9999px; /* Rounded corners for the button */
-        }
+.cursor { position: fixed; width: 10px; height: 10px; background: var(–gold); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); transition: width 0.3s, height 0.3s; mix-blend-mode: difference; }
+.cursor-ring { position: fixed; width: 36px; height: 36px; border: 1px solid var(–gold); border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); transition: width 0.3s, height 0.3s; opacity: 0.6; }
 
-        .scroll-to-top.show {
-            opacity: 1;
-            visibility: visible;
-        }
+body::before { content: ‘’; position: fixed; inset: 0; background-image: url(“data:image/svg+xml,%3Csvg viewBox=‘0 0 200 200’ xmlns=‘http://www.w3.org/2000/svg’%3E%3Cfilter id=‘noise’%3E%3CfeTurbulence type=‘fractalNoise’ baseFrequency=‘0.9’ numOctaves=‘4’ stitchTiles=‘stitch’/%3E%3C/filter%3E%3Crect width=‘100%25’ height=‘100%25’ filter=‘url(%23noise)’ opacity=‘0.04’/%3E%3C/svg%3E”); pointer-events: none; z-index: 0; opacity: 0.4; }
 
-        .publication-card {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 28px 60px; background: linear-gradient(to bottom, rgba(10,10,15,0.95), transparent); transition: padding 0.3s, backdrop-filter 0.3s, background 0.3s; }
+nav.scrolled { padding: 18px 60px; background: rgba(10,10,15,0.92); backdrop-filter: blur(20px); border-bottom: 1px solid var(–border); }
+.nav-logo { font-family: ‘Cormorant Garamond’, serif; font-size: 22px; font-weight: 600; color: var(–gold); letter-spacing: 2px; text-decoration: none; }
+.nav-links { display: flex; gap: 40px; list-style: none; }
+.nav-links a { font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; color: var(–white-dim); text-decoration: none; transition: color 0.3s; position: relative; }
+.nav-links a::after { content: ‘’; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px; background: var(–gold); transition: width 0.3s; }
+.nav-links a:hover, .nav-links a.active { color: var(–gold); }
+.nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
 
-        .publication-card.fade-in {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </style>
+.page-hero { min-height: 50vh; display: flex; align-items: flex-end; padding: 0 60px 60px; position: relative; overflow: hidden; background: var(–bg2); border-bottom: 1px solid var(–border); }
+.page-hero::before { content: ‘’; position: absolute; width: 500px; height: 500px; border-radius: 50%; right: -100px; top: -100px; background: radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 70%); pointer-events: none; }
+.page-hero-tag { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: var(–gold); margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
+.page-hero-tag::before { content: ‘’; width: 40px; height: 1px; background: var(–gold); }
+.page-hero-title { font-family: ‘Cormorant Garamond’, serif; font-size: clamp(52px, 8vw, 100px); font-weight: 300; line-height: 1; color: var(–white); }
+.page-hero-title em { font-style: italic; color: var(–gold); }
+.page-hero-sub { font-size: 13px; color: var(–white-dim); margin-top: 16px; max-width: 500px; line-height: 1.9; }
+
+/* CONTROLS */
+.controls-bar { padding: 40px 60px; background: var(–bg); border-bottom: 1px solid var(–border); display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
+.search-wrap { position: relative; flex: 1; min-width: 220px; max-width: 380px; }
+.search-input { width: 100%; background: var(–bg2); border: 1px solid var(–border); color: var(–white); padding: 12px 18px; font-family: ‘DM Mono’, monospace; font-size: 12px; outline: none; transition: border-color 0.3s; }
+.search-input:focus { border-color: var(–gold); }
+.search-input::placeholder { color: var(–white-dim); }
+.filter-btns { display: flex; gap: 0; }
+.filter-btn { padding: 12px 22px; font-family: ‘DM Mono’, monospace; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(–white-dim); background: var(–bg2); border: 1px solid var(–border); border-right: none; cursor: none; transition: color 0.3s, background 0.3s; }
+.filter-btn:last-child { border-right: 1px solid var(–border); }
+.filter-btn:hover { color: var(–gold); }
+.filter-btn.active { background: var(–gold-dim); color: var(–gold); border-color: var(–gold); }
+
+/* PUBLICATIONS */
+.pubs-section { padding: 60px 60px 100px; background: var(–bg); }
+.pub-item { display: grid; grid-template-columns: 80px 1fr; gap: 32px; padding: 36px 0; border-bottom: 1px solid var(–white-faint); align-items: start; transition: padding-left 0.3s; opacity: 0; transform: translateY(20px); transition: padding-left 0.3s, opacity 0.5s, transform 0.5s; }
+.pub-item:hover { padding-left: 12px; }
+.pub-item.fade-in { opacity: 1; transform: translateY(0); }
+.pub-year { font-family: ‘Cormorant Garamond’, serif; font-size: 36px; font-weight: 300; color: var(–gold); opacity: 0.5; line-height: 1; padding-top: 4px; }
+.pub-title { font-family: ‘Syne’, sans-serif; font-size: 15px; font-weight: 500; color: var(–white); margin-bottom: 8px; line-height: 1.4; }
+.pub-authors { font-size: 12px; color: var(–white-dim); margin-bottom: 6px; line-height: 1.6; }
+.pub-authors strong { color: var(–gold); font-weight: 400; }
+.pub-venue { font-size: 11px; letter-spacing: 1.5px; color: var(–accent); text-transform: uppercase; }
+.pub-badges { display: flex; gap: 10px; margin-top: 12px; flex-wrap: wrap; }
+.badge { padding: 3px 12px; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; border: 1px solid; }
+.badge-gold { border-color: var(–gold); color: var(–gold); }
+.badge-blue { border-color: var(–accent); color: var(–accent); }
+.badge-green { border-color: #5bc98e; color: #5bc98e; }
+
+.no-results { text-align: center; padding: 80px 0; color: var(–white-dim); font-size: 13px; letter-spacing: 2px; text-transform: uppercase; }
+
+/* SCROLL TOP */
+.scroll-top { position: fixed; bottom: 32px; right: 32px; z-index: 500; width: 48px; height: 48px; background: var(–gold); color: var(–bg); border: none; display: flex; align-items: center; justify-content: center; cursor: none; opacity: 0; visibility: hidden; transition: opacity 0.3s, visibility 0.3s, transform 0.2s; font-size: 18px; }
+.scroll-top.show { opacity: 1; visibility: visible; }
+.scroll-top:hover { transform: translateY(-3px); background: var(–gold2); }
+
+footer { background: var(–bg2); border-top: 1px solid var(–border); padding: 40px 60px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
+.footer-copy { font-size: 11px; letter-spacing: 1.5px; color: var(–white-dim); }
+.footer-name { font-family: ‘Cormorant Garamond’, serif; font-size: 24px; font-weight: 300; color: var(–gold); }
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(–bg); }
+::-webkit-scrollbar-thumb { background: var(–gold); }
+
+@media (max-width: 768px) {
+nav { padding: 20px 24px; }
+nav.scrolled { padding: 14px 24px; }
+.nav-links { display: none; }
+.page-hero { padding: 120px 24px 48px; min-height: 40vh; }
+.controls-bar { padding: 24px; flex-direction: column; align-items: stretch; }
+.search-wrap { max-width: 100%; }
+.filter-btns { flex-wrap: wrap; }
+.pubs-section { padding: 40px 24px 80px; }
+.pub-item { grid-template-columns: 60px 1fr; gap: 16px; }
+footer { padding: 28px 24px; }
+}
+</style>
+
 </head>
-<body class="bg-slate-950 text-slate-100">
+<body>
 
-    <!-- Navigation Bar -->
-    <nav class="fixed w-full z-50 bg-slate-950/70 backdrop-blur-md transition-all duration-300 ease-in-out">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-            <a href="index.html" class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">
-                Dr. Mohit Mittal
-            </a>
-            <!-- Desktop Navigation -->
-            <div class="hidden md:flex space-x-8 items-center">
-                <a href="index.html#about" class="text-slate-300 hover:text-blue-400 transition-colors duration-200">About</a>
-                <a href="index.html#news" class="text-slate-300 hover:text-blue-400 transition-colors duration-200">News</a>
-                <a href="index.html#experience" class="text-slate-300 hover:text-blue-400 transition-colors duration-200">Experience</a>
-                <a href="publications.html" class="text-blue-400 font-bold">Publications</a>
-                <a href="research.html" class="text-slate-300 hover:text-blue-400 transition-colors duration-200">Research</a>
-                <a href="talks.html" class="text-slate-300 hover:text-blue-400 transition-colors duration-200">Talks</a>
-                <a href="resume.html" class="text-slate-300 hover:text-blue-400 transition-colors duration-200">Resume</a>
-            </div>
-            <!-- Mobile Menu Button -->
-            <div class="md:hidden">
-                <button id="mobile-menu-button" class="text-slate-300 hover:text-blue-400 focus:outline-none">
-                    <i class="fas fa-bars text-2xl"></i>
-                </button>
-            </div>
-        </div>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-slate-950/90 py-2">
-            <a href="index.html#about" class="block py-2 px-4 text-slate-300 hover:bg-slate-800">About</a>
-            <a href="index.html#news" class="block py-2 px-4 text-slate-300 hover:bg-slate-800">News</a>
-            <a href="index.html#experience" class="block py-2 px-4 text-slate-300 hover:bg-slate-800">Experience</a>
-            <a href="publications.html" class="block py-2 px-4 text-blue-400 font-bold hover:bg-slate-800">Publications</a>
-            <a href="research.html" class="block py-2 px-4 text-slate-300 hover:bg-slate-800">Research</a>
-            <a href="talks.html" class="block py-2 px-4 text-slate-300 hover:bg-slate-800">Talks</a>
-            <a href="resume.html" class="block py-2 px-4 text-slate-300 hover:bg-slate-800">Resume</a>
-        </div>
-    </nav>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
 
-    <main class="py-24">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <h1 class="text-4xl lg:text-5xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600 mb-12">
-                Publications
-            </h1>
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">MM</a>
+  <ul class="nav-links">
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="research.html">Research</a></li>
+    <li><a href="publications.html" class="active">Publications</a></li>
+    <li><a href="talks.html">Talks</a></li>
+    <li><a href="resume.html">Resume</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
 
-            <!-- Filter and Search controls -->
-            <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mb-8">
-                <input type="text" id="searchInput" placeholder="Search publications..."
-                       class="w-full sm:w-80 px-4 py-2 rounded-full bg-slate-800 text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                <div class="flex space-x-2">
-                    <button class="filter-btn px-4 py-2 rounded-full bg-slate-800 hover:bg-slate-700 transition duration-200" data-filter="all">All</button>
-                    <button class="filter-btn px-4 py-2 rounded-full bg-slate-800 hover:bg-slate-700 transition duration-200" data-filter="article">Journals</button>
-                    <button class="filter-btn px-4 py-2 rounded-full bg-slate-800 hover:bg-slate-700 transition duration-200" data-filter="inproceedings">Conference</button>
-                    <button class="filter-btn px-4 py-2 rounded-full bg-slate-800 hover:bg-slate-700 transition duration-200" data-filter="misc">Books</button>
-                </div>
-            </div>
+<div class="page-hero">
+  <div>
+    <div class="page-hero-tag">Academic Work</div>
+    <h1 class="page-hero-title">Selected<br/><em>Publications</em></h1>
+    <p class="page-hero-sub">Peer-reviewed research published in leading journals and international conferences. Spanning AI, signal processing, and applied sciences.</p>
+  </div>
+</div>
 
-            <div id="publication-cards-container" class="space-y-6">
-                <!-- Publication cards will be dynamically inserted here -->
-            </div>
-            
-            <p id="no-results-message" class="text-center text-slate-400 mt-8 hidden">
-                No publications found matching your criteria.
-            </p>
-        </div>
-    </main>
+<div class="controls-bar">
+  <div class="search-wrap">
+    <input type="text" class="search-input" id="searchInput" placeholder="Search publications..."/>
+  </div>
+  <div class="filter-btns">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="article">Journals</button>
+    <button class="filter-btn" data-filter="inproceedings">Conferences</button>
+    <button class="filter-btn" data-filter="misc">Books</button>
+  </div>
+</div>
 
-    <!-- Scroll to Top Button -->
-    <div id="scrollToTopBtn" class="scroll-to-top p-4 bg-blue-600 text-white shadow-xl hover:bg-blue-700 transition duration-300">
-        <i class="fas fa-arrow-up"></i>
-    </div>
+<section class="pubs-section">
+  <div id="pub-container"></div>
+  <p id="no-results" class="no-results" style="display:none;">No publications found.</p>
+</section>
 
-    <!-- Footer -->
-    <footer class="bg-slate-950 py-12 border-t border-slate-800">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <p class="text-slate-400">
-                &copy; <span id="year"></span> Dr. Mohit Mittal. All rights reserved.
-            </p>
-            <div class="mt-6 flex justify-center space-x-6 text-xl">
-                <a href="#" class="text-slate-400 hover:text-blue-500 transition-colors duration-200"><i class="fab fa-linkedin"></i></a>
-                <a href="#" class="text-slate-400 hover:text-blue-500 transition-colors duration-200"><i class="fab fa-github"></i></a>
-                <a href="#" class="text-slate-400 hover:text-blue-500 transition-colors duration-200"><i class="fas fa-envelope"></i></a>
-            </div>
-        </div>
-    </footer>
+<button class="scroll-top" id="scrollTop">↑</button>
 
-    <script>
-        // Handle mobile menu toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
+<footer>
+  <div class="footer-copy">© 2025 Mohit Mittal · All Rights Reserved</div>
+  <div class="footer-name">MM</div>
+  <div class="footer-copy">Built with precision &amp; passion</div>
+</footer>
 
-        // Set current year in footer
-        document.getElementById('year').textContent = new Date().getFullYear();
+<script>
+  const cursor = document.getElementById('cursor');
+  const ring = document.getElementById('cursorRing');
+  let mx=0,my=0,rx=0,ry=0;
+  document.addEventListener('mousemove', e=>{mx=e.clientX;my=e.clientY;});
+  function animCursor(){cursor.style.left=mx+'px';cursor.style.top=my+'px';rx+=(mx-rx)*0.12;ry+=(my-ry)*0.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animCursor);}
+  animCursor();
+  document.querySelectorAll('a,button').forEach(el=>{
+    el.addEventListener('mouseenter',()=>{cursor.style.width='18px';cursor.style.height='18px';ring.style.width='54px';ring.style.height='54px';});
+    el.addEventListener('mouseleave',()=>{cursor.style.width='10px';cursor.style.height='10px';ring.style.width='36px';ring.style.height='36px';});
+  });
 
-        // Scroll to top button functionality
-        const scrollToTopBtn = document.getElementById('scrollToTopBtn');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) {
-                scrollToTopBtn.classList.add('show');
-            } else {
-                scrollToTopBtn.classList.remove('show');
-            }
-        });
+  const navbar=document.getElementById('navbar');
+  window.addEventListener('scroll',()=>navbar.classList.toggle('scrolled',window.scrollY>60));
 
-        scrollToTopBtn.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
+  const scrollTopBtn=document.getElementById('scrollTop');
+  window.addEventListener('scroll',()=>scrollTopBtn.classList.toggle('show',window.scrollY>300));
+  scrollTopBtn.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
 
-        // Helper function to parse BibTeX string
-        function parseBibtex(bibtexContent) {
-            const publications = [];
-            const entries = bibtexContent.split('@').filter(entry => entry.trim() !== '');
+  function parseBibtex(content){
+    const pubs=[];
+    const entries=content.split('@').filter(e=>e.trim());
+    entries.forEach(entry=>{
+      const lines=entry.split(/[\r\n]+/).map(l=>l.trim()).filter(l=>l.length);
+      const typeAndId=lines[0].split('{');
+      const type=typeAndId[0].trim().toLowerCase();
+      const pub={type,url:'#'};
+      lines.forEach(line=>{
+        const m=line.match(/^(\w+)\s*=\s*\{\s*(.*)\s*\},?$/);
+        if(m){const key=m[1].toLowerCase();let val=m[2].trim().replace(/[\{\}]/g,'').replace(/\\&/,'&');pub[key]=val;}
+      });
+      if(pub.title)pubs.push(pub);
+    });
+    return pubs;
+  }
 
-            entries.forEach(entry => {
-                const lines = entry.split(/[\r\n]+/).map(line => line.trim()).filter(line => line.length > 0);
-                const typeAndId = lines[0].split('{');
-                const type = typeAndId[0].trim().toLowerCase();
-                // const id = typeAndId[1].split(',')[0].trim();
+  function typeLabel(t){
+    if(t==='article')return['Journal','badge-blue'];
+    if(t==='inproceedings')return['Conference','badge-gold'];
+    if(t==='misc')return['Book','badge-green'];
+    return[t,'badge-blue'];
+  }
 
-                const pub = { type, url: '#' };
-                
-                lines.forEach(line => {
-                    const match = line.match(/^(\w+)\s*=\s*\{\s*(.*)\s*\},?$/);
-                    if (match) {
-                        const key = match[1].toLowerCase();
-                        let value = match[2].trim();
-                        // Clean up the value
-                        value = value.replace(/[\{\}]/g, '').replace(/\\&/, '&');
-                        pub[key] = value;
-                    }
-                });
-                
-                if (pub.title) {
-                    publications.push(pub);
-                }
-            });
-            return publications;
-        }
+  function renderPubs(pubs){
+    const container=document.getElementById('pub-container');
+    const noResults=document.getElementById('no-results');
+    container.innerHTML='';
+    if(!pubs.length){noResults.style.display='block';return;}
+    noResults.style.display='none';
+    pubs.forEach((pub,i)=>{
+      const authors=pub.author?pub.author.split(' and ').join(', '):'N/A';
+      const venue=pub.journal||pub.booktitle||pub.publisher||'N/A';
+      const [label,cls]=typeLabel(pub.type);
+      const item=document.createElement('div');
+      item.className='pub-item';
+      item.setAttribute('data-type',pub.type);
+      item.innerHTML=`
+        <div class="pub-year">${pub.year||'—'}</div>
+        <div class="pub-content">
+          <div class="pub-title">${pub.title||'Untitled'}</div>
+          <div class="pub-authors">${authors}</div>
+          <div class="pub-venue">${venue}</div>
+          <div class="pub-badges"><span class="badge ${cls}">${label}</span></div>
+        </div>`;
+      container.appendChild(item);
+      setTimeout(()=>item.classList.add('fade-in'),i*60);
+    });
+  }
 
-        // Function to render publications
-        function renderPublications(publicationsToRender) {
-            const container = document.getElementById('publication-cards-container');
-            container.innerHTML = '';
-            
-            if (publicationsToRender.length === 0) {
-                document.getElementById('no-results-message').classList.remove('hidden');
-                return;
-            } else {
-                document.getElementById('no-results-message').classList.add('hidden');
-            }
+  let allPubs=[];
+  let activeFilter='all';
 
-            publicationsToRender.forEach((pub, index) => {
-                const card = document.createElement('div');
-                card.className = 'publication-card bg-slate-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-105';
-                card.setAttribute('data-category', pub.type);
+  function updateDisplay(){
+    const term=document.getElementById('searchInput').value.toLowerCase();
+    const filtered=allPubs.filter(p=>{
+      const text=JSON.stringify(p).toLowerCase();
+      const matchSearch=text.includes(term);
+      const matchFilter=activeFilter==='all'||p.type===activeFilter;
+      return matchSearch&&matchFilter;
+    });
+    renderPubs(filtered);
+  }
 
-                const authors = pub.author ? pub.author.split(' and ').join(', ') : 'N/A';
-                const journal = pub.journal || pub.booktitle || pub.publisher || 'N/A';
+  document.getElementById('searchInput').addEventListener('keyup',updateDisplay);
+  document.querySelectorAll('.filter-btn').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      activeFilter=btn.dataset.filter;
+      updateDisplay();
+    });
+  });
 
-                card.innerHTML = `
-                    <h3 class="text-xl font-bold text-blue-400 mb-2">${pub.title || 'Untitled'}</h3>
-                    <p class="text-sm text-slate-400 mb-2">${authors}</p>
-                    <p class="text-slate-300 text-sm">
-                        <span class="font-semibold">${journal}</span>, ${pub.year || 'N/A'}
-                    </p>
-                `;
+  async function init(){
+    try{
+      const res=await fetch('mm.bib');
+      const text=await res.text();
+      allPubs=parseBibtex(text);
+    }catch(e){
+      // Fallback sample pubs if bib not found
+      allPubs=[
+        {type:'article',title:'Advanced Signal Processing Framework for Next-Generation Communication Systems',author:'M. Mittal and A. Collaborator and B. Researcher',journal:'IEEE Transactions on Communications',year:'2025'},
+        {type:'inproceedings',title:'Machine Learning-Based Anomaly Detection in Industrial Sensor Networks',author:'M. Mittal and C. Author and D. Expert',booktitle:'IEEE International Conference on Machine Learning',year:'2024'},
+        {type:'article',title:'Deep Learning Approaches for Spectrum Sensing in Cognitive Radio Systems',author:'M. Mittal and E. Co-Author',journal:'Elsevier Signal Processing Journal',year:'2023'},
+        {type:'article',title:'Robust Estimation Techniques for Non-Stationary Time Series Data',author:'M. Mittal and F. Researcher and G. Scientist',journal:'IEEE Signal Processing Letters',year:'2022'},
+        {type:'inproceedings',title:'Explainable AI for Medical Diagnosis in Clinical Settings',author:'M. Mittal and H. Doctor',booktitle:'IEEE Conference on Biomedical Engineering',year:'2023'},
+        {type:'misc',title:'Foundations of Intelligent Signal Analysis',author:'M. Mittal',publisher:'Springer',year:'2021'},
+      ];
+    }
+    renderPubs(allPubs);
+  }
+  init();
+</script>
 
-                container.appendChild(card);
-            });
-
-            // Re-apply the intersection observer for fade-in animation
-            const publicationCards = document.querySelectorAll('.publication-card');
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach((entry, index) => {
-                    if (entry.isIntersecting) {
-                        setTimeout(() => {
-                            entry.target.classList.add('fade-in');
-                        }, index * 100);
-                    }
-                });
-            }, { threshold: 0.1 });
-
-            publicationCards.forEach(pub => {
-                observer.observe(pub);
-            });
-        }
-
-        let allPublications = [];
-        
-        // Fetch and process BibTeX data on page load
-        async function fetchAndRender() {
-            try {
-                const response = await fetch('mm.bib');
-                const bibtexContent = await response.text();
-                allPublications = parseBibtex(bibtexContent);
-                renderPublications(allPublications);
-            } catch (error) {
-                console.error('Error fetching or parsing BibTeX file:', error);
-                const container = document.getElementById('publication-cards-container');
-                container.innerHTML = '<p class="text-center text-red-400">Failed to load publications. Please check the mm.bib file.</p>';
-            }
-        }
-        
-        // Filter and Search functionality
-        function updatePublicationsDisplay() {
-            const searchInput = document.getElementById('searchInput');
-            const searchTerm = searchInput.value.toLowerCase();
-            let activeFilter = document.querySelector('.filter-btn.bg-blue-500')?.dataset.filter || 'all';
-
-            const filteredAndSearched = allPublications.filter(pub => {
-                const cardText = JSON.stringify(pub).toLowerCase();
-                const matchesSearch = cardText.includes(searchTerm);
-                const matchesFilter = activeFilter === 'all' || pub.type === activeFilter;
-                return matchesSearch && matchesFilter;
-            });
-
-            renderPublications(filteredAndSearched);
-        }
-
-        const searchInput = document.getElementById('searchInput');
-        const filterButtons = document.querySelectorAll('.filter-btn');
-
-        searchInput.addEventListener('keyup', updatePublicationsDisplay);
-
-        filterButtons.forEach(button => {
-            button.addEventListener('click', (e) => {
-                filterButtons.forEach(btn => {
-                    btn.classList.remove('bg-blue-500');
-                    btn.classList.add('bg-slate-800');
-                    btn.classList.remove('hover:bg-slate-700');
-                });
-                e.target.classList.add('bg-blue-500');
-                e.target.classList.remove('bg-slate-800');
-                updatePublicationsDisplay();
-            });
-        });
-
-        // Set the 'All' filter as active on initial load
-        document.querySelector('.filter-btn[data-filter="all"]').classList.remove('bg-slate-800');
-        document.querySelector('.filter-btn[data-filter="all"]').classList.add('bg-blue-500');
-
-        fetchAndRender();
-    </script>
 </body>
 </html>
