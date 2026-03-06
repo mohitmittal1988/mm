@@ -461,6 +461,126 @@
     to { opacity: 1; transform: translateX(0); }
   }
 
+  /* ── Experience Section ── */
+  #experience { background: var(--bg2); }
+  .experience-timeline {
+    position: relative;
+    padding-left: 0;
+    margin-top: 0;
+  }
+  .experience-timeline::before {
+    content: '';
+    position: absolute;
+    left: 140px;
+    top: 0; bottom: 0;
+    width: 2px;
+    background: var(--gold);
+    opacity: 0.25;
+  }
+  .exp-item {
+    display: grid;
+    grid-template-columns: 140px 24px 1fr;
+    gap: 0 20px;
+    margin-bottom: 56px;
+    position: relative;
+  }
+  .exp-year {
+    text-align: right;
+    padding-top: 4px;
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    color: var(--gold);
+    font-weight: 600;
+    white-space: nowrap;
+    line-height: 1.4;
+  }
+  .exp-dot {
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    background: var(--gold);
+    margin-top: 6px;
+    flex-shrink: 0;
+    box-shadow: 0 0 0 3px rgba(201,168,76,0.2);
+    position: relative;
+    left: 6px;
+  }
+  .exp-content { padding-bottom: 8px; }
+  .exp-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin: 0 0 2px 0;
+    line-height: 1.3;
+    font-family: 'Syne', sans-serif;
+    color: var(--white);
+  }
+  .exp-company { color: var(--gold); font-style: italic; }
+  .exp-location {
+    font-size: 0.78rem;
+    opacity: 0.55;
+    margin: 0 0 14px 0;
+    letter-spacing: 0.04em;
+  }
+  .exp-summary {
+    font-size: 0.9rem;
+    line-height: 1.65;
+    color: var(--white-dim);
+    margin: 0 0 14px 0;
+  }
+  .exp-projects { margin: 0; padding: 0; list-style: none; }
+  .exp-project {
+    border-left: 2px solid var(--gold);
+    padding-left: 12px;
+    margin-bottom: 14px;
+    opacity: 0.88;
+  }
+  .exp-project-title {
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    margin: 0 0 4px 0;
+    color: var(--white);
+  }
+  .exp-project-desc {
+    font-size: 0.82rem;
+    line-height: 1.55;
+    margin: 0;
+    color: var(--white-dim);
+  }
+  .exp-tags {
+    display: flex; flex-wrap: wrap;
+    gap: 8px; margin-top: 16px;
+  }
+  .exp-tag {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    padding: 4px 10px;
+    border-radius: 20px;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    opacity: 0.85;
+    background: transparent;
+  }
+  .exp-toggle {
+    background: none; border: none;
+    color: var(--gold);
+    font-size: 0.78rem;
+    cursor: pointer; padding: 0;
+    margin-top: 10px;
+    display: flex; align-items: center; gap: 4px;
+    opacity: 0.8; font-style: italic;
+    transition: opacity 0.2s;
+    font-family: 'DM Mono', monospace;
+  }
+  .exp-toggle:hover { opacity: 1; }
+  .exp-details { display: none; margin-top: 14px; }
+  .exp-details.open { display: block; }
+  @media (max-width: 600px) {
+    .experience-timeline::before { left: 90px; }
+    .exp-item { grid-template-columns: 90px 18px 1fr; gap: 0 12px; }
+    .exp-year { font-size: 0.72rem; }
+  }
+
   /* SCROLLBAR */
   ::-webkit-scrollbar { width: 4px; }
   ::-webkit-scrollbar-track { background: var(--bg); }
@@ -493,6 +613,7 @@
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
     <li><a href="#research">Research</a></li>
     <li><a href="#publications">Publications</a></li>
     <li><a href="#talks">Talks</a></li>
@@ -645,10 +766,150 @@
   </div>
 </section>
 
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-header">
+    <span class="section-number">03</span>
+    <h2 class="section-title">Professional <em>Experience</em></h2>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="experience-timeline">
+
+    <!-- Smart Labs AI -->
+    <div class="exp-item reveal">
+      <div class="exp-year">2025<br>– Present</div>
+      <div class="exp-dot"></div>
+      <div class="exp-content">
+        <h3 class="exp-title">Senior AI Data Scientist &nbsp;@&nbsp;<span class="exp-company">Smart Labs AI GmbH</span></h3>
+        <p class="exp-location">Augsburg, Bayern, Germany · On-site</p>
+        <p class="exp-summary">Leading end-to-end AI system design for enterprise clients — from prototype to production. Responsible for deep learning architectures, RAG pipelines, agentic workflows, and self-hosted LLM infrastructure.</p>
+        <button class="exp-toggle" onclick="toggleDetails(this)">Show projects ↓</button>
+        <div class="exp-details">
+          <ul class="exp-projects">
+            <li class="exp-project">
+              <p class="exp-project-title">[1] AI-Powered Behavioral Biometrics &amp; User Verification</p>
+              <p class="exp-project-desc">Designed and benchmarked CNN-based deep learning architectures for secure user verification, achieving 95% accuracy. Built similarity-learning pipelines and led ablation studies with CI-integrated validation workflows.</p>
+            </li>
+            <li class="exp-project">
+              <p class="exp-project-title">[2] AI-Driven Customer Analytics &amp; KPI Monitoring Dashboard</p>
+              <p class="exp-project-desc">Led end-to-end development of a Streamlit dashboard for KPI monitoring, behavioral clustering, and group-wise segmentation to support data-driven stakeholder decision-making.</p>
+            </li>
+            <li class="exp-project">
+              <p class="exp-project-title">[3] Self-Hosted Enterprise RAG Platform for Secure Document Intelligence</p>
+              <p class="exp-project-desc">Architected a secure RAG platform using Ollama, vLLM, and n8n for multi-step agentic reasoning, intelligent document routing, and access-controlled retrieval in Docker Compose.</p>
+            </li>
+          </ul>
+        </div>
+        <div class="exp-tags">
+          <span class="exp-tag">LLMs</span>
+          <span class="exp-tag">RAG</span>
+          <span class="exp-tag">CNNs</span>
+          <span class="exp-tag">Streamlit</span>
+          <span class="exp-tag">vLLM</span>
+          <span class="exp-tag">n8n</span>
+          <span class="exp-tag">Docker</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Shiratech Knowtion -->
+    <div class="exp-item reveal" style="transition-delay:0.1s">
+      <div class="exp-year">2022<br>– 2025</div>
+      <div class="exp-dot"></div>
+      <div class="exp-content">
+        <h3 class="exp-title">Data Scientist &nbsp;@&nbsp;<span class="exp-company">Shiratech Knowtion GmbH</span></h3>
+        <p class="exp-location">Karlsruhe, Germany · 2.9 years</p>
+        <p class="exp-summary">Built and deployed ML/AI solutions across diverse domains including NLP-powered requirement analysis, railway operations analytics, and AI-based predictive maintenance. Designed full MLOps pipelines on Azure and AWS.</p>
+        <button class="exp-toggle" onclick="toggleDetails(this)">Show projects ↓</button>
+        <div class="exp-details">
+          <ul class="exp-projects">
+            <li class="exp-project">
+              <p class="exp-project-title">[1] LLM-Powered Jira Requirement Analysis Assistant</p>
+              <p class="exp-project-desc">Integrated LLMs to extract insights from Jira tickets, translate unstructured text into structured user stories, identify ambiguities, and generate requirement summaries and impact reports.</p>
+            </li>
+            <li class="exp-project">
+              <p class="exp-project-title">[2] ML-Based Railway Operations Analytics (MLOps)</p>
+              <p class="exp-project-desc">Led ML model development for automated data processing and predictive analytics in railway ops. Designed MLOps pipelines for CI/CD model deployment, monitoring, and interactive stakeholder dashboards.</p>
+            </li>
+            <li class="exp-project">
+              <p class="exp-project-title">[3] AI Predictive Maintenance — Windmill Blade Fault Detection</p>
+              <p class="exp-project-desc">Developed a Hybrid CNN model achieving 91.8% accuracy for fault classification on radargram images. Applied LIME-based Explainable AI and reduced maintenance costs by 30%.</p>
+            </li>
+          </ul>
+        </div>
+        <div class="exp-tags">
+          <span class="exp-tag">Python</span>
+          <span class="exp-tag">LangChain</span>
+          <span class="exp-tag">MLOps</span>
+          <span class="exp-tag">Azure</span>
+          <span class="exp-tag">XAI / LIME</span>
+          <span class="exp-tag">MLflow</span>
+          <span class="exp-tag">Power BI</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- INRIA -->
+    <div class="exp-item reveal" style="transition-delay:0.2s">
+      <div class="exp-year">2020<br>– 2022</div>
+      <div class="exp-dot"></div>
+      <div class="exp-content">
+        <h3 class="exp-title">Postdoctoral Researcher &nbsp;@&nbsp;<span class="exp-company">INRIA</span></h3>
+        <p class="exp-location">Lille, France · 2 years</p>
+        <p class="exp-summary">Researched explainability in Visual Question Answering (VQA) systems. Developed post-hoc interpretability methods combining NLP and computer vision to make multimodal deep neural networks transparent and understandable for end-users.</p>
+        <div class="exp-tags">
+          <span class="exp-tag">XAI</span>
+          <span class="exp-tag">VQA</span>
+          <span class="exp-tag">NLP</span>
+          <span class="exp-tag">Computer Vision</span>
+          <span class="exp-tag">PyTorch</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Kyoto Sangyo University -->
+    <div class="exp-item reveal" style="transition-delay:0.3s">
+      <div class="exp-year">2019<br>– 2020</div>
+      <div class="exp-dot"></div>
+      <div class="exp-content">
+        <h3 class="exp-title">Postdoctoral Researcher &nbsp;@&nbsp;<span class="exp-company">Kyoto Sangyo University</span></h3>
+        <p class="exp-location">Kyoto, Japan · 1.7 years</p>
+        <p class="exp-summary">Applied NLP and machine learning to improve the accuracy of geo-tagged social media data for microscale urban analysis. Developed methods integrating textual context with geospatial information for precise physical location mapping.</p>
+        <div class="exp-tags">
+          <span class="exp-tag">NLP</span>
+          <span class="exp-tag">Geospatial ML</span>
+          <span class="exp-tag">Python</span>
+          <span class="exp-tag">Data Analysis</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Earlier Roles -->
+    <div class="exp-item reveal" style="transition-delay:0.4s">
+      <div class="exp-year">2017<br>– 2019</div>
+      <div class="exp-dot"></div>
+      <div class="exp-content">
+        <h3 class="exp-title">ML Engineer &amp; Educator &nbsp;@&nbsp;<span class="exp-company">Chitkara University · AKGEC · MIET</span></h3>
+        <p class="exp-location">India · 2+ years combined</p>
+        <p class="exp-summary">Designed and delivered university courses on Machine Learning, Deep Learning, AI, and NLP. Supervised student research in computer vision, neural network optimization, and developed AI curricula integrating TensorFlow &amp; PyTorch for hands-on learning.</p>
+        <div class="exp-tags">
+          <span class="exp-tag">TensorFlow</span>
+          <span class="exp-tag">PyTorch</span>
+          <span class="exp-tag">Deep Learning</span>
+          <span class="exp-tag">NLP</span>
+          <span class="exp-tag">Teaching</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <!-- RESEARCH -->
 <section id="research">
   <div class="section-header">
-    <span class="section-number">03</span>
+    <span class="section-number">04</span>
     <h2 class="section-title"><em>Research</em> Areas</h2>
     <div class="section-line"></div>
   </div>
@@ -695,7 +956,7 @@
 <!-- PUBLICATIONS -->
 <section id="publications">
   <div class="section-header">
-    <span class="section-number">04</span>
+    <span class="section-number">05</span>
     <h2 class="section-title">Selected <em>Publications</em></h2>
     <div class="section-line"></div>
   </div>
@@ -760,7 +1021,7 @@
 <!-- TALKS -->
 <section id="talks">
   <div class="section-header">
-    <span class="section-number">05</span>
+    <span class="section-number">06</span>
     <h2 class="section-title">Talks &amp; <em>Presentations</em></h2>
     <div class="section-line"></div>
   </div>
@@ -795,7 +1056,7 @@
 <!-- CONTACT -->
 <section id="contact">
   <div class="section-header">
-    <span class="section-number">06</span>
+    <span class="section-number">07</span>
     <h2 class="section-title">Get in <em>Touch</em></h2>
     <div class="section-line"></div>
   </div>
@@ -905,6 +1166,13 @@
     });
   }, { threshold: 0.5 });
   document.querySelectorAll('[data-target]').forEach(el => counterObserver.observe(el));
+</script>
+<script>
+function toggleDetails(btn) {
+  var details = btn.nextElementSibling;
+  var isOpen = details.classList.toggle('open');
+  btn.textContent = isOpen ? 'Show less ↑' : 'Show projects ↓';
+}
 </script>
 </body>
 </html>
