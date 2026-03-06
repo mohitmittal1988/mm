@@ -1,125 +1,55 @@
-<!DOCTYPE html>
-
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Talks — Mohit Mittal</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Syne:wght@400;500;700;800&display=swap" rel="stylesheet"/>
+---
+layout: default
+title: Talks — Mohit Mittal
+nav_active: talks
+---
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --bg: #0a0a0f; --bg2: #0f0f1a; --bg3: #141425;
-    --gold: #c9a84c; --gold2: #e8c97a; --gold-dim: rgba(201,168,76,0.15);
-    --white: #f0ede6; --white-dim: rgba(240,237,230,0.55); --white-faint: rgba(240,237,230,0.08);
-    --accent: #5b8dee; --border: rgba(201,168,76,0.2);
-  }
-  html { scroll-behavior: smooth; }
-  body { background: var(--bg); color: var(--white); font-family: 'DM Mono', monospace; font-weight: 300; overflow-x: hidden; cursor: none; }
-
-.cursor { position: fixed; width: 10px; height: 10px; background: var(–gold); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); transition: width 0.3s, height 0.3s; mix-blend-mode: difference; }
-.cursor-ring { position: fixed; width: 36px; height: 36px; border: 1px solid var(–gold); border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); transition: width 0.3s, height 0.3s; opacity: 0.6; }
-
-body::before { content: ‘’; position: fixed; inset: 0; background-image: url(“data:image/svg+xml,%3Csvg viewBox=‘0 0 200 200’ xmlns=‘http://www.w3.org/2000/svg’%3E%3Cfilter id=‘noise’%3E%3CfeTurbulence type=‘fractalNoise’ baseFrequency=‘0.9’ numOctaves=‘4’ stitchTiles=‘stitch’/%3E%3C/filter%3E%3Crect width=‘100%25’ height=‘100%25’ filter=‘url(%23noise)’ opacity=‘0.04’/%3E%3C/svg%3E”); pointer-events: none; z-index: 0; opacity: 0.4; }
-
-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 28px 60px; background: linear-gradient(to bottom, rgba(10,10,15,0.95), transparent); transition: padding 0.3s, backdrop-filter 0.3s, background 0.3s; }
-nav.scrolled { padding: 18px 60px; background: rgba(10,10,15,0.92); backdrop-filter: blur(20px); border-bottom: 1px solid var(–border); }
-.nav-logo { font-family: ‘Cormorant Garamond’, serif; font-size: 22px; font-weight: 600; color: var(–gold); letter-spacing: 2px; text-decoration: none; }
-.nav-links { display: flex; gap: 40px; list-style: none; }
-.nav-links a { font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; color: var(–white-dim); text-decoration: none; transition: color 0.3s; position: relative; }
-.nav-links a::after { content: ‘’; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px; background: var(–gold); transition: width 0.3s; }
-.nav-links a:hover, .nav-links a.active { color: var(–gold); }
-.nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
-
-.page-hero { min-height: 50vh; display: flex; align-items: flex-end; padding: 0 60px 60px; position: relative; overflow: hidden; background: var(–bg2); border-bottom: 1px solid var(–border); }
-.page-hero::before { content: ‘’; position: absolute; width: 500px; height: 500px; border-radius: 50%; right: -100px; top: -100px; background: radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 70%); pointer-events: none; }
-.page-hero-tag { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: var(–gold); margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
-.page-hero-tag::before { content: ‘’; width: 40px; height: 1px; background: var(–gold); }
-.page-hero-title { font-family: ‘Cormorant Garamond’, serif; font-size: clamp(52px, 8vw, 100px); font-weight: 300; line-height: 1; color: var(–white); }
-.page-hero-title em { font-style: italic; color: var(–gold); }
-.page-hero-sub { font-size: 13px; color: var(–white-dim); margin-top: 16px; max-width: 500px; line-height: 1.9; }
-
 /* TIMELINE SECTION */
-.talks-section { padding: 100px 60px; background: var(–bg); }
+.talks-section { padding: 100px 60px; background: var(--bg); }
 .section-header { display: flex; align-items: center; gap: 20px; margin-bottom: 64px; }
-.section-number { font-size: 11px; letter-spacing: 3px; color: var(–gold); }
-.section-title { font-family: ‘Cormorant Garamond’, serif; font-size: clamp(36px, 5vw, 56px); font-weight: 300; color: var(–white); line-height: 1.1; }
-.section-title em { font-style: italic; color: var(–gold); }
-.section-line { flex: 1; height: 1px; background: var(–border); }
+.section-number { font-size: 11px; letter-spacing: 3px; color: var(--gold); }
+.section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 5vw, 56px); font-weight: 300; color: var(--white); line-height: 1.1; }
+.section-title em { font-style: italic; color: var(--gold); }
+.section-line { flex: 1; height: 1px; background: var(--border); }
 
 .talks-timeline { position: relative; padding-left: 40px; }
-.talks-timeline::before { content: ‘’; position: absolute; left: 0; top: 0; bottom: 0; width: 1px; background: var(–border); }
+.talks-timeline::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 1px; background: var(--border); }
 .talk-item { position: relative; padding: 0 0 56px 40px; transition: transform 0.3s; }
 .talk-item:hover { transform: translateX(6px); }
-.talk-dot { position: absolute; left: -41px; top: 6px; width: 10px; height: 10px; border: 1px solid var(–gold); background: var(–bg); transition: background 0.3s; }
-.talk-item:hover .talk-dot { background: var(–gold); }
-.talk-date { font-size: 10px; letter-spacing: 2px; color: var(–gold); margin-bottom: 8px; text-transform: uppercase; }
-.talk-title { font-family: ‘Syne’, sans-serif; font-size: 17px; font-weight: 500; color: var(–white); margin-bottom: 8px; line-height: 1.35; }
-.talk-venue { font-size: 12px; color: var(–white-dim); margin-bottom: 10px; }
-.talk-desc { font-size: 12px; line-height: 1.85; color: var(–white-dim); max-width: 640px; }
-.talk-badge { display: inline-block; margin-top: 14px; padding: 4px 14px; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; border: 1px solid var(–border); color: var(–gold); }
+.talk-dot { position: absolute; left: -41px; top: 6px; width: 10px; height: 10px; border: 1px solid var(--gold); background: var(--bg); transition: background 0.3s; }
+.talk-item:hover .talk-dot { background: var(--gold); }
+.talk-date { font-size: 10px; letter-spacing: 2px; color: var(--gold); margin-bottom: 8px; text-transform: uppercase; }
+.talk-title { font-family: 'Syne', sans-serif; font-size: 17px; font-weight: 500; color: var(--white); margin-bottom: 8px; line-height: 1.35; }
+.talk-venue { font-size: 12px; color: var(--white-dim); margin-bottom: 10px; }
+.talk-desc { font-size: 12px; line-height: 1.85; color: var(--white-dim); max-width: 640px; }
+.talk-badge { display: inline-block; margin-top: 14px; padding: 4px 14px; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; border: 1px solid var(--border); color: var(--gold); }
 
 /* CARDS */
-.cards-section { padding: 80px 60px 100px; background: var(–bg2); }
+.cards-section { padding: 80px 60px 100px; background: var(--bg2); }
 .talks-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2px; }
-.talk-card { background: var(–bg); padding: 40px 36px; border: 1px solid transparent; transition: border-color 0.3s, background 0.3s, transform 0.3s; position: relative; overflow: hidden; }
-.talk-card::before { content: ‘’; position: absolute; top: 0; left: 0; width: 3px; height: 0; background: var(–gold); transition: height 0.4s; }
+.talk-card { background: var(--bg); padding: 40px 36px; border: 1px solid transparent; transition: border-color 0.3s, background 0.3s, transform 0.3s; position: relative; overflow: hidden; }
+.talk-card::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 0; background: var(--gold); transition: height 0.4s; }
 .talk-card:hover::before { height: 100%; }
-.talk-card:hover { border-color: var(–border); background: var(–bg3); transform: translateY(-4px); }
-.tc-type { font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase; color: var(–gold); margin-bottom: 16px; }
-.tc-title { font-family: ‘Syne’, sans-serif; font-size: 16px; font-weight: 700; color: var(–white); margin-bottom: 10px; line-height: 1.3; }
-.tc-date { font-size: 11px; color: var(–white-dim); margin-bottom: 12px; }
-.tc-desc { font-size: 12px; line-height: 1.8; color: var(–white-dim); }
-
-.reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s, transform 0.7s; }
-.reveal.visible { opacity: 1; transform: translateY(0); }
-
-footer { background: var(–bg); border-top: 1px solid var(–border); padding: 40px 60px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
-.footer-copy { font-size: 11px; letter-spacing: 1.5px; color: var(–white-dim); }
-.footer-name { font-family: ‘Cormorant Garamond’, serif; font-size: 24px; font-weight: 300; color: var(–gold); }
-
-::-webkit-scrollbar { width: 4px; }
-::-webkit-scrollbar-track { background: var(–bg); }
-::-webkit-scrollbar-thumb { background: var(–gold); }
+.talk-card:hover { border-color: var(--border); background: var(--bg3); transform: translateY(-4px); }
+.tc-type { font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+.tc-title { font-family: 'Syne', sans-serif; font-size: 16px; font-weight: 700; color: var(--white); margin-bottom: 10px; line-height: 1.3; }
+.tc-date { font-size: 11px; color: var(--white-dim); margin-bottom: 12px; }
+.tc-desc { font-size: 12px; line-height: 1.8; color: var(--white-dim); }
 
 @media (max-width: 768px) {
-nav { padding: 20px 24px; }
-nav.scrolled { padding: 14px 24px; }
-.nav-links { display: none; }
-.page-hero { padding: 120px 24px 48px; min-height: 40vh; }
-.talks-section, .cards-section { padding: 60px 24px; }
-footer { padding: 28px 24px; }
+  .talks-section, .cards-section { padding: 60px 24px; }
 }
 </style>
 
-</head>
-<body>
-
-<div class="cursor" id="cursor"></div>
-<div class="cursor-ring" id="cursorRing"></div>
-
-<nav id="navbar">
-  <a href="index.html" class="nav-logo">MM</a>
-  <ul class="nav-links">
-    <li><a href="index.html#about">About</a></li>
-    <li><a href="research.html">Research</a></li>
-    <li><a href="publications.html">Publications</a></li>
-    <li><a href="talks.html" class="active">Talks</a></li>
-    <li><a href="resume.html">Resume</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
-</nav>
-
 <div class="page-hero">
   <div>
-    <div class="page-hero-tag">Talks & Presentations</div>
+    <div class="page-hero-tag">Talks &amp; Presentations</div>
     <h1 class="page-hero-title">Sharing<br/><em>Knowledge</em></h1>
     <p class="page-hero-sub">Selected presentations, keynotes, and guest lectures from international conferences, workshops, and academic institutions.</p>
   </div>
 </div>
 
 <!-- TIMELINE -->
-
 <section class="talks-section">
   <div class="section-header">
     <span class="section-number">01</span>
@@ -179,7 +109,6 @@ footer { padding: 28px 24px; }
 </section>
 
 <!-- CARDS -->
-
 <section class="cards-section">
   <div class="section-header">
     <span class="section-number">02</span>
@@ -208,27 +137,12 @@ footer { padding: 28px 24px; }
   </div>
 </section>
 
-<footer>
-  <div class="footer-copy">© 2025 Mohit Mittal · All Rights Reserved</div>
-  <div class="footer-name">MM</div>
-  <div class="footer-copy">Built with precision &amp; passion</div>
-</footer>
-
 <script>
-  const cursor=document.getElementById('cursor'),ring=document.getElementById('cursorRing');
-  let mx=0,my=0,rx=0,ry=0;
-  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
-  function animCursor(){cursor.style.left=mx+'px';cursor.style.top=my+'px';rx+=(mx-rx)*0.12;ry+=(my-ry)*0.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animCursor);}
-  animCursor();
-  document.querySelectorAll('a,.talk-item,.talk-card').forEach(el=>{
-    el.addEventListener('mouseenter',()=>{cursor.style.width='18px';cursor.style.height='18px';ring.style.width='54px';ring.style.height='54px';});
-    el.addEventListener('mouseleave',()=>{cursor.style.width='10px';cursor.style.height='10px';ring.style.width='36px';ring.style.height='36px';});
+  // Extra cursor targets for this page
+  const cursor = document.getElementById('cursor');
+  const ring = document.getElementById('cursorRing');
+  document.querySelectorAll('.talk-item, .talk-card').forEach(el => {
+    el.addEventListener('mouseenter', () => { cursor.style.width='18px'; cursor.style.height='18px'; ring.style.width='54px'; ring.style.height='54px'; });
+    el.addEventListener('mouseleave', () => { cursor.style.width='10px'; cursor.style.height='10px'; ring.style.width='36px'; ring.style.height='36px'; });
   });
-  const navbar=document.getElementById('navbar');
-  window.addEventListener('scroll',()=>navbar.classList.toggle('scrolled',window.scrollY>60));
-  const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.1});
-  document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 </script>
-
-</body>
-</html>

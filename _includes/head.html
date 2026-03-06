@@ -1,0 +1,72 @@
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>{{ page.title | default: "Mohit Mittal — Researcher & Engineer" }}</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Syne:wght@400;500;700;800&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #0a0a0f; --bg2: #0f0f1a; --bg3: #141425;
+    --gold: #c9a84c; --gold2: #e8c97a; --gold-dim: rgba(201,168,76,0.15);
+    --white: #f0ede6; --white-dim: rgba(240,237,230,0.55); --white-faint: rgba(240,237,230,0.08);
+    --accent: #5b8dee; --border: rgba(201,168,76,0.2);
+  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--white); font-family: 'DM Mono', monospace; font-weight: 300; overflow-x: hidden; cursor: none; }
+
+  /* CURSOR */
+  .cursor { position: fixed; width: 10px; height: 10px; background: var(--gold); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); transition: transform 0.1s ease, width 0.3s, height 0.3s; mix-blend-mode: difference; }
+  .cursor-ring { position: fixed; width: 36px; height: 36px; border: 1px solid var(--gold); border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); transition: transform 0.15s ease, width 0.3s, height 0.3s; opacity: 0.6; }
+
+  /* NOISE */
+  body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E"); pointer-events: none; z-index: 0; opacity: 0.4; }
+
+  /* NAV */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 28px 60px; background: linear-gradient(to bottom, rgba(10,10,15,0.95), transparent); transition: padding 0.3s, backdrop-filter 0.3s, background 0.3s; }
+  nav.scrolled { padding: 18px 60px; background: rgba(10,10,15,0.92); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); }
+  .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: var(--gold); letter-spacing: 2px; text-decoration: none; }
+  .nav-links { display: flex; gap: 40px; list-style: none; }
+  .nav-links a { font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--white-dim); text-decoration: none; transition: color 0.3s; position: relative; }
+  .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px; background: var(--gold); transition: width 0.3s; }
+  .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+  .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+
+  /* PAGE HERO (shared across sub-pages) */
+  .page-hero { min-height: 50vh; display: flex; align-items: flex-end; padding: 0 60px 60px; position: relative; overflow: hidden; background: var(--bg2); border-bottom: 1px solid var(--border); }
+  .page-hero::before { content: ''; position: absolute; width: 500px; height: 500px; border-radius: 50%; right: -100px; top: -100px; background: radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 70%); pointer-events: none; }
+  .page-hero-tag { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
+  .page-hero-tag::before { content: ''; width: 40px; height: 1px; background: var(--gold); }
+  .page-hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(52px, 8vw, 100px); font-weight: 300; line-height: 1; color: var(--white); }
+  .page-hero-title em { font-style: italic; color: var(--gold); }
+  .page-hero-sub { font-size: 13px; color: var(--white-dim); margin-top: 16px; max-width: 500px; line-height: 1.9; }
+
+  /* SCROLL REVEAL */
+  .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s, transform 0.7s; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* BUTTONS */
+  .btn-primary { padding: 14px 36px; background: var(--gold); color: var(--bg); font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; border: none; cursor: none; transition: background 0.3s, transform 0.2s; display: inline-block; text-align: center; }
+  .btn-primary:hover { background: var(--gold2); transform: translateY(-2px); }
+  .btn-outline { padding: 14px 36px; background: transparent; color: var(--white-dim); font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; border: 1px solid var(--border); cursor: none; transition: border-color 0.3s, color 0.3s, transform 0.2s; }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
+
+  /* FOOTER */
+  footer { background: var(--bg2); border-top: 1px solid var(--border); padding: 40px 60px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
+  .footer-copy { font-size: 11px; letter-spacing: 1.5px; color: var(--white-dim); }
+  .footer-name { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 300; color: var(--gold); }
+
+  /* SCROLLBAR */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--gold); }
+
+  /* MOBILE */
+  @media (max-width: 768px) {
+    nav { padding: 20px 24px; }
+    nav.scrolled { padding: 14px 24px; }
+    .nav-links { display: none; }
+    .page-hero { padding: 120px 24px 48px; min-height: 40vh; }
+    footer { padding: 28px 24px; }
+  }
+</style>
+</head>

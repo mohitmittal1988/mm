@@ -1,118 +1,51 @@
-<!DOCTYPE html>
-
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Publications — Mohit Mittal</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Syne:wght@400;500;700;800&display=swap" rel="stylesheet"/>
+---
+layout: default
+title: Publications — Mohit Mittal
+nav_active: publications
+---
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --bg: #0a0a0f; --bg2: #0f0f1a; --bg3: #141425;
-    --gold: #c9a84c; --gold2: #e8c97a; --gold-dim: rgba(201,168,76,0.15);
-    --white: #f0ede6; --white-dim: rgba(240,237,230,0.55); --white-faint: rgba(240,237,230,0.08);
-    --accent: #5b8dee; --border: rgba(201,168,76,0.2);
-  }
-  html { scroll-behavior: smooth; }
-  body { background: var(--bg); color: var(--white); font-family: 'DM Mono', monospace; font-weight: 300; overflow-x: hidden; cursor: none; }
-
-.cursor { position: fixed; width: 10px; height: 10px; background: var(–gold); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); transition: width 0.3s, height 0.3s; mix-blend-mode: difference; }
-.cursor-ring { position: fixed; width: 36px; height: 36px; border: 1px solid var(–gold); border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); transition: width 0.3s, height 0.3s; opacity: 0.6; }
-
-body::before { content: ‘’; position: fixed; inset: 0; background-image: url(“data:image/svg+xml,%3Csvg viewBox=‘0 0 200 200’ xmlns=‘http://www.w3.org/2000/svg’%3E%3Cfilter id=‘noise’%3E%3CfeTurbulence type=‘fractalNoise’ baseFrequency=‘0.9’ numOctaves=‘4’ stitchTiles=‘stitch’/%3E%3C/filter%3E%3Crect width=‘100%25’ height=‘100%25’ filter=‘url(%23noise)’ opacity=‘0.04’/%3E%3C/svg%3E”); pointer-events: none; z-index: 0; opacity: 0.4; }
-
-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 28px 60px; background: linear-gradient(to bottom, rgba(10,10,15,0.95), transparent); transition: padding 0.3s, backdrop-filter 0.3s, background 0.3s; }
-nav.scrolled { padding: 18px 60px; background: rgba(10,10,15,0.92); backdrop-filter: blur(20px); border-bottom: 1px solid var(–border); }
-.nav-logo { font-family: ‘Cormorant Garamond’, serif; font-size: 22px; font-weight: 600; color: var(–gold); letter-spacing: 2px; text-decoration: none; }
-.nav-links { display: flex; gap: 40px; list-style: none; }
-.nav-links a { font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; color: var(–white-dim); text-decoration: none; transition: color 0.3s; position: relative; }
-.nav-links a::after { content: ‘’; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px; background: var(–gold); transition: width 0.3s; }
-.nav-links a:hover, .nav-links a.active { color: var(–gold); }
-.nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
-
-.page-hero { min-height: 50vh; display: flex; align-items: flex-end; padding: 0 60px 60px; position: relative; overflow: hidden; background: var(–bg2); border-bottom: 1px solid var(–border); }
-.page-hero::before { content: ‘’; position: absolute; width: 500px; height: 500px; border-radius: 50%; right: -100px; top: -100px; background: radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 70%); pointer-events: none; }
-.page-hero-tag { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: var(–gold); margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
-.page-hero-tag::before { content: ‘’; width: 40px; height: 1px; background: var(–gold); }
-.page-hero-title { font-family: ‘Cormorant Garamond’, serif; font-size: clamp(52px, 8vw, 100px); font-weight: 300; line-height: 1; color: var(–white); }
-.page-hero-title em { font-style: italic; color: var(–gold); }
-.page-hero-sub { font-size: 13px; color: var(–white-dim); margin-top: 16px; max-width: 500px; line-height: 1.9; }
-
 /* CONTROLS */
-.controls-bar { padding: 40px 60px; background: var(–bg); border-bottom: 1px solid var(–border); display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
+.controls-bar { padding: 40px 60px; background: var(--bg); border-bottom: 1px solid var(--border); display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
 .search-wrap { position: relative; flex: 1; min-width: 220px; max-width: 380px; }
-.search-input { width: 100%; background: var(–bg2); border: 1px solid var(–border); color: var(–white); padding: 12px 18px; font-family: ‘DM Mono’, monospace; font-size: 12px; outline: none; transition: border-color 0.3s; }
-.search-input:focus { border-color: var(–gold); }
-.search-input::placeholder { color: var(–white-dim); }
+.search-input { width: 100%; background: var(--bg2); border: 1px solid var(--border); color: var(--white); padding: 12px 18px; font-family: 'DM Mono', monospace; font-size: 12px; outline: none; transition: border-color 0.3s; }
+.search-input:focus { border-color: var(--gold); }
+.search-input::placeholder { color: var(--white-dim); }
 .filter-btns { display: flex; gap: 0; }
-.filter-btn { padding: 12px 22px; font-family: ‘DM Mono’, monospace; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(–white-dim); background: var(–bg2); border: 1px solid var(–border); border-right: none; cursor: none; transition: color 0.3s, background 0.3s; }
-.filter-btn:last-child { border-right: 1px solid var(–border); }
-.filter-btn:hover { color: var(–gold); }
-.filter-btn.active { background: var(–gold-dim); color: var(–gold); border-color: var(–gold); }
+.filter-btn { padding: 12px 22px; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--white-dim); background: var(--bg2); border: 1px solid var(--border); border-right: none; cursor: none; transition: color 0.3s, background 0.3s; }
+.filter-btn:last-child { border-right: 1px solid var(--border); }
+.filter-btn:hover { color: var(--gold); }
+.filter-btn.active { background: var(--gold-dim); color: var(--gold); border-color: var(--gold); }
 
 /* PUBLICATIONS */
-.pubs-section { padding: 60px 60px 100px; background: var(–bg); }
-.pub-item { display: grid; grid-template-columns: 80px 1fr; gap: 32px; padding: 36px 0; border-bottom: 1px solid var(–white-faint); align-items: start; transition: padding-left 0.3s; opacity: 0; transform: translateY(20px); transition: padding-left 0.3s, opacity 0.5s, transform 0.5s; }
+.pubs-section { padding: 60px 60px 100px; background: var(--bg); }
+.pub-item { display: grid; grid-template-columns: 80px 1fr; gap: 32px; padding: 36px 0; border-bottom: 1px solid var(--white-faint); align-items: start; opacity: 0; transform: translateY(20px); transition: padding-left 0.3s, opacity 0.5s, transform 0.5s; }
 .pub-item:hover { padding-left: 12px; }
 .pub-item.fade-in { opacity: 1; transform: translateY(0); }
-.pub-year { font-family: ‘Cormorant Garamond’, serif; font-size: 36px; font-weight: 300; color: var(–gold); opacity: 0.5; line-height: 1; padding-top: 4px; }
-.pub-title { font-family: ‘Syne’, sans-serif; font-size: 15px; font-weight: 500; color: var(–white); margin-bottom: 8px; line-height: 1.4; }
-.pub-authors { font-size: 12px; color: var(–white-dim); margin-bottom: 6px; line-height: 1.6; }
-.pub-authors strong { color: var(–gold); font-weight: 400; }
-.pub-venue { font-size: 11px; letter-spacing: 1.5px; color: var(–accent); text-transform: uppercase; }
+.pub-year { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 300; color: var(--gold); opacity: 0.5; line-height: 1; padding-top: 4px; }
+.pub-title { font-family: 'Syne', sans-serif; font-size: 15px; font-weight: 500; color: var(--white); margin-bottom: 8px; line-height: 1.4; }
+.pub-authors { font-size: 12px; color: var(--white-dim); margin-bottom: 6px; line-height: 1.6; }
+.pub-authors strong { color: var(--gold); font-weight: 400; }
+.pub-venue { font-size: 11px; letter-spacing: 1.5px; color: var(--accent); text-transform: uppercase; }
 .pub-badges { display: flex; gap: 10px; margin-top: 12px; flex-wrap: wrap; }
 .badge { padding: 3px 12px; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; border: 1px solid; }
-.badge-gold { border-color: var(–gold); color: var(–gold); }
-.badge-blue { border-color: var(–accent); color: var(–accent); }
+.badge-gold { border-color: var(--gold); color: var(--gold); }
+.badge-blue { border-color: var(--accent); color: var(--accent); }
 .badge-green { border-color: #5bc98e; color: #5bc98e; }
-
-.no-results { text-align: center; padding: 80px 0; color: var(–white-dim); font-size: 13px; letter-spacing: 2px; text-transform: uppercase; }
+.no-results { text-align: center; padding: 80px 0; color: var(--white-dim); font-size: 13px; letter-spacing: 2px; text-transform: uppercase; }
 
 /* SCROLL TOP */
-.scroll-top { position: fixed; bottom: 32px; right: 32px; z-index: 500; width: 48px; height: 48px; background: var(–gold); color: var(–bg); border: none; display: flex; align-items: center; justify-content: center; cursor: none; opacity: 0; visibility: hidden; transition: opacity 0.3s, visibility 0.3s, transform 0.2s; font-size: 18px; }
+.scroll-top { position: fixed; bottom: 32px; right: 32px; z-index: 500; width: 48px; height: 48px; background: var(--gold); color: var(--bg); border: none; display: flex; align-items: center; justify-content: center; cursor: none; opacity: 0; visibility: hidden; transition: opacity 0.3s, visibility 0.3s, transform 0.2s; font-size: 18px; }
 .scroll-top.show { opacity: 1; visibility: visible; }
-.scroll-top:hover { transform: translateY(-3px); background: var(–gold2); }
-
-footer { background: var(–bg2); border-top: 1px solid var(–border); padding: 40px 60px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
-.footer-copy { font-size: 11px; letter-spacing: 1.5px; color: var(–white-dim); }
-.footer-name { font-family: ‘Cormorant Garamond’, serif; font-size: 24px; font-weight: 300; color: var(–gold); }
-
-::-webkit-scrollbar { width: 4px; }
-::-webkit-scrollbar-track { background: var(–bg); }
-::-webkit-scrollbar-thumb { background: var(–gold); }
+.scroll-top:hover { transform: translateY(-3px); background: var(--gold2); }
 
 @media (max-width: 768px) {
-nav { padding: 20px 24px; }
-nav.scrolled { padding: 14px 24px; }
-.nav-links { display: none; }
-.page-hero { padding: 120px 24px 48px; min-height: 40vh; }
-.controls-bar { padding: 24px; flex-direction: column; align-items: stretch; }
-.search-wrap { max-width: 100%; }
-.filter-btns { flex-wrap: wrap; }
-.pubs-section { padding: 40px 24px 80px; }
-.pub-item { grid-template-columns: 60px 1fr; gap: 16px; }
-footer { padding: 28px 24px; }
+  .controls-bar { padding: 24px; flex-direction: column; align-items: stretch; }
+  .search-wrap { max-width: 100%; }
+  .filter-btns { flex-wrap: wrap; }
+  .pubs-section { padding: 40px 24px 80px; }
+  .pub-item { grid-template-columns: 60px 1fr; gap: 16px; }
 }
 </style>
-
-</head>
-<body>
-
-<div class="cursor" id="cursor"></div>
-<div class="cursor-ring" id="cursorRing"></div>
-
-<nav id="navbar">
-  <a href="index.html" class="nav-logo">MM</a>
-  <ul class="nav-links">
-    <li><a href="index.html#about">About</a></li>
-    <li><a href="research.html">Research</a></li>
-    <li><a href="publications.html" class="active">Publications</a></li>
-    <li><a href="talks.html">Talks</a></li>
-    <li><a href="resume.html">Resume</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
-</nav>
 
 <div class="page-hero">
   <div>
@@ -141,113 +74,90 @@ footer { padding: 28px 24px; }
 
 <button class="scroll-top" id="scrollTop">↑</button>
 
-<footer>
-  <div class="footer-copy">© 2025 Mohit Mittal · All Rights Reserved</div>
-  <div class="footer-name">MM</div>
-  <div class="footer-copy">Built with precision &amp; passion</div>
-</footer>
-
 <script>
-  const cursor = document.getElementById('cursor');
-  const ring = document.getElementById('cursorRing');
-  let mx=0,my=0,rx=0,ry=0;
-  document.addEventListener('mousemove', e=>{mx=e.clientX;my=e.clientY;});
-  function animCursor(){cursor.style.left=mx+'px';cursor.style.top=my+'px';rx+=(mx-rx)*0.12;ry+=(my-ry)*0.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animCursor);}
-  animCursor();
-  document.querySelectorAll('a,button').forEach(el=>{
-    el.addEventListener('mouseenter',()=>{cursor.style.width='18px';cursor.style.height='18px';ring.style.width='54px';ring.style.height='54px';});
-    el.addEventListener('mouseleave',()=>{cursor.style.width='10px';cursor.style.height='10px';ring.style.width='36px';ring.style.height='36px';});
-  });
+  const scrollTopBtn = document.getElementById('scrollTop');
+  window.addEventListener('scroll', () => scrollTopBtn.classList.toggle('show', window.scrollY > 300));
+  scrollTopBtn.addEventListener('click', () => window.scrollTo({top: 0, behavior: 'smooth'}));
 
-  const navbar=document.getElementById('navbar');
-  window.addEventListener('scroll',()=>navbar.classList.toggle('scrolled',window.scrollY>60));
-
-  const scrollTopBtn=document.getElementById('scrollTop');
-  window.addEventListener('scroll',()=>scrollTopBtn.classList.toggle('show',window.scrollY>300));
-  scrollTopBtn.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
-
-  function parseBibtex(content){
-    const pubs=[];
-    const entries=content.split('@').filter(e=>e.trim());
-    entries.forEach(entry=>{
-      const lines=entry.split(/[\r\n]+/).map(l=>l.trim()).filter(l=>l.length);
-      const typeAndId=lines[0].split('{');
-      const type=typeAndId[0].trim().toLowerCase();
-      const pub={type,url:'#'};
-      lines.forEach(line=>{
-        const m=line.match(/^(\w+)\s*=\s*\{\s*(.*)\s*\},?$/);
-        if(m){const key=m[1].toLowerCase();let val=m[2].trim().replace(/[\{\}]/g,'').replace(/\\&/,'&');pub[key]=val;}
+  function parseBibtex(content) {
+    const pubs = [];
+    const entries = content.split('@').filter(e => e.trim());
+    entries.forEach(entry => {
+      const lines = entry.split(/[\r\n]+/).map(l => l.trim()).filter(l => l.length);
+      const typeAndId = lines[0].split('{');
+      const type = typeAndId[0].trim().toLowerCase();
+      const pub = {type, url: '#'};
+      lines.forEach(line => {
+        const m = line.match(/^(\w+)\s*=\s*\{\s*(.*)\s*\},?$/);
+        if (m) { const key = m[1].toLowerCase(); let val = m[2].trim().replace(/[\{\}]/g, '').replace(/\\&/, '&'); pub[key] = val; }
       });
-      if(pub.title)pubs.push(pub);
+      if (pub.title) pubs.push(pub);
     });
     return pubs;
   }
 
-  function typeLabel(t){
-    if(t==='article')return['Journal','badge-blue'];
-    if(t==='inproceedings')return['Conference','badge-gold'];
-    if(t==='misc')return['Book','badge-green'];
-    return[t,'badge-blue'];
+  function typeLabel(t) {
+    if (t === 'article') return ['Journal', 'badge-blue'];
+    if (t === 'inproceedings') return ['Conference', 'badge-gold'];
+    if (t === 'misc') return ['Book', 'badge-green'];
+    return [t, 'badge-blue'];
   }
 
-  function renderPubs(pubs){
-    const container=document.getElementById('pub-container');
-    const noResults=document.getElementById('no-results');
-    container.innerHTML='';
-    if(!pubs.length){noResults.style.display='block';return;}
-    noResults.style.display='none';
-    pubs.forEach((pub,i)=>{
-      const authors=pub.author?pub.author.split(' and ').join(', '):'N/A';
-      const venue=pub.journal||pub.booktitle||pub.publisher||'N/A';
-      const [label,cls]=typeLabel(pub.type);
-      const item=document.createElement('div');
-      item.className='pub-item';
-      item.setAttribute('data-type',pub.type);
-      item.innerHTML=`
-        <div class="pub-year">${pub.year||'—'}</div>
+  function renderPubs(pubs) {
+    const container = document.getElementById('pub-container');
+    const noResults = document.getElementById('no-results');
+    container.innerHTML = '';
+    if (!pubs.length) { noResults.style.display = 'block'; return; }
+    noResults.style.display = 'none';
+    pubs.forEach((pub, i) => {
+      const authors = pub.author ? pub.author.split(' and ').join(', ') : 'N/A';
+      const venue = pub.journal || pub.booktitle || pub.publisher || 'N/A';
+      const [label, cls] = typeLabel(pub.type);
+      const item = document.createElement('div');
+      item.className = 'pub-item';
+      item.setAttribute('data-type', pub.type);
+      item.innerHTML = `
+        <div class="pub-year">${pub.year || '—'}</div>
         <div class="pub-content">
-          <div class="pub-title">${pub.title||'Untitled'}</div>
+          <div class="pub-title">${pub.title || 'Untitled'}</div>
           <div class="pub-authors">${authors}</div>
           <div class="pub-venue">${venue}</div>
           <div class="pub-badges"><span class="badge ${cls}">${label}</span></div>
         </div>`;
       container.appendChild(item);
-      setTimeout(()=>item.classList.add('fade-in'),i*60);
+      setTimeout(() => item.classList.add('fade-in'), i * 60);
     });
   }
 
-  let allPubs=[];
-  let activeFilter='all';
+  let allPubs = [];
+  let activeFilter = 'all';
 
-  function updateDisplay(){
-    const term=document.getElementById('searchInput').value.toLowerCase();
-    const filtered=allPubs.filter(p=>{
-      const text=JSON.stringify(p).toLowerCase();
-      const matchSearch=text.includes(term);
-      const matchFilter=activeFilter==='all'||p.type===activeFilter;
-      return matchSearch&&matchFilter;
+  function updateDisplay() {
+    const term = document.getElementById('searchInput').value.toLowerCase();
+    const filtered = allPubs.filter(p => {
+      const text = JSON.stringify(p).toLowerCase();
+      return text.includes(term) && (activeFilter === 'all' || p.type === activeFilter);
     });
     renderPubs(filtered);
   }
 
-  document.getElementById('searchInput').addEventListener('keyup',updateDisplay);
-  document.querySelectorAll('.filter-btn').forEach(btn=>{
-    btn.addEventListener('click',()=>{
-      document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('searchInput').addEventListener('keyup', updateDisplay);
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-      activeFilter=btn.dataset.filter;
+      activeFilter = btn.dataset.filter;
       updateDisplay();
     });
   });
 
-  async function init(){
-    try{
-      const res=await fetch('mm.bib');
-      const text=await res.text();
-      allPubs=parseBibtex(text);
-    }catch(e){
-      // Fallback sample pubs if bib not found
-      allPubs=[
+  async function init() {
+    try {
+      const res = await fetch('mm.bib');
+      const text = await res.text();
+      allPubs = parseBibtex(text);
+    } catch(e) {
+      allPubs = [
         {type:'article',title:'Analysis on road crash severity of drivers using machine learning techniques',author:'Mittal, Mohit and Gupta, Swadha and Chauhan, Shaifali and Saraswat, Lalit Kumar',journal:'International Journal of Engineering Systems Modelling and Simulation',year:'2022'},
         {type:'article',title:'Machine learning techniques for energy efficiency and anomaly detection in hybrid wireless sensor networks',author:'Mittal, Mohit and De Prado, Rocio Perez and Kawai, Yukiko and Nakajima, Shinsuke and Munoz-Exposito, Jose E',journal:'Energies',year:'2021'},
         {type:'article',title:'The use of ensemble models for multiple class and binary class classification for improving intrusion detection systems',author:'Iwendi, Celestine and Khan, Suleman and Anajemba, Joseph Henry and Mittal, Mohit and Alenezi, Mamdouh and Alazab, Mamoun',journal:'Sensors',year:'2020'},
@@ -260,6 +170,3 @@ footer { padding: 28px 24px; }
   }
   init();
 </script>
-
-</body>
-</html>
