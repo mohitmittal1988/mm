@@ -1,0 +1,11 @@
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">MM</a>
+  <ul class="nav-links">
+    <li><a href="index.html#about" {% if page.nav_active == 'about' %}class="active"{% endif %}>About</a></li>
+    <li><a href="research.html" {% if page.nav_active == 'research' %}class="active"{% endif %}>Research</a></li>
+    <li><a href="publications.html" {% if page.nav_active == 'publications' %}class="active"{% endif %}>Publications</a></li>
+    <li><a href="talks.html" {% if page.nav_active == 'talks' %}class="active"{% endif %}>Talks</a></li>
+    <li><a href="resume.html" {% if page.nav_active == 'resume' %}class="active"{% endif %}>Resume</a></li>
+    <li><a href="contact.html" {% if page.nav_active == 'contact' %}class="active"{% endif %}>Contact</a></li>
+  </ul>
+</nav>
